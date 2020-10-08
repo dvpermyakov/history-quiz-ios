@@ -8,14 +8,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
+public struct GameView: View {
+    var viewModel = GameViewModel()
+    
+    public var body: some View {
+        Text(text)
+    }
+    
+    var text: String {
+        viewModel.game.questions.first?.text ?? ""
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameView()
     }
 }
