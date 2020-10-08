@@ -12,11 +12,42 @@ public struct GameView: View {
     var viewModel = GameViewModel()
     
     public var body: some View {
-        Text(text)
+        VStack {
+            QuestionView(question: self.question)
+            VStack {
+                ForEach(0..<self.question.answers.count) { index in
+                    AnswerView(answer: self.question.answers[index])
+                    Divider()
+                }
+            }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(Color.gray)
+                .cornerRadius(20)
+        }.padding(50)
     }
     
-    var text: String {
-        viewModel.game.questions.first?.text ?? ""
+    var question: Game.Question {
+        viewModel.currentQuestion
+    }
+}
+
+struct QuestionView: View {
+    var question: Game.Question
+    
+    var body: some View {
+        Text(question.text)
+            .font(.largeTitle)
+            .padding(30)
+    }
+}
+
+struct AnswerView: View {
+    var answer: Game.Question.Answer
+    
+    var body: some View {
+        Text(answer.text)
+            .font(.caption)
+            .padding(20)
     }
 }
 

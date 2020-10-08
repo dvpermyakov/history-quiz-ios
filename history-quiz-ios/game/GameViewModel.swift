@@ -9,7 +9,8 @@
 import Foundation
 
 class GameViewModel : ObservableObject {
-    private(set) var game: Game = Game(questions: [
+    
+    private var game: Game = Game(questions: [
         Game.Question(
             text: "In what year?",
             answers: [
@@ -20,5 +21,10 @@ class GameViewModel : ObservableObject {
             ]
         )
     ])
+    private(set) var currentQuestion: Game.Question
     
+    
+    init() {
+        currentQuestion = self.game.questions.first!
+    }
 }
