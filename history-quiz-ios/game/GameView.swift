@@ -11,23 +11,25 @@ import SwiftUI
 public struct GameView: View {
     var viewModel = GameViewModel()
     
+    private var question: Game.Question {
+        viewModel.currentQuestion
+    }
+    
     public var body: some View {
         VStack {
             QuestionView(question: self.question)
             VStack {
                 ForEach(0..<self.question.answers.count) { index in
                     AnswerView(answer: self.question.answers[index])
-                    Divider()
+                        .onTapGesture {
+                            self.viewModel.setAnswer(answer: self.question.answers[index])
+                        }
                 }
             }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .background(Color.gray)
                 .cornerRadius(20)
         }.padding(50)
-    }
-    
-    var question: Game.Question {
-        viewModel.currentQuestion
     }
 }
 
@@ -47,6 +49,7 @@ struct AnswerView: View {
     var body: some View {
         Text(answer.text)
             .font(.caption)
+            .frame(minWidth: 0, maxWidth: .infinity)
             .padding(20)
     }
 }

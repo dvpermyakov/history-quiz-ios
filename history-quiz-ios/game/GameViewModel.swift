@@ -27,4 +27,8 @@ class GameViewModel : ObservableObject {
     init() {
         currentQuestion = self.game.questions.first!
     }
+    
+    func setAnswer(answer: Game.Question.Answer) -> Void {
+        print("Set answer = \(answer)")
+    }
 }
