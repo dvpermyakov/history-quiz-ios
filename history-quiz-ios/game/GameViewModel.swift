@@ -8,26 +8,25 @@
 
 import Foundation
 
-class GameViewModel : ObservableObject {
-    
+class GameViewModel: ObservableObject {
+
     private var game: Game = Game(questions: [
         Game.Question(
-            text: "In what year?",
-            answers: [
-                Game.Question.Answer(text: "862"),
-                Game.Question.Answer(text: "902"),
-                Game.Question.Answer(text: "942"),
-                Game.Question.Answer(text: "304"),
-            ]
+                text: "In what year?",
+                answers: [
+                    Game.Question.Answer(text: "862"),
+                    Game.Question.Answer(text: "902"),
+                    Game.Question.Answer(text: "942"),
+                    Game.Question.Answer(text: "304"),
+                ]
         )
     ])
     private(set) var currentQuestion: Game.Question
-    
-    
+
     init() {
         currentQuestion = self.game.questions.first!
     }
-    
+
     func setAnswer(answer: Game.Question.Answer) -> Void {
         print("Set answer = \(answer)")
     }

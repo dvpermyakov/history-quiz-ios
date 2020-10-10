@@ -10,47 +10,46 @@ import SwiftUI
 
 public struct GameView: View {
     var viewModel = GameViewModel()
-    
+
     private var question: Game.Question {
         viewModel.currentQuestion
     }
-    
     public var body: some View {
         VStack {
             QuestionView(question: self.question)
             VStack {
                 ForEach(0..<self.question.answers.count) { index in
                     AnswerView(answer: self.question.answers[index])
-                        .onTapGesture {
-                            self.viewModel.setAnswer(answer: self.question.answers[index])
-                        }
+                            .onTapGesture {
+                                self.viewModel.setAnswer(answer: self.question.answers[index])
+                            }
                 }
             }
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(Color.gray)
-                .cornerRadius(20)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(Color.gray)
+                    .cornerRadius(20)
         }.padding(50)
     }
 }
 
 struct QuestionView: View {
     var question: Game.Question
-    
+
     var body: some View {
         Text(question.text)
-            .font(.largeTitle)
-            .padding(30)
+                .font(.largeTitle)
+                .padding(30)
     }
 }
 
 struct AnswerView: View {
     var answer: Game.Question.Answer
-    
+
     var body: some View {
         Text(answer.text)
-            .font(.caption)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(20)
+                .font(.caption)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(20)
     }
 }
 

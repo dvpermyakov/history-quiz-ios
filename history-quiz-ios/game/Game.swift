@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Game{
+struct Game {
     var questions: Array<Question>
-    
-    struct Question{
+
+    struct Question {
         var text: String
         var answers: Array<Answer>
-        
+
         struct Answer {
             var text: String
         }
