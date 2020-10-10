@@ -53,8 +53,15 @@ struct AnswerView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+class ContentView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
     }
+
+    #if DEBUG
+    @objc class func injected() {
+        UIApplication.shared.windows.first?.rootViewController =
+                UIHostingController(rootView: GameView())
+    }
+    #endif
 }
