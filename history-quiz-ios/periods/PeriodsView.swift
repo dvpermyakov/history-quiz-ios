@@ -26,12 +26,13 @@ struct LoadedPeriodsView: View {
             ScrollView {
                 VStack {
                     ForEach(periods) { period in
-                        NavigationLink(destination: Router.createGame()) {
-                            VStack {
-                                UrlImageView(url: period.image)
+                        VStack {
+                            UrlImageView(url: period.image).cornerRadius(20)
+                            NavigationLink(destination: Router.createGame()) {
                                 Text(period.name).padding()
-                            }.padding()
-                        }
+                                Text(period.description).padding()
+                            }
+                        }.padding()
                     }
                 }
             }.navigationBarTitle("Periods")
