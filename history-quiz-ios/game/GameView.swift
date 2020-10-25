@@ -8,20 +8,34 @@
 
 import SwiftUI
 
-public struct GameView: View {
-    var viewModel = GameViewModel()
+struct GameView: View {
+    @ObservedObject
+    var viewModel: GameViewModel
 
-    private var question: Game.Question {
-        viewModel.currentQuestion
+    var body: some View {
+        if let question = viewModel.currentQuestion {
+            QuestionGameView(question: question) { answer in
+                self.viewModel.setAnswer(answer: answer)
+            }
+        } else {
+            ProgressView()
+        }
     }
-    public var body: some View {
+
+}
+
+struct QuestionGameView: View {
+    let question: Game.Question
+    let answerTapHandler: (Game.Answer) -> Void
+
+    var body: some View {
         VStack {
             QuestionView(question: self.question)
             VStack {
-                ForEach(0..<self.question.answers.count) { index in
-                    AnswerView(answer: self.question.answers[index])
+                ForEach(question.answers) { answer in
+                    AnswerView(answer: answer)
                             .onTapGesture {
-                                self.viewModel.setAnswer(answer: self.question.answers[index])
+                                answerTapHandler(answer)
                             }
                 }
             }
@@ -33,7 +47,7 @@ public struct GameView: View {
 }
 
 struct QuestionView: View {
-    var question: Game.Question
+    let question: Game.Question
 
     var body: some View {
         Text(question.text)
@@ -43,7 +57,7 @@ struct QuestionView: View {
 }
 
 struct AnswerView: View {
-    var answer: Game.Question.Answer
+    let answer: Game.Answer
 
     var body: some View {
         Text(answer.text)
@@ -55,13 +69,13 @@ struct AnswerView: View {
 
 class ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(viewModel: GameViewModel(gameId: "any"))
     }
 
     #if DEBUG
     @objc class func injected() {
         UIApplication.shared.windows.first?.rootViewController =
-                UIHostingController(rootView: GameView())
+                UIHostingController(rootView: GameView(viewModel: GameViewModel(gameId: "any")))
     }
     #endif
 }

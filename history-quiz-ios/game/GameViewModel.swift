@@ -7,27 +7,40 @@
 //
 
 import Foundation
+import Combine
 
 class GameViewModel: ObservableObject {
 
-    private var game: Game = Game(questions: [
-        Game.Question(
-                text: "In what year?",
-                answers: [
-                    Game.Question.Answer(text: "862"),
-                    Game.Question.Answer(text: "902"),
-                    Game.Question.Answer(text: "942"),
-                    Game.Question.Answer(text: "304"),
-                ]
-        )
-    ])
-    private(set) var currentQuestion: Game.Question
+    private let repository = GameRepository()
+    private var disposables = Set<AnyCancellable>()
 
-    init() {
-        currentQuestion = self.game.questions.first!
+    @Published
+    private var game: Game? = nil
+    @Published
+    private var questionIndex = 0
+
+    var currentQuestion: Game.Question? {
+        game?.questions[questionIndex]
     }
 
-    func setAnswer(answer: Game.Question.Answer) -> Void {
-        print("Set answer = \(answer)")
+    init(gameId: String) {
+        repository.getGame(gameId: gameId)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
+                    print(completion)
+                }, receiveValue: { output in
+                    print(output)
+                    self.game = output
+                })
+                .store(in: &disposables)
     }
+
+    func setAnswer(answer: Game.Answer) {
+        if let game = self.game {
+            if (questionIndex + 1 < game.questions.endIndex) {
+                questionIndex += 1
+            }
+        }
+    }
+
 }

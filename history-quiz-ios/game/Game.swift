@@ -16,7 +16,7 @@ struct Game {
         let answers: Array<Answer>
     }
 
-    struct Answer {
+    struct Answer : Identifiable, Hashable {
         let id: String
         let text: String
         let correct: Bool

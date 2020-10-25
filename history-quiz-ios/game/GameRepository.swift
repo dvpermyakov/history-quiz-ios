@@ -21,7 +21,6 @@ class GameRepository {
         return URLSession.shared
                 .dataTaskPublisher(for: urlRequest)
                 .tryMap() { element -> Data in
-                    print(element.response)
                     guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                         throw APIError()
                     }
