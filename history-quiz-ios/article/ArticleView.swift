@@ -84,7 +84,11 @@ struct PersonsView: View {
     var body: some View {
         VStack {
             ForEach(persons) { person in
-                Text(person.name)
+                NavigationLink(destination: Router.createArticle(for: person)
+                        .navigationBarTitle(person.name)
+                ) {
+                    Text(person.name)
+                }
             }
         }
     }

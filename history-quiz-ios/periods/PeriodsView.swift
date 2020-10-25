@@ -28,7 +28,7 @@ struct LoadedPeriodsView: View {
                     ForEach(periods) { period in
                         VStack {
                             UrlImageView(url: period.image).cornerRadius(20)
-                            NavigationLink(destination: Router.createArticle(id: period.id, category: period.category)
+                            NavigationLink(destination: Router.createArticle(for: period)
                                     .navigationBarTitle(period.name)
                             ) {
                                 HStack {
