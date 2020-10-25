@@ -14,9 +14,11 @@ struct Game {
     struct Question {
         var text: String
         var answers: Array<Answer>
+    }
 
-        struct Answer {
-            var text: String
-        }
+    struct Answer {
+        let id: String
+        let text: String
+        let correct: Bool
     }
 }
