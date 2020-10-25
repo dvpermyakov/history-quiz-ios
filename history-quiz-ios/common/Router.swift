@@ -6,6 +6,14 @@
 import Foundation
 
 class Router {
+    static func createPeriods() -> PeriodsView {
+        PeriodsView(viewModel: PeriodsViewModel())
+    }
+
+    static func createBalance() -> BalanceView {
+        BalanceView()
+    }
+
     static func createGame() -> GameView {
         GameView(viewModel: GameViewModel(gameId: "4747716777213952"))
     }
