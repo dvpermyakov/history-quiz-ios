@@ -9,4 +9,8 @@ class Router {
     static func createGame() -> GameView {
         GameView(viewModel: GameViewModel(gameId: "4747716777213952"))
     }
+
+    static func createArticle(id: String, category: String) -> ArticleView {
+        ArticleView(viewModel: ArticleViewModel(id: id, category: category))
+    }
 }

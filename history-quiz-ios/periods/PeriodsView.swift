@@ -28,9 +28,13 @@ struct LoadedPeriodsView: View {
                     ForEach(periods) { period in
                         VStack {
                             UrlImageView(url: period.image).cornerRadius(20)
-                            NavigationLink(destination: Router.createGame()) {
-                                Text(period.name).padding()
-                                Text(period.description).padding()
+                            NavigationLink(destination: Router.createArticle(id: period.id, category: period.category)
+                                    .navigationBarTitle(period.name)
+                            ) {
+                                HStack {
+                                    Text(period.name).padding()
+                                    Text(period.description).padding()
+                                }
                             }
                         }.padding()
                     }
