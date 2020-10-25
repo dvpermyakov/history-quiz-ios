@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct Person {
+struct Person : Identifiable, Hashable {
     let id: String
     let category: String
     let name: String

@@ -46,11 +46,11 @@ struct LoadedArticleView: View {
                 Group {
                     switch selectors[selectedIndex] {
                     case .Text:
-                        ParagraphsView(article: article)
+                        ParagraphsView(text: article.text)
                     case .Events:
                         Text("Events")
                     case .Persons:
-                        Text("Persons")
+                        PersonsView(persons: article.persons)
                     }
                 }
             }
@@ -59,11 +59,11 @@ struct LoadedArticleView: View {
 }
 
 struct ParagraphsView: View {
-    var article: Article
+    var text: ArticleText
 
     var body: some View {
         VStack {
-            ForEach(article.text.paragraphs) { paragraph in
+            ForEach(text.paragraphs) { paragraph in
                 VStack(alignment: .leading) {
                     Text(paragraph.title).font(Font.system(.body)).bold()
                     Group {
@@ -73,6 +73,18 @@ struct ParagraphsView: View {
                     }
                     Text(paragraph.text).font(Font.system(.body))
                 }.padding()
+            }
+        }
+    }
+}
+
+struct PersonsView: View {
+    var persons: [Person]
+
+    var body: some View {
+        VStack {
+            ForEach(persons) { person in
+                Text(person.name)
             }
         }
     }
