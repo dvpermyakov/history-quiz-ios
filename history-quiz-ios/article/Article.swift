@@ -8,6 +8,7 @@ import Foundation
 struct Article {
     let text: ArticleText
     let test: Test
+    let persons: [Person]
 }
 
 struct ArticleText {

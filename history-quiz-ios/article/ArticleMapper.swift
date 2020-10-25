@@ -7,7 +7,9 @@ import Foundation
 
 extension ArticleDto {
     func map() -> Article {
-        Article(text: self.text.map(), test: self.test.map())
+        Article(text: self.text.map(), test: self.test.map(), persons: self.persons.map { dto in
+            dto.map()
+        })
     }
 }
 

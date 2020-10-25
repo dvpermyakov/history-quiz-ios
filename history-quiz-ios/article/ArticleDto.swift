@@ -8,6 +8,7 @@ import Foundation
 struct ArticleDto : Codable {
     let text: ArticleTextDto
     let test: TestDto
+    let persons: [PersonDto]
 }
 
 struct ArticleTextDto : Codable {
