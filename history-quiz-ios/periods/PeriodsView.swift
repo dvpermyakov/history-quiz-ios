@@ -27,7 +27,10 @@ struct LoadedPeriodsView: View {
                 VStack {
                     ForEach(periods) { period in
                         NavigationLink(destination: Router.createGame()) {
-                            Text(period.name).padding()
+                            VStack {
+                                UrlImageView(url: period.image)
+                                Text(period.name).padding()
+                            }.padding()
                         }
                     }
                 }

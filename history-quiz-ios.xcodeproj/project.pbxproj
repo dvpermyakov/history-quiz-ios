@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E6CB0C16C63714CF5DE3328 /* GameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBFFFAF86F237416CBEB7 /* GameMapper.swift */; };
+		3E6CB1287917541F3D2EB72F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB464BD99CF59B3B99532 /* ImageView.swift */; };
+		3E6CB16412241A3DB268FCBF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBEAD0991480F9A6C9027 /* ImageLoader.swift */; };
 		3E6CB196F1AB8C1D20ACDF4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CB5064C1FC5FA751AD4CB /* .gitignore */; };
 		3E6CB3E7B7140BD8A7C087EF /* PeriodsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB2F1F2212F31838E5F20 /* PeriodsDto.swift */; };
 		3E6CB42A17B20EBD190ADC90 /* PeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB3DAAB21DCF21881F241 /* PeriodsRepository.swift */; };
@@ -34,6 +36,7 @@
 		3E6CB00610D1157EB0B2D777 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		3E6CB2F1F2212F31838E5F20 /* PeriodsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsDto.swift; sourceTree = "<group>"; };
 		3E6CB3DAAB21DCF21881F241 /* PeriodsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsRepository.swift; sourceTree = "<group>"; };
+		3E6CB464BD99CF59B3B99532 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		3E6CB47C65295044F094A294 /* GameDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDto.swift; sourceTree = "<group>"; };
 		3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		3E6CB4BEAD6E2D1B39FE04F5 /* PeriodsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsViewModel.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		3E6CB795C5305634652E9F36 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3E6CB8288B9EDEBE574CAD94 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3E6CBA5967EC40B98C869BF6 /* PeriodsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsView.swift; sourceTree = "<group>"; };
+		3E6CBEAD0991480F9A6C9027 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3E6CBFFFAF86F237416CBEB7 /* GameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapper.swift; sourceTree = "<group>"; };
 		7A9E75BF252F7C9F008DB80D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		7A9E75C1252F7CFE008DB80D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				3E6CB8288B9EDEBE574CAD94 /* APIError.swift */,
 				3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */,
 				3E6CB795C5305634652E9F36 /* Router.swift */,
+				3E6CBEAD0991480F9A6C9027 /* ImageLoader.swift */,
+				3E6CB464BD99CF59B3B99532 /* ImageView.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 				3E6CB901488A3095365D6BA3 /* PeriodsViewModel.swift in Sources */,
 				3E6CB823B25561E7A2F3B199 /* PeriodsView.swift in Sources */,
 				3E6CB54F4E4D6A9B18DEE0A6 /* Router.swift in Sources */,
+				3E6CB16412241A3DB268FCBF /* ImageLoader.swift in Sources */,
+				3E6CB1287917541F3D2EB72F /* ImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
