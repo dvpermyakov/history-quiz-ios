@@ -54,6 +54,18 @@ struct LoadedArticleView: View {
                     }
                 }
             }
+        }.navigationBarItems(trailing: TestButton(test: article.test))
+    }
+}
+
+struct TestButton: View {
+    let test: Test
+
+    var body: some View {
+        NavigationLink(destination: Router.createTest(testId: test.id)
+                .navigationBarTitle("Test")
+        ) {
+            Text("Test")
         }
     }
 }

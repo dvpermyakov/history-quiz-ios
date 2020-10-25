@@ -14,8 +14,8 @@ class Router {
         BalanceView()
     }
 
-    static func createGame() -> GameView {
-        GameView(viewModel: GameViewModel(gameId: "4747716777213952"))
+    static func createTest(testId gameId: String) -> GameView {
+        GameView(viewModel: GameViewModel(gameId: gameId))
     }
 
     static func createArticle(for item: ArticleAvailable) -> ArticleView {
