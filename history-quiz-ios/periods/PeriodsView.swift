@@ -22,12 +22,16 @@ struct LoadedPeriodsView: View {
     var periods: [Period]
 
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(periods) { period in
-                    Text(period.name)
+        NavigationView {
+            ScrollView {
+                VStack {
+                    ForEach(periods) { period in
+                        NavigationLink(destination: Router.createGame()) {
+                            Text(period.name).padding()
+                        }
+                    }
                 }
-            }
+            }.navigationBarTitle("Periods")
         }
     }
 }
