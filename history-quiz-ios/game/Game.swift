@@ -9,11 +9,11 @@
 import Foundation
 
 struct Game {
-    var questions: Array<Question>
+    let questions: Array<Question>
 
     struct Question {
-        var text: String
-        var answers: Array<Answer>
+        let text: String
+        let answers: Array<Answer>
     }
 
     struct Answer {
