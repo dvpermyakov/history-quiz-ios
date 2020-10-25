@@ -9,7 +9,15 @@
 /* Begin PBXBuildFile section */
 		3E6CB0C16C63714CF5DE3328 /* GameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBFFFAF86F237416CBEB7 /* GameMapper.swift */; };
 		3E6CB196F1AB8C1D20ACDF4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CB5064C1FC5FA751AD4CB /* .gitignore */; };
+		3E6CB3E7B7140BD8A7C087EF /* PeriodsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB2F1F2212F31838E5F20 /* PeriodsDto.swift */; };
+		3E6CB42A17B20EBD190ADC90 /* PeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB3DAAB21DCF21881F241 /* PeriodsRepository.swift */; };
+		3E6CB823B25561E7A2F3B199 /* PeriodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBA5967EC40B98C869BF6 /* PeriodsView.swift */; };
+		3E6CB848FE79E6EA6709D57E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB8288B9EDEBE574CAD94 /* APIError.swift */; };
 		3E6CB86D95CB0E7057BA6FE1 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB47C65295044F094A294 /* GameDto.swift */; };
+		3E6CB901488A3095365D6BA3 /* PeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB4BEAD6E2D1B39FE04F5 /* PeriodsViewModel.swift */; };
+		3E6CBAC3106DAA209FED6DA4 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB00610D1157EB0B2D777 /* Period.swift */; };
+		3E6CBACD9EBC0E2F2EBA81B8 /* PeriodMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB4E39EF7B7F72C9DD779 /* PeriodMapper.swift */; };
+		3E6CBD0C1EFFE39B4FB63BDB /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */; };
 		7A9E75C0252F7C9F008DB80D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E75BF252F7C9F008DB80D /* GameViewModel.swift */; };
 		7A9E75C2252F7CFE008DB80D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E75C1252F7CFE008DB80D /* Game.swift */; };
 		7ABDB30A254569BB0019F256 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB309254569BB0019F256 /* GameRepository.swift */; };
@@ -22,8 +30,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E6CB00610D1157EB0B2D777 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		3E6CB2F1F2212F31838E5F20 /* PeriodsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsDto.swift; sourceTree = "<group>"; };
+		3E6CB3DAAB21DCF21881F241 /* PeriodsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsRepository.swift; sourceTree = "<group>"; };
 		3E6CB47C65295044F094A294 /* GameDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDto.swift; sourceTree = "<group>"; };
+		3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		3E6CB4BEAD6E2D1B39FE04F5 /* PeriodsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsViewModel.swift; sourceTree = "<group>"; };
+		3E6CB4E39EF7B7F72C9DD779 /* PeriodMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodMapper.swift; sourceTree = "<group>"; };
 		3E6CB5064C1FC5FA751AD4CB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		3E6CB8288B9EDEBE574CAD94 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		3E6CBA5967EC40B98C869BF6 /* PeriodsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsView.swift; sourceTree = "<group>"; };
 		3E6CBFFFAF86F237416CBEB7 /* GameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapper.swift; sourceTree = "<group>"; };
 		7A9E75BF252F7C9F008DB80D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		7A9E75C1252F7CFE008DB80D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -49,6 +65,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6CB41E0D859B337017AD10 /* periods */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CB3DAAB21DCF21881F241 /* PeriodsRepository.swift */,
+				3E6CB2F1F2212F31838E5F20 /* PeriodsDto.swift */,
+				3E6CB00610D1157EB0B2D777 /* Period.swift */,
+				3E6CB4E39EF7B7F72C9DD779 /* PeriodMapper.swift */,
+				3E6CB4BEAD6E2D1B39FE04F5 /* PeriodsViewModel.swift */,
+				3E6CBA5967EC40B98C869BF6 /* PeriodsView.swift */,
+			);
+			path = periods;
+			sourceTree = "<group>";
+		};
+		3E6CBC5F987921A620F050D7 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CB8288B9EDEBE574CAD94 /* APIError.swift */,
+				3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		7A9E75BE252F7692008DB80D /* game */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +127,8 @@
 				7AF43F86252F7243006B94D6 /* Info.plist */,
 				7AF43F80252F7243006B94D6 /* Preview Content */,
 				3E6CB5064C1FC5FA751AD4CB /* .gitignore */,
+				3E6CB41E0D859B337017AD10 /* periods */,
+				3E6CBC5F987921A620F050D7 /* common */,
 			);
 			path = "history-quiz-ios";
 			sourceTree = "<group>";
@@ -181,6 +221,14 @@
 				7AF43F7D252F7241006B94D6 /* GameView.swift in Sources */,
 				3E6CB86D95CB0E7057BA6FE1 /* GameDto.swift in Sources */,
 				3E6CB0C16C63714CF5DE3328 /* GameMapper.swift in Sources */,
+				3E6CB42A17B20EBD190ADC90 /* PeriodsRepository.swift in Sources */,
+				3E6CB848FE79E6EA6709D57E /* APIError.swift in Sources */,
+				3E6CBD0C1EFFE39B4FB63BDB /* NetworkConfig.swift in Sources */,
+				3E6CB3E7B7140BD8A7C087EF /* PeriodsDto.swift in Sources */,
+				3E6CBAC3106DAA209FED6DA4 /* Period.swift in Sources */,
+				3E6CBACD9EBC0E2F2EBA81B8 /* PeriodMapper.swift in Sources */,
+				3E6CB901488A3095365D6BA3 /* PeriodsViewModel.swift in Sources */,
+				3E6CB823B25561E7A2F3B199 /* PeriodsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

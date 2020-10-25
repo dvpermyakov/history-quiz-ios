@@ -11,11 +11,10 @@ import Combine
 
 class GameRepository {
 
-    private let BASE_URL = "https://history-quiz-app.appspot.com"
     private let PATH_GAME = "/api/test/questions"
 
     func getGame(gameId: String) -> AnyPublisher<Game, Error> {
-        let url = URL(string: "\(BASE_URL)\(PATH_GAME)?test_id=\(gameId)")!
+        let url = URL(string: "\(NetworkConfig.BASE_URL)\(PATH_GAME)?test_id=\(gameId)")!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         return URLSession.shared
@@ -32,7 +31,4 @@ class GameRepository {
                 }
                 .eraseToAnyPublisher()
     }
-}
-
-class APIError: Swift.Error {
 }
