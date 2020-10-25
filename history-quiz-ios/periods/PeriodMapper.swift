@@ -9,6 +9,7 @@ extension PeriodDto {
     func map() -> Period {
         Period(
                 id: self.id,
+                category: self.category,
                 image: self.image,
                 name: self.name,
                 description: self.year_title,

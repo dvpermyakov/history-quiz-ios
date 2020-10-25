@@ -5,8 +5,9 @@
 
 import Foundation
 
-struct Period : Identifiable, Hashable {
+struct Period: Identifiable, Hashable {
     let id: String
+    let category: String
     let image: String
     let name: String
     let description: String

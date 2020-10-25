@@ -11,6 +11,7 @@ struct PeriodsDto : Codable {
 
 struct PeriodDto : Codable {
     let id: String
+    let category: String
     let name: String
     let image: String
     let group_title: String

@@ -27,9 +27,8 @@ class GameViewModel: ObservableObject {
         repository.getGame(gameId: gameId)
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
-                    print(completion)
+                    print("getGame \(completion)")
                 }, receiveValue: { output in
-                    print(output)
                     self.game = output
                 })
                 .store(in: &disposables)
