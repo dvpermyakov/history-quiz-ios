@@ -22,23 +22,77 @@ struct ArticleView: View {
 }
 
 struct LoadedArticleView: View {
+    private let selectors: [ArticlePart]
+    @State
+    private var selectedIndex: Int = 0
+
     var article: Article
+
+    init(article: Article) {
+        selectors = [.Text, .Events, .Persons]
+        self.article = article
+    }
 
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(article.text.paragraphs) { paragraph in
-                    VStack(alignment: .leading) {
-                        Text(paragraph.title).font(Font.system(.body)).bold()
-                        Group {
-                            if let url = paragraph.image {
-                                UrlImageView(url: url)
-                            }
-                        }
-                        Text(paragraph.text).font(Font.system(.body))
-                    }.padding()
+                Picker("selector", selection: $selectedIndex) {
+                    ForEach(0..<selectors.count) { index in
+                        Text(self.selectors[index].name).tag(index)
+                    }
+                }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.horizontal)
+                Group {
+                    switch selectors[selectedIndex] {
+                    case .Text:
+                        ParagraphsView(article: article)
+                    case .Events:
+                        Text("Events")
+                    case .Persons:
+                        Text("Persons")
+                    }
                 }
             }
+        }
+    }
+}
+
+struct ParagraphsView: View {
+    var article: Article
+
+    var body: some View {
+        VStack {
+            ForEach(article.text.paragraphs) { paragraph in
+                VStack(alignment: .leading) {
+                    Text(paragraph.title).font(Font.system(.body)).bold()
+                    Group {
+                        if let url = paragraph.image {
+                            UrlImageView(url: url)
+                        }
+                    }
+                    Text(paragraph.text).font(Font.system(.body))
+                }.padding()
+            }
+        }
+    }
+}
+
+enum ArticlePart {
+    case Text
+    case Events
+    case Persons
+}
+
+extension ArticlePart {
+    var name: String {
+        switch self {
+        case .Text:
+            return "Article"
+        case .Events:
+            return "Events"
+        case .Persons:
+            return "Persons"
         }
     }
 }
