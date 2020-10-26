@@ -48,7 +48,7 @@ struct LoadedArticleView: View {
                     case .Text:
                         ParagraphsView(text: article.text)
                     case .Events:
-                        Text("Events")
+                        EventsView(events: article.events)
                     case .Persons:
                         PersonsView(persons: article.persons)
                     }
@@ -100,6 +100,22 @@ struct PersonsView: View {
                         .navigationBarTitle(person.name)
                 ) {
                     Text(person.name)
+                }
+            }
+        }
+    }
+}
+
+struct EventsView: View {
+    var events: [Event]
+
+    var body: some View {
+        VStack {
+            ForEach(events) { event in
+                NavigationLink(destination: Router.createArticle(for: event)
+                        .navigationBarTitle(event.name)
+                ) {
+                    Text(event.name)
                 }
             }
         }

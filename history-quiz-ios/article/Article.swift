@@ -9,6 +9,7 @@ struct Article {
     let text: ArticleText
     let test: Test
     let persons: [Person]
+    let events: [Event]
 }
 
 struct ArticleText {

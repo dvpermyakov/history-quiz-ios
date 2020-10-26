@@ -9,6 +9,7 @@ struct ArticleDto : Codable {
     let text: ArticleTextDto
     let test: TestDto
     let persons: [PersonDto]
+    let events: [EventDto]
 }
 
 struct ArticleTextDto : Codable {
