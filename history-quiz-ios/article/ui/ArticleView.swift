@@ -22,14 +22,20 @@ struct ArticleView: View {
 }
 
 struct LoadedArticleView: View {
-    private let selectors: [ArticlePart]
+    private var selectors: [ArticlePart]
     @State
     private var selectedIndex: Int = 0
 
     var article: Article
 
     init(article: Article) {
-        selectors = [.Text, .Events, .Persons]
+        selectors = [.Text, .Test]
+        if (!article.events.isEmpty) {
+            selectors.insert(.Events, at: 1)
+        }
+        if (!article.persons.isEmpty) {
+            selectors.insert(.Persons, at: 2)
+        }
         self.article = article
     }
 
@@ -45,14 +51,16 @@ struct LoadedArticleView: View {
                         EventsView(events: article.events)
                     case .Persons:
                         PersonsView(persons: article.persons)
+                    case .Test:
+                        Text("Test")
                     }
                 }
             }
-        }.navigationBarItems(trailing: TestButton(test: article.test))
+        }
     }
 }
 
-struct ArticleSelector : View {
+struct ArticleSelector: View {
     @Binding
     var selectedIndex: Int
     var selectors: [ArticlePart]
@@ -65,18 +73,6 @@ struct ArticleSelector : View {
         }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
-    }
-}
-
-struct TestButton: View {
-    let test: Test
-
-    var body: some View {
-        NavigationLink(destination: Router.createTest(testId: test.id)
-                .navigationBarTitle("Test")
-        ) {
-            Text("Test")
-        }
     }
 }
 
@@ -136,6 +132,7 @@ enum ArticlePart {
     case Text
     case Events
     case Persons
+    case Test
 }
 
 extension ArticlePart {
@@ -147,6 +144,8 @@ extension ArticlePart {
             return "Events"
         case .Persons:
             return "Persons"
+        case .Test:
+            return "Test"
         }
     }
 }
