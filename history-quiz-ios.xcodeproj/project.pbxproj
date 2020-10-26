@@ -40,12 +40,23 @@
 		3E6CBE955C420B0FFD07F05A /* PersonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB4E684E95BBEEA22455A /* PersonMapper.swift */; };
 		3E6CBF061D8A32C5F9EC6544 /* PeriodMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB31F56FAB892E90FE963 /* PeriodMapper.swift */; };
 		3E6CBFE8C149A698182CB715 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB377870F596A77233D94 /* GameDto.swift */; };
+		7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */; };
 		7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F78252F7241006B94D6 /* AppDelegate.swift */; };
 		7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */; };
 		7AF43F7F252F7243006B94D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF43F7E252F7243006B94D6 /* Assets.xcassets */; };
 		7AF43F82252F7243006B94D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF43F81252F7243006B94D6 /* Preview Assets.xcassets */; };
 		7AF43F85252F7243006B94D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF43F83252F7243006B94D6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A0B8CFD2546C57800C871C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AF43F6D252F7241006B94D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AF43F74252F7241006B94D6;
+			remoteInfo = "history-quiz-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3E6CB0142091F66E2A3BC039 /* PersonDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDto.swift; sourceTree = "<group>"; };
@@ -81,6 +92,9 @@
 		3E6CBE9783555D54A3A15711 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		3E6CBEAD0991480F9A6C9027 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3E6CBEEE7AC1193A2009193E /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
+		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history_quiz_ios_unit_tests.swift; sourceTree = "<group>"; };
+		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AF43F75252F7241006B94D6 /* history-quiz-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "history-quiz-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF43F78252F7241006B94D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +105,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7A0B8CF52546C57800C871C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7AF43F72252F7241006B94D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +281,15 @@
 			path = article;
 			sourceTree = "<group>";
 		};
+		7A0B8CF92546C57800C871C3 /* history-quiz-ios-unit-tests */ = {
+			isa = PBXGroup;
+			children = (
+				7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */,
+				7A0B8CFC2546C57800C871C3 /* Info.plist */,
+			);
+			path = "history-quiz-ios-unit-tests";
+			sourceTree = "<group>";
+		};
 		7A9E75BE252F7692008DB80D /* game */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				7AF43F77252F7241006B94D6 /* history-quiz-ios */,
+				7A0B8CF92546C57800C871C3 /* history-quiz-ios-unit-tests */,
 				7AF43F76252F7241006B94D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -283,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				7AF43F75252F7241006B94D6 /* history-quiz-ios.app */,
+				7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,6 +350,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7A0B8CF72546C57800C871C3 /* history-quiz-ios-unit-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A0B8CFF2546C57800C871C3 /* Build configuration list for PBXNativeTarget "history-quiz-ios-unit-tests" */;
+			buildPhases = (
+				7A0B8CF42546C57800C871C3 /* Sources */,
+				7A0B8CF52546C57800C871C3 /* Frameworks */,
+				7A0B8CF62546C57800C871C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A0B8CFE2546C57800C871C3 /* PBXTargetDependency */,
+			);
+			name = "history-quiz-ios-unit-tests";
+			productName = "history-quiz-ios-unit-tests";
+			productReference = 7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7AF43F74252F7241006B94D6 /* history-quiz-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7AF43F89252F7243006B94D6 /* Build configuration list for PBXNativeTarget "history-quiz-ios" */;
@@ -341,10 +391,14 @@
 		7AF43F6D252F7241006B94D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Dmitrii Permiakov";
 				TargetAttributes = {
+					7A0B8CF72546C57800C871C3 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 7AF43F74252F7241006B94D6;
+					};
 					7AF43F74252F7241006B94D6 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -364,11 +418,19 @@
 			projectRoot = "";
 			targets = (
 				7AF43F74252F7241006B94D6 /* history-quiz-ios */,
+				7A0B8CF72546C57800C871C3 /* history-quiz-ios-unit-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7A0B8CF62546C57800C871C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7AF43F73252F7241006B94D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,6 +445,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7A0B8CF42546C57800C871C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7AF43F71252F7241006B94D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +496,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7A0B8CFE2546C57800C871C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AF43F74252F7241006B94D6 /* history-quiz-ios */;
+			targetProxy = 7A0B8CFD2546C57800C871C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7AF43F83252F7243006B94D6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -438,6 +516,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7A0B8D002546C57800C871C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "history-quiz-ios-unit-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dvpermyakov.history-quiz-ios-unit-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/history-quiz-ios.app/history-quiz-ios";
+			};
+			name = Debug;
+		};
+		7A0B8D012546C57800C871C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "history-quiz-ios-unit-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dvpermyakov.history-quiz-ios-unit-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/history-quiz-ios.app/history-quiz-ios";
+			};
+			name = Release;
+		};
 		7AF43F87252F7243006B94D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -595,6 +715,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7A0B8CFF2546C57800C871C3 /* Build configuration list for PBXNativeTarget "history-quiz-ios-unit-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0B8D002546C57800C871C3 /* Debug */,
+				7A0B8D012546C57800C871C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7AF43F70252F7241006B94D6 /* Build configuration list for PBXProject "history-quiz-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
