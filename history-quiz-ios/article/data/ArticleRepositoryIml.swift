@@ -6,7 +6,7 @@
 import Foundation
 import Combine
 
-class ArticleRepository {
+class ArticleRepositoryIml: ArticleRepository {
     private let PATH_GAME = "/api/history/mark_info"
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {

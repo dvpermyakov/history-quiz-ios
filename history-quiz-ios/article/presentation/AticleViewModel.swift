@@ -7,13 +7,14 @@ import Foundation
 import Combine
 
 class ArticleViewModel: ObservableObject {
-    private let repository = ArticleRepository()
+    private let repository: ArticleRepository
     private var disposables = Set<AnyCancellable>()
 
     @Published
     var article: Article? = nil
 
-    init(id: String, category: String) {
+    init(id: String, category: String, repository: ArticleRepository) {
+        self.repository = repository
         repository.getArticle(id: id, category: category)
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in

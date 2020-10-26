@@ -11,7 +11,7 @@ import Combine
 
 class GameViewModel: ObservableObject {
 
-    private let repository = GameRepository()
+    private let repository: GameRepository
     private var disposables = Set<AnyCancellable>()
 
     @Published
@@ -23,7 +23,8 @@ class GameViewModel: ObservableObject {
         game?.questions[questionIndex]
     }
 
-    init(gameId: String) {
+    init(gameId: String, repository: GameRepository) {
+        self.repository = repository
         repository.getGame(gameId: gameId)
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in

@@ -1,5 +1,5 @@
 //
-//  GameRepository.swift
+//  GameRepositoryIml.swift
 //  history-quiz-ios
 //
 //  Created by Dmitrii Permiakov on 10/25/20.
@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class GameRepository {
+class GameRepositoryIml: GameRepository {
 
     private let PATH_GAME = "/api/test/questions"
 

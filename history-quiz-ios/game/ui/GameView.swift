@@ -66,16 +66,3 @@ struct AnswerView: View {
                 .padding(20)
     }
 }
-
-class ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView(viewModel: GameViewModel(gameId: "any"))
-    }
-
-    #if DEBUG
-    @objc class func injected() {
-        UIApplication.shared.windows.first?.rootViewController =
-                UIHostingController(rootView: GameView(viewModel: GameViewModel(gameId: "any")))
-    }
-    #endif
-}

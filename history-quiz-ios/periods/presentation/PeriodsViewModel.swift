@@ -8,13 +8,15 @@ import Combine
 
 class PeriodsViewModel: ObservableObject {
 
-    private let repository = PeriodsRepository()
+    private let repository: PeriodsRepository
     private var disposables = Set<AnyCancellable>()
 
     @Published
     var periods: [Period] = []
 
-    init() {
+    init(repository: PeriodsRepository) {
+        self.repository = repository
+
         repository.getPeriods()
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in

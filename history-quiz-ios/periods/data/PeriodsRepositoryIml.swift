@@ -6,7 +6,7 @@
 import Foundation
 import Combine
 
-class PeriodsRepository {
+class PeriodsRepositoryIml: PeriodsRepository {
 
     private let PATH_PERIODS = "/api/history/periods"
 

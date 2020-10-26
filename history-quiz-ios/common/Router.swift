@@ -6,8 +6,12 @@
 import Foundation
 
 class Router {
+
     static func createPeriods() -> PeriodsView {
-        PeriodsView(viewModel: PeriodsViewModel())
+        let periodsRepository: PeriodsRepository = PeriodsRepositoryIml()
+        return PeriodsView(viewModel: PeriodsViewModel(
+                repository: periodsRepository
+        ))
     }
 
     static func createBalance() -> BalanceView {
@@ -15,10 +19,19 @@ class Router {
     }
 
     static func createTest(testId gameId: String) -> GameView {
-        GameView(viewModel: GameViewModel(gameId: gameId))
+        let gameRepository: GameRepository = GameRepositoryIml()
+        return GameView(viewModel: GameViewModel(
+                gameId: gameId,
+                repository: gameRepository
+        ))
     }
 
     static func createArticle(for item: ArticleAvailable) -> ArticleView {
-        ArticleView(viewModel: ArticleViewModel(id: item.id, category: item.category))
+        let articleRepository: ArticleRepository = ArticleRepositoryIml()
+        return ArticleView(viewModel: ArticleViewModel(
+                id: item.id,
+                category: item.category,
+                repository: articleRepository
+        ))
     }
 }
