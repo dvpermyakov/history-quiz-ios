@@ -10,12 +10,17 @@ class ArticleRepositoryIml: ArticleRepository {
     private let PATH_GAME = "/api/history/mark_info"
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {
-        let url = URL(string: "\(NetworkConfig.BASE_URL)\(PATH_GAME)?mark_id=\(id)&category=\(category)")!
-        let urlRequest = URLRequest(url: url)
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_GAME)
+        components?.queryItems = [
+            URLQueryItem(name: "mark_id", value: id),
+            URLQueryItem(name: "category", value: category)
+        ]
+        guard let url = components?.url else {
+            return AnyPublisher<Article, Error>(Empty())
+        }
         return URLSession.shared
-                .dataTaskPublisher(for: urlRequest)
+                .dataTaskPublisher(for: URLRequest(url: url))
                 .tryMap() { element -> Data in
-                    print(element.response)
                     guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                         throw APIError()
                     }

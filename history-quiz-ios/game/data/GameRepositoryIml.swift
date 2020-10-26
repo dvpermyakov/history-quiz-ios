@@ -14,7 +14,13 @@ class GameRepositoryIml: GameRepository {
     private let PATH_GAME = "/api/test/questions"
 
     func getGame(gameId: String) -> AnyPublisher<Game, Error> {
-        let url = URL(string: "\(NetworkConfig.BASE_URL)\(PATH_GAME)?test_id=\(gameId)")!
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_GAME)
+        components?.queryItems = [
+            URLQueryItem(name: "test_id", value: gameId)
+        ]
+        guard let url = components?.url else {
+            return AnyPublisher<Game, Error>(Empty())
+        }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         return URLSession.shared

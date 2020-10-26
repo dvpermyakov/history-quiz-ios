@@ -11,10 +11,15 @@ class PeriodsRepositoryIml: PeriodsRepository {
     private let PATH_PERIODS = "/api/history/periods"
 
     func getPeriods() -> AnyPublisher<[Period], Error> {
-        let url = URL(string: "\(NetworkConfig.BASE_URL)\(PATH_PERIODS)?country_id=\(NetworkConfig.COUNTRY_ID)")!
-        let urlRequest = URLRequest(url: url)
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_PERIODS)
+        components?.queryItems = [
+            URLQueryItem(name: "country_id", value: NetworkConfig.COUNTRY_ID)
+        ]
+        guard let url = components?.url else {
+            return AnyPublisher<[Period], Error>(Empty())
+        }
         return URLSession.shared
-                .dataTaskPublisher(for: urlRequest)
+                .dataTaskPublisher(for: URLRequest(url: url))
                 .tryMap() { element -> Data in
                     guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                         throw APIError()
