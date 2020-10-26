@@ -36,13 +36,7 @@ struct LoadedArticleView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Picker("selector", selection: $selectedIndex) {
-                    ForEach(0..<selectors.count) { index in
-                        Text(self.selectors[index].name).tag(index)
-                    }
-                }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding(.horizontal)
+                ArticleSelector(selectedIndex: $selectedIndex, selectors: selectors)
                 Group {
                     switch selectors[selectedIndex] {
                     case .Text:
@@ -55,6 +49,22 @@ struct LoadedArticleView: View {
                 }
             }
         }.navigationBarItems(trailing: TestButton(test: article.test))
+    }
+}
+
+struct ArticleSelector : View {
+    @Binding
+    var selectedIndex: Int
+    var selectors: [ArticlePart]
+
+    var body: some View {
+        Picker("selector", selection: $selectedIndex) {
+            ForEach(0..<selectors.count) { index in
+                Text(self.selectors[index].name).tag(index)
+            }
+        }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
     }
 }
 
