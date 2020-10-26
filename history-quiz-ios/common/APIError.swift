@@ -5,5 +5,5 @@
 
 import Foundation
 
-class APIError: Swift.Error {
+struct APIError: Swift.Error {
 }

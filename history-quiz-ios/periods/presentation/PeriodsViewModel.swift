@@ -18,6 +18,7 @@ class PeriodsViewModel: ObservableObject {
         self.repository = repository
 
         repository.getPeriods()
+                .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                     print("getPeriods \(completion)")

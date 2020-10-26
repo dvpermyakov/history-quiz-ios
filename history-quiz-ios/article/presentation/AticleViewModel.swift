@@ -16,6 +16,7 @@ class ArticleViewModel: ObservableObject {
     init(id: String, category: String, repository: ArticleRepository) {
         self.repository = repository
         repository.getArticle(id: id, category: category)
+                .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                     print("getArticle \(completion)")
