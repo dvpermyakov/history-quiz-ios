@@ -13,11 +13,21 @@ struct UrlImageView: View {
         imageLoader = ImageLoader(url: url)
     }
 
+//    var body: some View {
+//        if let uiImage = UIImage(data: imageLoader.data) {
+//            Image(uiImage: uiImage)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//        }
+//    }
+
     var body: some View {
         if let uiImage = UIImage(data: imageLoader.data) {
             Image(uiImage: uiImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
+//                    .frame(width: 100, height: 100, alignment: .center)
+                    .clipped()
         }
     }
 }
