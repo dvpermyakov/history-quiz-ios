@@ -67,9 +67,9 @@ extension MainTab: Identifiable {
     var image: String {
         switch self {
         case .Periods:
-            return "list.dash"
+            return "list.bullet"
         case .Balance:
-            return "square.and.pencil"
+            return "banknote"
         }
     }
 }

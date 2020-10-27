@@ -51,6 +51,7 @@
 		3E6CBFE8C149A698182CB715 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB377870F596A77233D94 /* GameDto.swift */; };
 		3E6CBFF86990A4C68E379331 /* BalanceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */; };
 		7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */; };
+		7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */; };
 		7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F78252F7241006B94D6 /* AppDelegate.swift */; };
 		7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */; };
 		7AF43F7F252F7243006B94D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF43F7E252F7243006B94D6 /* Assets.xcassets */; };
@@ -115,6 +116,7 @@
 		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history_quiz_ios_unit_tests.swift; sourceTree = "<group>"; };
 		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balance.xcdatamodel; sourceTree = "<group>"; };
 		7AF43F75252F7241006B94D6 /* history-quiz-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "history-quiz-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF43F78252F7241006B94D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,8 +163,6 @@
 			children = (
 				3E6CBC80C31CF378D3360DBC /* ui */,
 				3E6CB9D7369D8B2E52C38D60 /* presentation */,
-				3E6CB4FAF0F4D5182A954097 /* domain */,
-				3E6CB290D5B48B6A460FF0F7 /* data */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -189,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */,
+				7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -315,6 +316,8 @@
 		3E6CBF520675D28DEADE2060 /* balance */ = {
 			isa = PBXGroup;
 			children = (
+				3E6CB290D5B48B6A460FF0F7 /* data */,
+				3E6CB4FAF0F4D5182A954097 /* domain */,
 				3E6CB33F84A0E626370FE982 /* BalanceView.swift */,
 			);
 			path = balance;
@@ -521,6 +524,7 @@
 			files = (
 				7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */,
 				7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */,
+				7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */,
 				3E6CB848FE79E6EA6709D57E /* APIError.swift in Sources */,
 				3E6CBD0C1EFFE39B4FB63BDB /* NetworkConfig.swift in Sources */,
 				3E6CB54F4E4D6A9B18DEE0A6 /* Router.swift in Sources */,
@@ -815,6 +819,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */,
+			);
+			currentVersion = 7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */;
+			path = Balance.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7AF43F6D252F7241006B94D6 /* Project object */;
 }
