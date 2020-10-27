@@ -7,6 +7,11 @@ import Foundation
 
 class Router {
 
+    static func createMain() -> MainView {
+        let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
+        return MainView(viewModel: MainViewModel(repository: balanceRepository))
+    }
+
     static func createPeriods() -> PeriodsView {
         let periodsRepository: PeriodsRepository = PeriodsRepositoryIml()
         return PeriodsView(viewModel: PeriodsViewModel(

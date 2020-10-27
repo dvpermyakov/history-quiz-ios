@@ -6,7 +6,15 @@
 import SwiftUI
 
 struct MainView: View {
-    private var tabs = [MainTab.Periods, MainTab.Balance]
+    @ObservedObject
+    var viewModel: MainViewModel
+
+    private var tabs: [MainTab]
+
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        tabs = [MainTab.Periods, MainTab.Balance]
+    }
 
     var body: some View {
         TabView() {
@@ -16,6 +24,8 @@ struct MainView: View {
                     Text(tab.name)
                 }
             }
+        }.alert(isPresented: $viewModel.showDailyAwardAlert) {
+            Alert(title: Text("Daily reward"), message: Text("You receive your new daily reward! Congrats!"))
         }
     }
 }
