@@ -29,13 +29,14 @@ struct LoadedArticleView: View {
     var article: Article
 
     init(article: Article) {
-        selectors = [.Text, .Test]
+        selectors = [.Text]
         if (!article.events.isEmpty) {
-            selectors.insert(.Events, at: 1)
+            selectors.append(.Events)
         }
         if (!article.persons.isEmpty) {
-            selectors.insert(.Persons, at: 2)
+            selectors.append(.Persons)
         }
+        selectors.append(.Test)
         self.article = article
     }
 
