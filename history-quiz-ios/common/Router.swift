@@ -9,7 +9,9 @@ class Router {
 
     static func createMain() -> MainView {
         let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
-        return MainView(viewModel: MainViewModel(repository: balanceRepository))
+        return MainView(viewModel: MainViewModel(
+                repository: balanceRepository
+        ))
     }
 
     static func createPeriods() -> PeriodsView {
@@ -20,7 +22,10 @@ class Router {
     }
 
     static func createBalance() -> BalanceView {
-        BalanceView()
+        let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
+        return BalanceView(viewModel: BalanceViewModel(
+                repository: balanceRepository
+        ))
     }
 
     static func createTest(testId gameId: String) -> GameView {

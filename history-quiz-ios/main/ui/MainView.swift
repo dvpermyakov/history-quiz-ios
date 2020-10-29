@@ -69,7 +69,7 @@ extension MainTab: Identifiable {
         case .Periods:
             return "list.bullet"
         case .Balance:
-            return "banknote"
+            return "banknote.fill"
         }
     }
 }
