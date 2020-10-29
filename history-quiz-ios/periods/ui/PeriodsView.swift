@@ -44,25 +44,18 @@ struct PeriodView: View {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
                         Text(period.name)
-                            .foregroundColor(.black)
-                            .font(.system(size: 17))
+                                .foregroundColor(.black)
+                                .font(.system(size: 17))
                         Text(period.description)
-                            .foregroundColor(.gray)
-                            .font(.system(size: 15))
+                                .foregroundColor(.gray)
+                                .font(.system(size: 15))
                     }.padding(.leading, 20).padding(.bottom, 10)
 
                     NavigationLink(destination: Router.createArticle(for: period)
                             .navigationBarTitle(period.name)
                     ) {
-                        HStack {
-                            Text("See")
-                            Image(systemName: "chevron.right")
-                        }
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .trailing
-                        )
-                        .padding(.trailing, 20)
+                        NavigationSeeView()
+                                .padding(.trailing, 20)
                     }
                 }
             }
@@ -76,12 +69,12 @@ struct PeriodView: View {
 struct PeriodsView_Previews: PreviewProvider {
     static var previews: some View {
         PeriodView(period: Period(
-                    id: "1",
-                    category: "1",
-                    image: "1",
-                    name: "Киевская Русь",
-                    description: "100 - 200гг",
-                    developing: false
+                id: "1",
+                category: "1",
+                image: "1",
+                name: "Киевская Русь",
+                description: "100 - 200гг",
+                developing: false
         ))
     }
 }
