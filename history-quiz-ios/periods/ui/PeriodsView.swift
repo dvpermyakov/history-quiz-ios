@@ -35,7 +35,7 @@ struct LoadedPeriodsView: View {
 }
 
 struct PeriodView: View {
-    var period: Period
+    let period: Period
 
     var body: some View {
         Group {
