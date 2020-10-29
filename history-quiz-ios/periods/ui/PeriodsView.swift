@@ -26,20 +26,62 @@ struct LoadedPeriodsView: View {
             ScrollView {
                 VStack {
                     ForEach(periods) { period in
-                        VStack {
-                            UrlImageView(url: period.image).cornerRadius(20)
-                            NavigationLink(destination: Router.createArticle(for: period)
-                                    .navigationBarTitle(period.name)
-                            ) {
-                                HStack {
-                                    Text(period.name).padding()
-                                    Text(period.description).padding()
-                                }
-                            }
-                        }.padding()
+                        PeriodView(period: period)
                     }
                 }
             }.navigationBarTitle("Periods")
         }
+    }
+}
+
+struct PeriodView: View {
+    var period: Period
+
+    var body: some View {
+        Group {
+            VStack(alignment: .leading) {
+                UrlImageView(url: period.image)
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text(period.name)
+                            .foregroundColor(.black)
+                            .font(.system(size: 17))
+                        Text(period.description)
+                            .foregroundColor(.gray)
+                            .font(.system(size: 15))
+                    }.padding(.leading, 20).padding(.bottom, 10)
+
+                    NavigationLink(destination: Router.createArticle(for: period)
+                            .navigationBarTitle(period.name)
+                    ) {
+                        HStack {
+                            Text("See")
+                            Image(systemName: "chevron.right")
+                        }
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .trailing
+                        )
+                        .padding(.trailing, 20)
+                    }
+                }
+            }
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .shadow(color: Color.gray, radius: 50)
+        }.padding()
+    }
+}
+
+struct PeriodsView_Previews: PreviewProvider {
+    static var previews: some View {
+        PeriodView(period: Period(
+                    id: "1",
+                    category: "1",
+                    image: "1",
+                    name: "Киевская Русь",
+                    description: "100 - 200гг",
+                    developing: false
+        ))
     }
 }
