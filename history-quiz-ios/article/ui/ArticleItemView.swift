@@ -1,42 +1,30 @@
 //
-// Created by Dmitrii Permiakov on 10/26/20.
+// Created by Dmitrii Permiakov on 10/29/20.
 // Copyright (c) 2020 Dmitrii Permiakov. All rights reserved.
 //
 
 import SwiftUI
 
-struct PersonsView: View {
-    var persons: [Person]
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(persons) { person in
-                PersonView(person: person)
-            }
-        }
-    }
-}
-
-struct PersonView: View {
-    let person: Person
+struct ArticleItemView: View {
+    let item: ArticleItemUiModel
 
     var body: some View {
         Group {
             HStack(alignment: .center) {
                 Group {
-                    UrlImageView(url: person.image).clipShape(Circle())
+                    UrlImageView(url: item.image).clipShape(Circle())
                 }.frame(width: 100, height: 100)
 
                 VStack(alignment: .leading) {
-                    Text(person.name)
+                    Text(item.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(.black)
                             .font(.system(size: 17))
-                    Text(person.description)
+                    Text(item.subtitle)
                             .foregroundColor(.gray)
                             .font(.system(size: 15))
-                    NavigationLink(destination: Router.createArticle(for: person)
-                            .navigationBarTitle(person.name)
+                    NavigationLink(destination: Router.createArticle(for: item)
+                            .navigationBarTitle(item.title)
                     ) {
                         NavigationSeeView()
                                 .padding(.top, 10)
@@ -48,19 +36,5 @@ struct PersonView: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray, radius: 50)
         }.padding()
-    }
-}
-
-struct PersonsView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PersonView(person: Person(
-                    id: "1",
-                    category: "1",
-                    name: "Петр 1",
-                    description: "Последнийийский",
-                    image: ""
-            ))
-        }
     }
 }

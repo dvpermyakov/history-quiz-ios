@@ -49,9 +49,17 @@ struct LoadedArticleView: View {
                     case .Text:
                         ParagraphsView(text: article.text)
                     case .Events:
-                        EventsView(events: article.events)
+                        VStack(alignment: .leading) {
+                            ForEach(article.events) { event in
+                                ArticleItemView(item: event.map())
+                            }
+                        }
                     case .Persons:
-                        PersonsView(persons: article.persons)
+                        VStack(alignment: .leading) {
+                            ForEach(article.persons) { person in
+                                ArticleItemView(item: person.map())
+                            }
+                        }
                     case .Test:
                         Text("Test")
                     }
