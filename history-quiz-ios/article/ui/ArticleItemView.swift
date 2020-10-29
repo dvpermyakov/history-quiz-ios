@@ -11,9 +11,7 @@ struct ArticleItemView: View {
     var body: some View {
         Group {
             HStack(alignment: .center) {
-                Group {
-                    UrlImageView(url: item.image).clipShape(Circle())
-                }.frame(width: 100, height: 100)
+                ArticleItemImageView(url: item.image)
 
                 VStack(alignment: .leading) {
                     Text(item.title)
@@ -36,5 +34,32 @@ struct ArticleItemView: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray, radius: 50)
         }.padding()
+    }
+}
+
+struct ArticleItemImageView: View {
+    @ObservedObject
+    var imageLoader: ImageLoader
+
+    init(url: String) {
+        imageLoader = ImageLoader(url: url)
+    }
+
+    var body: some View {
+        Group {
+            if let data = imageLoader.data, let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                        .centerCropped()
+                        .clipShape(Circle())
+            } else {
+                Spacer()
+            }
+        }.frame(width: 100, height: 100).padding(.leading, 10)
+    }
+}
+
+struct ArticleItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        ArticleItemView(item: ArticleItemUiModel(id: "", category: "", image: "", title: "Петр 1", subtitle: "Император всея Руси Император всея Руси Император всея Руси Император всея Руси Император всея Руси Император всея Руси"))
     }
 }

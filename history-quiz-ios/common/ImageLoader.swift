@@ -8,7 +8,7 @@ import Foundation
 class ImageLoader : ObservableObject {
 
     @Published
-    var data: Data = Data()
+    var data: Data? = nil
 
     init(url: String) {
         guard let url = URL(string: url) else { return }
