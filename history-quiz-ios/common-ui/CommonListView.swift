@@ -26,7 +26,7 @@ struct CommonListView: View {
                 ForEach(model.list) { item in
                     VStack {
                         HStack {
-                            Text(item.name).foregroundColor(.gray)
+                            Text(item.name).foregroundColor(.gray).fixedSize()
                             Text(item.value).foregroundColor(.gray)
                                     .frame(
                                             maxWidth: .infinity,

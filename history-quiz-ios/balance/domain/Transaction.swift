@@ -21,9 +21,9 @@ extension Transaction {
     var typeTitle: String {
         switch self.type {
         case .DailyAward:
-            return "Daily award"
+            return "Daily bonus".localized()
         case .Unknown:
-            return "Unknown"
+            return "Unknown".localized()
         }
     }
 }

@@ -29,15 +29,15 @@ class BalanceViewModel: ObservableObject {
         }.reduce(0, +)
 
         receiveBonusesInfo = CommonListUiModel(list: [
-            CommonListUiModel.Item(name: "Daily bonus", value: "30"),
-            CommonListUiModel.Item(name: "Open article by link", value: "5"),
-            CommonListUiModel.Item(name: "Read article", value: "5"),
-            CommonListUiModel.Item(name: "Finish test", value: "30")
+            CommonListUiModel.Item(name: "Daily bonus".localized(), value: "30"),
+            CommonListUiModel.Item(name: "Open article by link".localized(), value: "5"),
+            CommonListUiModel.Item(name: "Read article".localized(), value: "5"),
+            CommonListUiModel.Item(name: "Finish test".localized(), value: "30")
         ])
         spendBonusesInfo = CommonListUiModel(list: [
-            CommonListUiModel.Item(name: "Open any article", value: "10"),
-            CommonListUiModel.Item(name: "Start closed test", value: "20"),
-            CommonListUiModel.Item(name: "Continue test", value: "30")
+            CommonListUiModel.Item(name: "Open any article".localized(), value: "10"),
+            CommonListUiModel.Item(name: "Start closed test".localized(), value: "20"),
+            CommonListUiModel.Item(name: "Continue test".localized(), value: "30")
         ])
         transactionsInfo = CommonListUiModel(list: transactions.map { transaction in
             CommonListUiModel.Item(name: transaction.typeTitle, value: "+\(transaction.amount)")
