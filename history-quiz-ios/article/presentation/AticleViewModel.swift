@@ -27,9 +27,9 @@ class ArticleViewModel: ObservableObject {
                     self.article = output
                     let test = output.test
                     self.testInfo = CommonListUiModel(list: [
-                        CommonListUiModel.Item(name: "Question amount", value: String(test.questionAmount)),
-                        CommonListUiModel.Item(name: "Available seconds", value: String(test.seconds)),
-                        CommonListUiModel.Item(name: "Lives amount", value: String(test.mistakesAmount))
+                        CommonListUiModel.Item(name: "Question amount".localized(), value: String(test.questionAmount)),
+                        CommonListUiModel.Item(name: "Available seconds".localized(), value: String(test.seconds)),
+                        CommonListUiModel.Item(name: "Lives amount".localized(), value: String(test.mistakesAmount))
                     ])
                 })
                 .store(in: &disposables)
