@@ -20,6 +20,7 @@
 		3E6CB41C5194C7570DFFC94F /* ArticleItemUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB0218BE72F2DEB3CACBC /* ArticleItemUiModel.swift */; };
 		3E6CB478FA49980B8E48BBC5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB15E35C8E92AA28C0587 /* Article.swift */; };
 		3E6CB4A3693AE1282C691553 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBE9783555D54A3A15711 /* Period.swift */; };
+		3E6CB4BB25C444893D7F22A1 /* CommonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB91C46D08E700F0BD5BD /* CommonListView.swift */; };
 		3E6CB4D7733EEE46989B8AA2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB9F00BE8678F616E24BF /* Person.swift */; };
 		3E6CB4F015FDE89476987A8C /* NavigationSeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB891CD4767EFE23E8F0B /* NavigationSeeView.swift */; };
 		3E6CB501F4CB30942B746432 /* ArticleDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBDEB41F24B683BFBB3DB /* ArticleDto.swift */; };
@@ -102,6 +103,7 @@
 		3E6CB891CD4767EFE23E8F0B /* NavigationSeeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSeeView.swift; sourceTree = "<group>"; };
 		3E6CB897BF9BAB338D7C441A /* BalanceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 		3E6CB9172161453D55AD4569 /* ParagraphsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphsView.swift; sourceTree = "<group>"; };
+		3E6CB91C46D08E700F0BD5BD /* CommonListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonListView.swift; sourceTree = "<group>"; };
 		3E6CB93DA85619894D4D7D04 /* PeriodsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsView.swift; sourceTree = "<group>"; };
 		3E6CB94BC4263DEC5030319A /* PeriodsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsViewModel.swift; sourceTree = "<group>"; };
 		3E6CB9F00BE8678F616E24BF /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6CB891CD4767EFE23E8F0B /* NavigationSeeView.swift */,
+				3E6CB91C46D08E700F0BD5BD /* CommonListView.swift */,
 			);
 			path = "common-ui";
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				3E6CB08FB13F5645AEBACF35 /* ArticleItemView.swift in Sources */,
 				3E6CB41C5194C7570DFFC94F /* ArticleItemUiModel.swift in Sources */,
 				3E6CB1FD26955093F54302E1 /* Image+croped.swift in Sources */,
+				3E6CB4BB25C444893D7F22A1 /* CommonListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,17 +10,35 @@ class BalanceViewModel: ObservableObject {
     private let repository: BalanceRepository
 
     @Published
+    var balanceSum: Int = 0
+
+    @Published
+    var receiveBonusesInfo: CommonListUiModel? = nil
+    @Published
+    var spendBonusesInfo: CommonListUiModel? = nil
+
+    @Published
     var transactions: [Transaction] = []
 
     init(repository: BalanceRepository) {
         self.repository = repository
-        let transaction = Transaction(
-                id: UUID(),
-                amount: 30,
-                date: Date(),
-                type: Transaction.TransactionType.DailyAward
-        )
         self.transactions = repository.getAllTransactions()
+
+        balanceSum = transactions.map { transaction in
+            transaction.amount
+        }.reduce(0, +)
+
+        receiveBonusesInfo = CommonListUiModel(list: [
+            CommonListUiModel.Item(name: "Daily bonus", value: "30"),
+            CommonListUiModel.Item(name: "Open article by link", value: "5"),
+            CommonListUiModel.Item(name: "Read article", value: "5"),
+            CommonListUiModel.Item(name: "Finish test", value: "30")
+        ])
+        spendBonusesInfo = CommonListUiModel(list: [
+            CommonListUiModel.Item(name: "Open any article", value: "10"),
+            CommonListUiModel.Item(name: "Start closed test", value: "20"),
+            CommonListUiModel.Item(name: "Continue test", value: "30")
+        ])
     }
 
 }
