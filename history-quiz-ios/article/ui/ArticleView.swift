@@ -66,7 +66,11 @@ struct LoadedArticleView: View {
                             }
                         }
                     case .Test:
-                        ArticleTestView(testInfo: testInfo, showRules: $showRules)
+                        ArticleTestView(
+                                test: article.test,
+                                testInfo: testInfo,
+                                showRules: $showRules
+                        )
                     }
                 }
             }

@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct ArticleTestView: View {
+    let test: Test
     let testInfo: CommonListUiModel
 
     @Binding
@@ -21,11 +22,11 @@ struct ArticleTestView: View {
                 }) {
                     Text("Rules")
                 }.padding()
-                Button(action: {
-                    // your action here
-                }) {
-                    Text("Start")
-                }.padding()
+                NavigationLink(destination: Router.createTest(testId: test.id)
+                        .navigationBarTitle("Test")
+                ) {
+                    Text("Start").padding()
+                }
             }
         }.padding()
     }
