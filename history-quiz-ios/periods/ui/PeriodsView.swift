@@ -61,7 +61,7 @@ struct PeriodView: View {
             }
                     .background(Color.white)
                     .cornerRadius(15)
-                    .shadow(color: Color.gray, radius: 50)
+                    .shadow(color: Color.gray, radius: 2)
         }.padding()
     }
 }
