@@ -36,6 +36,11 @@ extension ParagraphDto {
 
 extension TestDto {
     func map() -> Test {
-        Test(id: self.id)
+        Test(
+                id: self.id,
+                questionAmount: self.max_questions,
+                mistakesAmount: self.max_mistakes,
+                seconds: self.max_seconds
+        )
     }
 }

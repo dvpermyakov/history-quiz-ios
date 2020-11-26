@@ -27,4 +27,7 @@ struct Paragraph: Identifiable, Hashable {
 
 struct Test {
     let id: String
+    let questionAmount: Int
+    let mistakesAmount: Int
+    let seconds: Int
 }

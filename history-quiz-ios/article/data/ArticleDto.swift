@@ -5,23 +5,26 @@
 
 import Foundation
 
-struct ArticleDto : Codable {
+struct ArticleDto: Codable {
     let text: ArticleTextDto
     let test: TestDto
     let persons: [PersonDto]
     let events: [EventDto]
 }
 
-struct ArticleTextDto : Codable {
+struct ArticleTextDto: Codable {
     let paragraphs: [ParagraphDto]
 }
 
-struct ParagraphDto : Codable {
+struct ParagraphDto: Codable {
     let header: String
     let text: String
     let image: String?
 }
 
-struct TestDto : Codable {
+struct TestDto: Codable {
     let id: String
+    let max_questions: Int
+    let max_mistakes: Int
+    let max_seconds: Int
 }

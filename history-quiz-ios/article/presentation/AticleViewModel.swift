@@ -13,6 +13,9 @@ class ArticleViewModel: ObservableObject {
     @Published
     var article: Article? = nil
 
+    @Published
+    var testInfo: CommonListUiModel? = nil
+
     init(id: String, category: String, repository: ArticleRepository) {
         self.repository = repository
         repository.getArticle(id: id, category: category)
@@ -22,6 +25,12 @@ class ArticleViewModel: ObservableObject {
                     print("getArticle \(completion)")
                 }, receiveValue: { output in
                     self.article = output
+                    let test = output.test
+                    self.testInfo = CommonListUiModel(list: [
+                        CommonListUiModel.Item(name: "Question amount", value: String(test.questionAmount)),
+                        CommonListUiModel.Item(name: "Available seconds", value: String(test.seconds)),
+                        CommonListUiModel.Item(name: "Lives amount", value: String(test.mistakesAmount))
+                    ])
                 })
                 .store(in: &disposables)
     }

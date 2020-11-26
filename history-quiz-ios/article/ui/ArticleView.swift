@@ -11,8 +11,8 @@ struct ArticleView: View {
 
     var body: some View {
         Group {
-            if let article = viewModel.article {
-                LoadedArticleView(article: article)
+            if let article = viewModel.article, let testInfo = viewModel.testInfo {
+                LoadedArticleView(article: article, testInfo: testInfo)
             } else {
                 ProgressView()
             }
@@ -25,10 +25,14 @@ struct LoadedArticleView: View {
     private var selectors: [ArticlePart]
     @State
     private var selectedIndex: Int = 0
+    @State
+    private var showRules: Bool = false
 
     var article: Article
+    var testInfo: CommonListUiModel
 
-    init(article: Article) {
+
+    init(article: Article, testInfo: CommonListUiModel) {
         selectors = [.Text]
         if (!article.events.isEmpty) {
             selectors.append(.Events)
@@ -38,6 +42,7 @@ struct LoadedArticleView: View {
         }
         selectors.append(.Test)
         self.article = article
+        self.testInfo = testInfo
     }
 
     var body: some View {
@@ -61,10 +66,15 @@ struct LoadedArticleView: View {
                             }
                         }
                     case .Test:
-                        Text("Test")
+                        ArticleTestView(testInfo: testInfo, showRules: $showRules)
                     }
                 }
             }
+        }.popover(isPresented: $showRules) {
+            VStack(alignment: .leading) {
+                Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
+                Text("You will see four different answers for one question. Only one is right. If you choose the wrong one, then you should try another one unless your lives are remain. Time is ticking as well.")
+            }.padding()
         }
     }
 }
