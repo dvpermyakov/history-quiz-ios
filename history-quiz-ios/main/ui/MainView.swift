@@ -53,15 +53,20 @@ enum MainTab {
 
 extension MainTab: Identifiable {
     var id: String {
-        self.name
-    }
-
-    var name: String {
         switch self {
         case .Periods:
-            return "Periods"
+            return "periods_id"
         case .Balance:
-            return "Balance"
+            return "balance_id"
+        }
+    }
+
+    var name: LocalizedStringKey {
+        switch self {
+        case .Periods:
+            return LocalizedStringKey("Periods")
+        case .Balance:
+            return LocalizedStringKey("Balance")
         }
     }
     var image: String {

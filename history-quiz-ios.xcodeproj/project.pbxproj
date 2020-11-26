@@ -58,6 +58,7 @@
 		3E6CBFE8C149A698182CB715 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB377870F596A77233D94 /* GameDto.swift */; };
 		3E6CBFF86990A4C68E379331 /* BalanceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */; };
 		7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */; };
+		7A179FCB25703B140020C7A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A179FCD25703B140020C7A6 /* Localizable.strings */; };
 		7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */; };
 		7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F78252F7241006B94D6 /* AppDelegate.swift */; };
 		7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */; };
@@ -130,6 +131,8 @@
 		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history_quiz_ios_unit_tests.swift; sourceTree = "<group>"; };
 		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A179FCC25703B140020C7A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A179FD025703B190020C7A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balance.xcdatamodel; sourceTree = "<group>"; };
 		7AF43F75252F7241006B94D6 /* history-quiz-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "history-quiz-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF43F78252F7241006B94D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -445,6 +448,7 @@
 				3E6CB0C475907AE9A0B03924 /* main */,
 				3E6CBF520675D28DEADE2060 /* balance */,
 				3E6CB626E4F008B8B37EA6BF /* common-ui */,
+				7A179FCD25703B140020C7A6 /* Localizable.strings */,
 			);
 			path = "history-quiz-ios";
 			sourceTree = "<group>";
@@ -521,6 +525,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7AF43F6C252F7241006B94D6;
 			productRefGroup = 7AF43F76252F7241006B94D6 /* Products */;
@@ -545,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A179FCB25703B140020C7A6 /* Localizable.strings in Resources */,
 				7AF43F85252F7243006B94D6 /* LaunchScreen.storyboard in Resources */,
 				7AF43F82252F7243006B94D6 /* Preview Assets.xcassets in Resources */,
 				7AF43F7F252F7243006B94D6 /* Assets.xcassets in Resources */,
@@ -633,6 +639,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7A179FCD25703B140020C7A6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A179FCC25703B140020C7A6 /* en */,
+				7A179FD025703B190020C7A6 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7AF43F83252F7243006B94D6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -690,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -736,7 +752,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -750,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -790,7 +807,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -850,7 +867,7 @@
 				7A0B8D012546C57800C871C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7AF43F70252F7241006B94D6 /* Build configuration list for PBXProject "history-quiz-ios" */ = {
 			isa = XCConfigurationList;
@@ -859,7 +876,7 @@
 				7AF43F88252F7243006B94D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7AF43F89252F7243006B94D6 /* Build configuration list for PBXNativeTarget "history-quiz-ios" */ = {
 			isa = XCConfigurationList;
@@ -868,7 +885,7 @@
 				7AF43F8B252F7243006B94D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
