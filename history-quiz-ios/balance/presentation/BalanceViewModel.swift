@@ -10,7 +10,7 @@ class BalanceViewModel: ObservableObject {
     private let repository: BalanceRepository
 
     @Published
-    var balanceSum: Int = 0
+    var balanceSum: String = ""
 
     @Published
     var receiveBonusesInfo: CommonListUiModel? = nil
@@ -24,9 +24,11 @@ class BalanceViewModel: ObservableObject {
         self.repository = repository
         let transactions = repository.getAllTransactions()
 
-        balanceSum = transactions.map { transaction in
-            transaction.amount
-        }.reduce(0, +)
+        balanceSum = String(
+                transactions.map { transaction in
+                    transaction.amount
+                }.reduce(0, +)
+        )
 
         receiveBonusesInfo = CommonListUiModel(list: [
             CommonListUiModel.Item(name: "Daily bonus".localized(), value: "30"),

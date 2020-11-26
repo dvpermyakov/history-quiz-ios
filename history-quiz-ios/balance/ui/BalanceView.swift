@@ -27,7 +27,7 @@ struct BalanceView: View {
                                 .padding(.bottom, 10)
                         CommonListView(model: viewModel.transactionsInfo!)
                     }
-                }.navigationBarTitle("Balance : \(viewModel.balanceSum)").padding()
+                }.navigationBarTitle(String(format: "Balance with param".localized(), viewModel.balanceSum)).padding()
             }
         }
     }
