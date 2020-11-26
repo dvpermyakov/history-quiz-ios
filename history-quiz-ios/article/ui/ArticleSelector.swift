@@ -16,13 +16,13 @@ extension ArticlePart {
     var name: String {
         switch self {
         case .Text:
-            return "Article"
+            return "Article".localized()
         case .Events:
-            return "Events"
+            return "Events".localized()
         case .Persons:
-            return "Persons"
+            return "Persons".localized()
         case .Test:
-            return "Test"
+            return "Test".localized()
         }
     }
 }

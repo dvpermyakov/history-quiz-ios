@@ -1,6 +1,10 @@
 "Periods" = "Периоды";
 "Balance" = "Баланс";
 "See" = "Смотреть";
+"Article" = "Информация";
+"Events" = "События";
+"Persons" = "Правители";
+"Test" =  "Тест";
 "Daily reward" = "Ежедневная награда";
 "You receive your new daily reward! Congrats!" = "Вы получаете свою ежедневную награду! Поздравляем!";
 "Balance with param" = "Баланс: %@";
