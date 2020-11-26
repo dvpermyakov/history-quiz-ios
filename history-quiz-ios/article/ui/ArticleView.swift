@@ -77,7 +77,7 @@ struct LoadedArticleView: View {
         }.popover(isPresented: $showRules) {
             VStack(alignment: .leading) {
                 Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
-                Text("You will see four different answers for one question. Only one is right. If you choose the wrong one, then you should try another one unless your lives are remain. Time is ticking as well.")
+                Text("Rules information".localized())
             }.padding()
         }
     }

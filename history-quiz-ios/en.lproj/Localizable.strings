@@ -19,3 +19,8 @@
 "Start closed test" = "Start closed test";
 "Continue test" = "Continue test";
 "Unknown" = "Unknown";
+"Test info" = "Test info";
+"Rules" = "Rules";
+"Test" = "Test";
+"Start" = "Start";
+"Rules information" = "You will see four different answers for one question. Only one is right. If you choose the wrong one, then you should try another one unless your lives are remain. Time is ticking as well.";
