@@ -11,8 +11,19 @@ struct Transaction: Identifiable, Hashable {
     let date: Date
     let type: TransactionType
 
-    enum TransactionType : Int {
+    enum TransactionType: Int {
         case DailyAward = 0
         case Unknown = -1
+    }
+}
+
+extension Transaction {
+    var typeTitle: String {
+        switch self.type {
+        case .DailyAward:
+            return "Daily award"
+        case .Unknown:
+            return "Unknown"
+        }
     }
 }

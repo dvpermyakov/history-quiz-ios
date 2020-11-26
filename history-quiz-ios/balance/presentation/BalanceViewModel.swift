@@ -18,11 +18,11 @@ class BalanceViewModel: ObservableObject {
     var spendBonusesInfo: CommonListUiModel? = nil
 
     @Published
-    var transactions: [Transaction] = []
+    var transactionsInfo: CommonListUiModel? = nil
 
     init(repository: BalanceRepository) {
         self.repository = repository
-        self.transactions = repository.getAllTransactions()
+        let transactions = repository.getAllTransactions()
 
         balanceSum = transactions.map { transaction in
             transaction.amount
@@ -39,6 +39,9 @@ class BalanceViewModel: ObservableObject {
             CommonListUiModel.Item(name: "Start closed test", value: "20"),
             CommonListUiModel.Item(name: "Continue test", value: "30")
         ])
+        transactionsInfo = CommonListUiModel(list: transactions.map { transaction in
+            CommonListUiModel.Item(name: transaction.typeTitle, value: "+\(transaction.amount)")
+        })
     }
 
 }

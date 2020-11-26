@@ -28,11 +28,13 @@ class MainViewModel: ObservableObject {
     private func updateDailyAward() {
         self.showDailyAwardAlert = true
         self.repository.lastDailyAwardDate = Date()
-        self.repository.createTransaction(value: Transaction(
-                id: UUID(),
-                amount: 30,
-                date: Date(),
-                type: Transaction.TransactionType.DailyAward
-        ))
+        self.repository.createTransaction(
+                value: Transaction(
+                        id: UUID(),
+                        amount: 30,
+                        date: Date(),
+                        type: Transaction.TransactionType.DailyAward
+                )
+        )
     }
 }

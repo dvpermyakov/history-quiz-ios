@@ -13,30 +13,22 @@ struct BalanceView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: HorizontalAlignment.leading) {
-                    Text("Way to receive money").padding(.bottom, 10)
                     if (viewModel.receiveBonusesInfo != nil) {
+                        Text("Way to receive money").padding(.bottom, 10)
                         CommonListView(model: viewModel.receiveBonusesInfo!)
                     }
-                    Text("Way to spend money").padding(.top, 25).padding(.bottom, 10)
                     if (viewModel.spendBonusesInfo != nil) {
+                        Text("Way to spend money").padding(.top, 25).padding(.bottom, 10)
                         CommonListView(model: viewModel.spendBonusesInfo!)
                     }
-                    if (!viewModel.transactions.isEmpty) {
+                    if (viewModel.transactionsInfo?.list.isEmpty == false) {
                         Text("Balance history")
                                 .padding(.top, 25)
                                 .padding(.bottom, 10)
-                        ForEach(viewModel.transactions) { transaction in
-                            Text(transaction.title)
-                        }
+                        CommonListView(model: viewModel.transactionsInfo!)
                     }
                 }.navigationBarTitle("Balance : \(viewModel.balanceSum)").padding()
             }
         }
-    }
-}
-
-extension Transaction {
-    var title: String {
-        " amount: \(self.amount)"
     }
 }
