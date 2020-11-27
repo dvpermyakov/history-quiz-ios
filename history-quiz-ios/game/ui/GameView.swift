@@ -13,29 +13,33 @@ struct GameView: View {
     var viewModel: GameViewModel
 
     var body: some View {
-        if let gameResult = viewModel.gameResult {
-            GameResultView(result: gameResult, onStartAgain: {
-                viewModel.restartGame()
-            })
-        } else if let question = viewModel.currentQuestion {
-            VStack {
-                QuestionGameView(
-                        question: question,
-                        wrongAnswers: viewModel.wrongAnswers,
-                        rightAnswer: viewModel.rightAnswer
-                ) { answer in
-                    self.viewModel.setAnswer(answer: answer)
-                }
-                Spacer()
-                GamePanelView(uiModel: PanelUiModel(
-                        questionNumber: viewModel.questionNumber,
-                        questionMax: viewModel.questionMax,
-                        secondLeft: viewModel.secondsLeft,
-                        mistakesLeft: viewModel.mistakeLeft
-                ))
-            }.frame(maxHeight: .infinity)
-        } else {
-            ProgressView()
+        Group {
+            if let gameResult = viewModel.gameResult {
+                GameResultView(result: gameResult, onStartAgain: {
+                    viewModel.restartGame()
+                })
+            } else if let question = viewModel.currentQuestion {
+                VStack {
+                    QuestionGameView(
+                            question: question,
+                            wrongAnswers: viewModel.wrongAnswers,
+                            rightAnswer: viewModel.rightAnswer
+                    ) { answer in
+                        self.viewModel.setAnswer(answer: answer)
+                    }
+                    Spacer()
+                    GamePanelView(uiModel: PanelUiModel(
+                            questionNumber: viewModel.questionNumber,
+                            questionMax: viewModel.questionMax,
+                            secondLeft: viewModel.secondsLeft,
+                            mistakesLeft: viewModel.mistakeLeft
+                    ))
+                }.frame(maxHeight: .infinity)
+            } else {
+                ProgressView()
+            }
+        }.onDisappear {
+            viewModel.restartGame()
         }
     }
 
