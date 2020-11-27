@@ -17,6 +17,7 @@
 		3E6CB1FD26955093F54302E1 /* Image+croped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBB72DA04E9DB65FDDD3F /* Image+croped.swift */; };
 		3E6CB2295B33F1227853A3A1 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB80815CBE7510A181C4F /* UIColor+hex.swift */; };
 		3E6CB327342AEDB9E5ECA8C6 /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB6D0163414AF74176523 /* ArticleRepository.swift */; };
+		3E6CB39DD2B37B409C811C28 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBE7D9A1FAF58FECE5643 /* AnswerView.swift */; };
 		3E6CB41C5194C7570DFFC94F /* ArticleItemUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB0218BE72F2DEB3CACBC /* ArticleItemUiModel.swift */; };
 		3E6CB478FA49980B8E48BBC5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB15E35C8E92AA28C0587 /* Article.swift */; };
 		3E6CB4A3693AE1282C691553 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBE9783555D54A3A15711 /* Period.swift */; };
@@ -44,6 +45,7 @@
 		3E6CBAAC1B07EEA2184D9418 /* PeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB1B91BC5DFB2B943C68D /* PeriodsRepository.swift */; };
 		3E6CBAF8D74FB2509B7A1DFC /* AticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB3AAB85A789C16D4CCA3 /* AticleViewModel.swift */; };
 		3E6CBC0410CA1F956F7CD740 /* ArticleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBB768F2DB03FA87BE327 /* ArticleMapper.swift */; };
+		3E6CBC0BF29047C9693A2D71 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB972FDB4F9A1968351DA /* QuestionView.swift */; };
 		3E6CBC5D46D56425E82DAE56 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBBE16AC7D4F503356C01 /* String+localized.swift */; };
 		3E6CBC93A5C0750101A16CED /* PersonDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB0142091F66E2A3BC039 /* PersonDto.swift */; };
 		3E6CBD02295056E5CE7D1E00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBDB9374364DC0043C7B3 /* MainView.swift */; };
@@ -110,6 +112,7 @@
 		3E6CB91C46D08E700F0BD5BD /* CommonListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonListView.swift; sourceTree = "<group>"; };
 		3E6CB93DA85619894D4D7D04 /* PeriodsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsView.swift; sourceTree = "<group>"; };
 		3E6CB94BC4263DEC5030319A /* PeriodsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsViewModel.swift; sourceTree = "<group>"; };
+		3E6CB972FDB4F9A1968351DA /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		3E6CB9F00BE8678F616E24BF /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		3E6CBA1F92353BBE1D3C2E3A /* BalanceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceRepository.swift; sourceTree = "<group>"; };
 		3E6CBA27F1F6D418CEC9B593 /* PeriodsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsDto.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		3E6CBDD0D24A333DF0C3EAB6 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3E6CBDEB41F24B683BFBB3DB /* ArticleDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDto.swift; sourceTree = "<group>"; };
 		3E6CBE6059FF8FA5D88E9F31 /* BalanceMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceMapper.swift; sourceTree = "<group>"; };
+		3E6CBE7D9A1FAF58FECE5643 /* AnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		3E6CBE9783555D54A3A15711 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		3E6CBEAD0991480F9A6C9027 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3E6CBEEE7AC1193A2009193E /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				3E6CB43ACE57D6BE6F48A9C2 /* GameView.swift */,
+				3E6CB972FDB4F9A1968351DA /* QuestionView.swift */,
+				3E6CBE7D9A1FAF58FECE5643 /* AnswerView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -629,6 +635,8 @@
 				3E6CB4BB25C444893D7F22A1 /* CommonListView.swift in Sources */,
 				3E6CBDBAB17E5903F0521EDF /* ArticleTestView.swift in Sources */,
 				3E6CBC5D46D56425E82DAE56 /* String+localized.swift in Sources */,
+				3E6CBC0BF29047C9693A2D71 /* QuestionView.swift in Sources */,
+				3E6CB39DD2B37B409C811C28 /* AnswerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

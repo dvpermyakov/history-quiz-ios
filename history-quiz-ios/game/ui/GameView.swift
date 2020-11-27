@@ -33,36 +33,20 @@ struct QuestionGameView: View {
             QuestionView(question: self.question)
             VStack {
                 ForEach(question.answers) { answer in
-                    AnswerView(answer: answer)
-                            .onTapGesture {
-                                answerTapHandler(answer)
-                            }
+                    VStack {
+                        AnswerView(answer: answer)
+                                .onTapGesture {
+                                    answerTapHandler(answer)
+                                }
+                        Divider()
+                    }
                 }
             }
+                    .padding(.top, 10)
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color.gray)
-                    .cornerRadius(20)
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .shadow(color: Color.gray, radius: 2)
         }.padding(50)
-    }
-}
-
-struct QuestionView: View {
-    let question: Game.Question
-
-    var body: some View {
-        Text(question.text)
-                .font(.largeTitle)
-                .padding(30)
-    }
-}
-
-struct AnswerView: View {
-    let answer: Game.Answer
-
-    var body: some View {
-        Text(answer.text)
-                .font(.caption)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .padding(20)
     }
 }
