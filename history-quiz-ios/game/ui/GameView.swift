@@ -19,7 +19,11 @@ struct GameView: View {
             })
         } else if let question = viewModel.currentQuestion {
             VStack {
-                QuestionGameView(question: question) { answer in
+                QuestionGameView(
+                        question: question,
+                        wrongAnswers: viewModel.wrongAnswers,
+                        rightAnswer: viewModel.rightAnswer
+                ) { answer in
                     self.viewModel.setAnswer(answer: answer)
                 }
                 Spacer()
@@ -39,6 +43,8 @@ struct GameView: View {
 
 struct QuestionGameView: View {
     let question: Game.Question
+    let wrongAnswers: [Game.Answer]
+    let rightAnswer: Game.Answer?
     let answerTapHandler: (Game.Answer) -> Void
 
     var body: some View {
@@ -47,7 +53,10 @@ struct QuestionGameView: View {
             VStack {
                 ForEach(question.answers) { answer in
                     VStack {
-                        AnswerView(answer: answer)
+                        AnswerView(
+                                answer: answer,
+                                type: getAnswerType(answer: answer)
+                        )
                                 .onTapGesture {
                                     answerTapHandler(answer)
                                 }
@@ -61,5 +70,15 @@ struct QuestionGameView: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray, radius: 2)
         }.padding(50)
+    }
+
+    func getAnswerType(answer: Game.Answer) -> AnswerType {
+        if answer == rightAnswer {
+            return AnswerType.Right
+        }
+        if wrongAnswers.firstIndex(of: answer) != nil {
+            return AnswerType.Wrong
+        }
+        return AnswerType.Unknown
     }
 }

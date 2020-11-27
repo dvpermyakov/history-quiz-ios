@@ -26,6 +26,10 @@ class GameViewModel: ObservableObject {
     private var mistakeAmount = 0
 
     @Published
+    var wrongAnswers: [Game.Answer] = []
+    @Published
+    var rightAnswer: Game.Answer? = nil
+    @Published
     var gameResult: GameResult? = nil
 
     var currentQuestion: Game.Question? {
@@ -51,13 +55,18 @@ class GameViewModel: ObservableObject {
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
-                    print("getGame \(completion)")
                 }, receiveValue: { output in
                     self.game = output
                 })
                 .store(in: &disposables)
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.currentSeconds += 1
+            if (self.currentSeconds >= self.test.seconds) {
+                self.endGame()
+            }
+            if (self.rightAnswer != nil) {
+                self.nextQuestion()
+            }
         }
     }
 
@@ -65,22 +74,28 @@ class GameViewModel: ObservableObject {
         if let game = self.game {
             if answer.correct {
                 if questionIndex + 1 < game.questions.endIndex {
-                    questionIndex += 1
+                    rightAnswer = answer
+                } else {
+                    endGame()
                 }
             } else {
                 mistakeAmount += 1
                 if (mistakeAmount >= test.mistakesAmount) {
                     endGame()
+                } else {
+                    wrongAnswers.append(answer)
                 }
             }
         }
     }
 
     func restartGame() {
-        questionIndex = 0
-        currentSeconds = 0
-        mistakeAmount = 0
-        gameResult = nil
+        self.questionIndex = 0
+        self.currentSeconds = 0
+        self.mistakeAmount = 0
+        self.gameResult = nil
+        self.rightAnswer = nil
+        self.wrongAnswers = []
     }
 
     private func endGame() {
@@ -92,4 +107,9 @@ class GameViewModel: ObservableObject {
         )
     }
 
+    private func nextQuestion() {
+        self.rightAnswer = nil
+        self.wrongAnswers = []
+        self.questionIndex += 1
+    }
 }
