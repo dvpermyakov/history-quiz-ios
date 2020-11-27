@@ -10,9 +10,11 @@ struct GameResultView: View {
     var viewModel: GameResultViewModel
 
     var body: some View {
-        VStack {
-            Text("Result").padding(.bottom, 10)
-            CommonListView(model: viewModel.resultInfo)
-        }.padding()
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("Result").padding(.bottom, 10)
+                CommonListView(model: viewModel.resultInfo)
+            }.padding()
+        }
     }
 }
