@@ -79,7 +79,7 @@ class GameViewModel: ObservableObject {
     private func endGame() {
         gameResult = GameResult(
                 test: test,
-                questionsAnswered: questionIndex + 1,
+                questionsAnswered: questionIndex,
                 timeConsumed: currentSeconds,
                 mistakesMade: mistakeAmount
         )
