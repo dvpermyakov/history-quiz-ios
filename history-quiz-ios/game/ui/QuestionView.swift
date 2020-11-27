@@ -13,6 +13,7 @@ struct QuestionView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
                 .font(.system(size: 22))
-                .padding(30)
+                .lineLimit(nil)
+                .padding(15)
     }
 }
