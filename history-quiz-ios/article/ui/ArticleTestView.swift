@@ -25,8 +25,14 @@ struct ArticleTestView: View {
                 NavigationLink(destination: Router.createTest(testId: test.id)
                         .navigationBarTitle("Test")
                 ) {
-                    Text("Start").padding()
-                }
+                    HStack {
+                        Text("Start")
+                        Image(systemName: "chevron.right")
+                    }.padding()
+                }.frame(
+                        maxWidth: .infinity,
+                        alignment: .trailing
+                )
             }
         }.padding()
     }
