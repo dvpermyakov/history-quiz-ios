@@ -74,11 +74,14 @@ struct LoadedArticleView: View {
                     }
                 }
             }
-        }.popover(isPresented: $showRules) {
-            VStack(alignment: .leading) {
-                Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
-                Text("Rules information".localized())
-            }.padding()
         }
+                .sheet(isPresented: $showRules) {
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
+                            Text("Rules information".localized())
+                        }.padding()
+                    }
+                }
     }
 }
