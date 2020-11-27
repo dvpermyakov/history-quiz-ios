@@ -22,7 +22,7 @@ struct ArticleTestView: View {
                 }) {
                     Text("Rules")
                 }.padding()
-                NavigationLink(destination: Router.createTest(testId: test.id)
+                NavigationLink(destination: Router.createTest(test: test)
                         .navigationBarTitle("Test")
                 ) {
                     HStack {

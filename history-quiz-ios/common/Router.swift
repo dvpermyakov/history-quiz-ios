@@ -28,10 +28,10 @@ class Router {
         ))
     }
 
-    static func createTest(testId gameId: String) -> GameView {
+    static func createTest(test: Test) -> GameView {
         let gameRepository: GameRepository = GameRepositoryIml()
         return GameView(viewModel: GameViewModel(
-                gameId: gameId,
+                test: test,
                 repository: gameRepository
         ))
     }

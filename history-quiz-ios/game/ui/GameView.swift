@@ -14,9 +14,18 @@ struct GameView: View {
 
     var body: some View {
         if let question = viewModel.currentQuestion {
-            QuestionGameView(question: question) { answer in
-                self.viewModel.setAnswer(answer: answer)
-            }
+            VStack {
+                QuestionGameView(question: question) { answer in
+                    self.viewModel.setAnswer(answer: answer)
+                }
+                Spacer()
+                GamePanelView(uiModel: PanelUiModel(
+                        questionNumber: viewModel.questionNumber,
+                        questionMax: viewModel.questionMax,
+                        secondLeft: viewModel.secondsLeft,
+                        mistakesLeft: viewModel.mistakeLeft
+                ))
+            }.frame(maxHeight: .infinity)
         } else {
             ProgressView()
         }

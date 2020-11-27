@@ -13,19 +13,38 @@ class GameViewModel: ObservableObject {
 
     private let repository: GameRepository
     private var disposables = Set<AnyCancellable>()
+    private var timer: Timer? = nil
 
+    private let test: Test
     @Published
     private var game: Game? = nil
     @Published
     private var questionIndex = 0
+    @Published
+    private var currentSeconds = 0
+    @Published
+    private var mistakeAmount = 0
 
     var currentQuestion: Game.Question? {
         game?.questions[questionIndex]
     }
+    var secondsLeft: Int {
+        test.seconds - currentSeconds
+    }
+    var questionNumber: Int {
+        questionIndex + 1
+    }
+    var questionMax: Int {
+        game?.questions.endIndex ?? 0
+    }
+    var mistakeLeft: Int {
+        test.mistakesAmount - mistakeAmount
+    }
 
-    init(gameId: String, repository: GameRepository) {
+    init(test: Test, repository: GameRepository) {
+        self.test = test
         self.repository = repository
-        repository.getGame(gameId: gameId)
+        repository.getGame(gameId: test.id)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
@@ -34,6 +53,9 @@ class GameViewModel: ObservableObject {
                     self.game = output
                 })
                 .store(in: &disposables)
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.currentSeconds += 1
+        }
     }
 
     func setAnswer(answer: Game.Answer) {
