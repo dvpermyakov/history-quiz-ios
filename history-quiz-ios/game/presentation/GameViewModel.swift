@@ -60,12 +60,17 @@ class GameViewModel: ObservableObject {
                 })
                 .store(in: &disposables)
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.currentSeconds += 1
-            if (self.currentSeconds >= self.test.seconds) {
-                self.endGame()
-            }
-            if (self.rightAnswer != nil) {
-                self.nextQuestion()
+            if (self.gameResult == nil) {
+                self.currentSeconds += 1
+                if (self.currentSeconds >= self.test.seconds) {
+                    self.endGame()
+                }
+                if (self.mistakeAmount >= self.test.mistakesAmount) {
+                    self.endGame()
+                }
+                if (self.rightAnswer != nil) {
+                    self.nextQuestion()
+                }
             }
         }
     }
@@ -80,11 +85,7 @@ class GameViewModel: ObservableObject {
                 }
             } else {
                 mistakeAmount += 1
-                if (mistakeAmount >= test.mistakesAmount) {
-                    endGame()
-                } else {
-                    wrongAnswers.append(answer)
-                }
+                wrongAnswers.append(answer)
             }
         }
     }
