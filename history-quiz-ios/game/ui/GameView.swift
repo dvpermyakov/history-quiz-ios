@@ -13,7 +13,9 @@ struct GameView: View {
     var viewModel: GameViewModel
 
     var body: some View {
-        if let question = viewModel.currentQuestion {
+        if let gameResult = viewModel.gameResult {
+            Router.createTestResult(result: gameResult)
+        } else if let question = viewModel.currentQuestion {
             VStack {
                 QuestionGameView(question: question) { answer in
                     self.viewModel.setAnswer(answer: answer)

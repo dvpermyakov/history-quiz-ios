@@ -28,3 +28,6 @@
 "Available seconds" = "Available seconds";
 "Lives amount" = "Lives amount";
 "Rules information" = "You will see four different answers for one question. Only one is right. If you choose the wrong one, then you should try another one unless your lives are remain. Time is ticking as well.";
+"Question answered" = "Question answered";
+"Time spent" = "Time spent";
+"Mistakes" = "Mistakes";

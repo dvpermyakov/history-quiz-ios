@@ -25,6 +25,9 @@ class GameViewModel: ObservableObject {
     @Published
     private var mistakeAmount = 0
 
+    @Published
+    var gameResult: GameResult? = nil
+
     var currentQuestion: Game.Question? {
         game?.questions[questionIndex]
     }
@@ -60,10 +63,26 @@ class GameViewModel: ObservableObject {
 
     func setAnswer(answer: Game.Answer) {
         if let game = self.game {
-            if (questionIndex + 1 < game.questions.endIndex) {
-                questionIndex += 1
+            if answer.correct {
+                if questionIndex + 1 < game.questions.endIndex {
+                    questionIndex += 1
+                }
+            } else {
+                mistakeAmount += 1
+                if (mistakeAmount >= test.mistakesAmount) {
+                    endGame()
+                }
             }
         }
+    }
+
+    private func endGame() {
+        gameResult = GameResult(
+                test: test,
+                questionsAnswered: questionIndex + 1,
+                timeConsumed: currentSeconds,
+                mistakesMade: mistakeAmount
+        )
     }
 
 }
