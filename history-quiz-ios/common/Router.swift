@@ -36,12 +36,6 @@ class Router {
         ))
     }
 
-    static func createTestResult(result: GameResult) -> GameResultView {
-        GameResultView(viewModel: GameResultViewModel(
-                result: result
-        ))
-    }
-
     static func createArticle(for item: ArticleAvailable) -> ArticleView {
         let articleRepository: ArticleRepository = ArticleRepositoryIml()
         return ArticleView(viewModel: ArticleViewModel(
