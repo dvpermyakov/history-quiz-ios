@@ -6,7 +6,8 @@
 import SwiftUI
 
 struct GameResultView: View {
-    var result: GameResult
+    let result: GameResult
+    let onStartAgain: () -> Void
 
     var body: some View {
         ScrollView {
@@ -17,6 +18,15 @@ struct GameResultView: View {
                     CommonListUiModel.Item(name: "Time spent".localized(), value: "\(result.timeConsumed)/\(result.test.seconds)"),
                     CommonListUiModel.Item(name: "Mistakes".localized(), value: "\(result.mistakesMade)/\(result.test.mistakesAmount)")
                 ]))
+                Button(action: onStartAgain) {
+                    HStack {
+                        Text("Start again")
+                        Image(systemName: "chevron.right")
+                    }.padding()
+                }.frame(
+                        maxWidth: .infinity,
+                        alignment: .trailing
+                )
             }.padding()
         }
     }

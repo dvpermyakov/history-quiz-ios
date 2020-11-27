@@ -14,7 +14,9 @@ struct GameView: View {
 
     var body: some View {
         if let gameResult = viewModel.gameResult {
-            GameResultView(result: gameResult)
+            GameResultView(result: gameResult, onStartAgain: {
+                viewModel.restartGame()
+            })
         } else if let question = viewModel.currentQuestion {
             VStack {
                 QuestionGameView(question: question) { answer in

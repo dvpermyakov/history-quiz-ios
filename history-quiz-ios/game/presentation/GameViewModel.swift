@@ -76,6 +76,13 @@ class GameViewModel: ObservableObject {
         }
     }
 
+    func restartGame() {
+        questionIndex = 0
+        currentSeconds = 0
+        mistakeAmount = 0
+        gameResult = nil
+    }
+
     private func endGame() {
         gameResult = GameResult(
                 test: test,
