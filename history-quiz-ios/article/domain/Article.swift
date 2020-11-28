@@ -25,7 +25,7 @@ struct Paragraph: Identifiable, Hashable {
     let image: String?
 }
 
-struct Test {
+struct Test: Equatable {
     let id: String
     let questionAmount: Int
     let mistakesAmount: Int

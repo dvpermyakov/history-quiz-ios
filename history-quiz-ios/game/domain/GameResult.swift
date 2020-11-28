@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct GameResult {
+struct GameResult: Equatable {
     let test: Test
     let questionsAnswered: Int
     let timeConsumed: Int

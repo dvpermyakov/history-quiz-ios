@@ -35,6 +35,8 @@ class GameRepositoryIml: GameRepository {
                 .map { dto in
                     dto.map()
                 }
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
     }
 }

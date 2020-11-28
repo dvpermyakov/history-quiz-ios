@@ -44,6 +44,7 @@
 		3E6CBAA4356360BFEC88EF87 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF79862D4EEAE37C3713 /* MainViewModel.swift */; };
 		3E6CBAAC1B07EEA2184D9418 /* PeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB1B91BC5DFB2B943C68D /* PeriodsRepository.swift */; };
 		3E6CBAF8D74FB2509B7A1DFC /* AticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB3AAB85A789C16D4CCA3 /* AticleViewModel.swift */; };
+		3E6CBBD4EB96D8C0F0111B2E /* Publisher+test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB4F6E207610A2A59AA8B /* Publisher+test.swift */; };
 		3E6CBC0410CA1F956F7CD740 /* ArticleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBB768F2DB03FA87BE327 /* ArticleMapper.swift */; };
 		3E6CBC0BF29047C9693A2D71 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB972FDB4F9A1968351DA /* QuestionView.swift */; };
 		3E6CBC5D46D56425E82DAE56 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBBE16AC7D4F503356C01 /* String+localized.swift */; };
@@ -99,6 +100,7 @@
 		3E6CB43ACE57D6BE6F48A9C2 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		3E6CB4E684E95BBEEA22455A /* PersonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonMapper.swift; sourceTree = "<group>"; };
+		3E6CB4F6E207610A2A59AA8B /* Publisher+test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+test.swift"; sourceTree = "<group>"; };
 		3E6CB5064C1FC5FA751AD4CB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModelTest.swift; sourceTree = "<group>"; };
 		3E6CB55A07D8D5C879570653 /* ArticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			children = (
 				7A0B8CFC2546C57800C871C3 /* Info.plist */,
 				3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */,
+				3E6CB4F6E207610A2A59AA8B /* Publisher+test.swift */,
 			);
 			path = "history-quiz-ios-unit-tests";
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A99D96925725A4B007AFD6A /* GameViewModelTest.swift in Sources */,
+				3E6CBBD4EB96D8C0F0111B2E /* Publisher+test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

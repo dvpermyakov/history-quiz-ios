@@ -52,8 +52,6 @@ class GameViewModel: ObservableObject {
         self.test = test
         self.repository = repository
         repository.getGame(gameId: test.id)
-                .subscribe(on: DispatchQueue.global())
-                .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                 }, receiveValue: { output in
                     self.game = output
