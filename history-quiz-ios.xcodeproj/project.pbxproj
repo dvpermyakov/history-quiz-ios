@@ -63,9 +63,9 @@
 		3E6CBF4F00AA17F61CF6CD93 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBA3B53F7315B4C1A5AA1 /* GameResult.swift */; };
 		3E6CBFE8C149A698182CB715 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB377870F596A77233D94 /* GameDto.swift */; };
 		3E6CBFF86990A4C68E379331 /* BalanceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */; };
-		7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */; };
 		7A179FCB25703B140020C7A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A179FCD25703B140020C7A6 /* Localizable.strings */; };
 		7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */; };
+		7A99D96925725A4B007AFD6A /* GameViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */; };
 		7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F78252F7241006B94D6 /* AppDelegate.swift */; };
 		7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */; };
 		7AF43F7F252F7243006B94D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF43F7E252F7243006B94D6 /* Assets.xcassets */; };
@@ -100,6 +100,7 @@
 		3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		3E6CB4E684E95BBEEA22455A /* PersonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonMapper.swift; sourceTree = "<group>"; };
 		3E6CB5064C1FC5FA751AD4CB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModelTest.swift; sourceTree = "<group>"; };
 		3E6CB55A07D8D5C879570653 /* ArticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		3E6CB5E38CDFA4E05D2FBB5F /* BalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		3E6CB60195CE8D3ECEA55B2C /* GameRepositoryIml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepositoryIml.swift; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		3E6CBF29A059F4BC862243C8 /* GameRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		3E6CBF79862D4EEAE37C3713 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history_quiz_ios_unit_tests.swift; sourceTree = "<group>"; };
 		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A179FCC25703B140020C7A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A179FD025703B190020C7A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -414,8 +414,8 @@
 		7A0B8CF92546C57800C871C3 /* history-quiz-ios-unit-tests */ = {
 			isa = PBXGroup;
 			children = (
-				7A0B8CFA2546C57800C871C3 /* history_quiz_ios_unit_tests.swift */,
 				7A0B8CFC2546C57800C871C3 /* Info.plist */,
+				3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */,
 			);
 			path = "history-quiz-ios-unit-tests";
 			sourceTree = "<group>";
@@ -583,7 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0B8CFB2546C57800C871C3 /* history_quiz_ios_unit_tests.swift in Sources */,
+				7A99D96925725A4B007AFD6A /* GameViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

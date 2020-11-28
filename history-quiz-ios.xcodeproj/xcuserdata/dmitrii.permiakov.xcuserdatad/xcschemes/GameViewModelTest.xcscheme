@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A0B8CF72546C57800C871C3"
+               BuildableName = "history-quiz-ios-unit-tests.xctest"
+               BlueprintName = "history-quiz-ios-unit-tests"
+               ReferencedContainer = "container:history-quiz-ios.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A0B8CF72546C57800C871C3"
+               BuildableName = "history-quiz-ios-unit-tests.xctest"
+               BlueprintName = "history-quiz-ios-unit-tests"
+               ReferencedContainer = "container:history-quiz-ios.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>
