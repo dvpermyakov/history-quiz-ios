@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct PeriodsView: View {
     @ObservedObject
@@ -40,7 +41,10 @@ struct PeriodView: View {
     var body: some View {
         Group {
             VStack(alignment: .leading) {
-                PeriodImageView(url: period.image)
+                KFImage(URL(string: period.image))
+                        .centerCropped()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 170)
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
                         Text(period.name)
@@ -63,25 +67,6 @@ struct PeriodView: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray, radius: 2)
         }.padding()
-    }
-}
-
-struct PeriodImageView: View {
-    @ObservedObject
-    var imageLoader: ImageLoader
-
-    init(url: String) {
-        imageLoader = ImageLoader(url: url)
-    }
-
-    var body: some View {
-        Group {
-            if let data = imageLoader.data, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage).centerCropped()
-            } else {
-                ProgressView()
-            }
-        }.frame(maxWidth: .infinity).frame(height: 170)
     }
 }
 

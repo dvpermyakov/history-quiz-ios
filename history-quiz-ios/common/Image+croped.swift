@@ -4,8 +4,9 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
-extension Image {
+extension KFImage {
     func centerCropped() -> some View {
         GeometryReader { geo in
             self

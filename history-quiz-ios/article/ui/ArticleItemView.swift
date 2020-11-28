@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct ArticleItemView: View {
     let item: ArticleItemUiModel
@@ -11,7 +12,11 @@ struct ArticleItemView: View {
     var body: some View {
         Group {
             HStack(alignment: .center) {
-                ArticleItemImageView(url: item.image)
+                KFImage(URL(string: item.image))
+                        .centerCropped()
+                        .clipShape(Circle())
+                        .frame(width: 100, height: 100)
+                        .padding(.leading, 10)
 
                 VStack(alignment: .leading) {
                     Text(item.title)
@@ -34,27 +39,6 @@ struct ArticleItemView: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray, radius: 2)
         }.padding()
-    }
-}
-
-struct ArticleItemImageView: View {
-    @ObservedObject
-    var imageLoader: ImageLoader
-
-    init(url: String) {
-        imageLoader = ImageLoader(url: url)
-    }
-
-    var body: some View {
-        Group {
-            if let data = imageLoader.data, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                        .centerCropped()
-                        .clipShape(Circle())
-            } else {
-                Spacer()
-            }
-        }.frame(width: 100, height: 100).padding(.leading, 10)
     }
 }
 
