@@ -5,9 +5,30 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class ArticleRepositoryIml: ArticleRepository {
     private let PATH_GAME = "/api/history/mark_info"
+
+    func setReadArticle(item: ReadArticle) -> Bool {
+        guard let context = getArticleContext() else {
+            return false
+        }
+        item.setEntity(for: context)
+        try? context.save()
+
+        return true
+    }
+
+    func getReadArticle(articleId: String, articleCategory: String) -> ReadArticle? {
+        guard let context = getArticleContext() else {
+            return nil
+        }
+        let request = NSFetchRequest<ReadArticleEntity>(entityName: "ReadArticleEntity")
+        request.predicate = NSPredicate(format: "articleId = %@ AND articleCategory = %@", articleId, articleCategory)
+
+        return try? context.fetch(request).first?.map()
+    }
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {
         var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_GAME)

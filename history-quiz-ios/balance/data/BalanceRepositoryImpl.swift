@@ -21,7 +21,7 @@ class BalanceRepositoryImpl: BalanceRepository {
     }
 
     func createTransaction(value transaction: Transaction) -> Bool {
-        guard let context = getContext() else {
+        guard let context = getBalanceContext() else {
             return false
         }
         transaction.setEntity(for: context)
@@ -31,7 +31,7 @@ class BalanceRepositoryImpl: BalanceRepository {
     }
 
     func getAllTransactions() -> [Transaction] {
-        guard let context = getContext() else {
+        guard let context = getBalanceContext() else {
             return []
         }
         let request = NSFetchRequest<TransactionEntity>(entityName: "TransactionEntity")

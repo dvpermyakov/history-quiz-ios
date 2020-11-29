@@ -11,6 +11,9 @@ class ArticleViewModel: ObservableObject {
     private let balanceRepository: BalanceRepository
     private var disposables = Set<AnyCancellable>()
 
+    private let articleId: String
+    private let articleCategory: String
+
     @Published
     var article: Article? = nil
     @Published
@@ -26,13 +29,20 @@ class ArticleViewModel: ObservableObject {
             articleRepository: ArticleRepository,
             balanceRepository: BalanceRepository
     ) {
+        self.articleId = id
+        self.articleCategory = category
         self.articleRepository = articleRepository
         self.balanceRepository = balanceRepository
         articleRepository.getArticle(id: id, category: category)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
-                    print("getArticle \(completion)")
+                    switch completion {
+                    case .finished:
+                        return
+                    case .failure(let er):
+                        self.error = er.localizedDescription
+                    }
                 }, receiveValue: { output in
                     self.article = output
                     let test = output.test
@@ -43,6 +53,8 @@ class ArticleViewModel: ObservableObject {
                     ])
                 })
                 .store(in: &disposables)
+        let readArticle = articleRepository.getReadArticle(articleId: id, articleCategory: category)
+        self.haveRead = readArticle != nil
     }
 
     func onReadClick() {
@@ -56,6 +68,12 @@ class ArticleViewModel: ObservableObject {
                             type: Transaction.TransactionType.ArticleRead
                     )
             )
+            articleRepository.setReadArticle(item: ReadArticle(
+                    id: UUID(),
+                    articleId: articleId,
+                    articleCategory: articleCategory,
+                    date: Date()
+            ))
         }
     }
 

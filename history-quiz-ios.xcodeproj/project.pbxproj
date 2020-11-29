@@ -11,6 +11,7 @@
 		3E6CB064D938F864E654B33F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB5E38CDFA4E05D2FBB5F /* BalanceView.swift */; };
 		3E6CB06B8B9F1C14CB817AEB /* ArticleAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCD232D3E08B35F6E2FA /* ArticleAvailable.swift */; };
 		3E6CB08FB13F5645AEBACF35 /* ArticleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB2DA76B67E0112CBA0B3 /* ArticleItemView.swift */; };
+		3E6CB0973898C9B465BC0781 /* UrlNotFoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB62261457DB15A26E872 /* UrlNotFoundError.swift */; };
 		3E6CB1094F43D1FFE2A32B3F /* ReadArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBAA5B16430C349CBA35E /* ReadArticle.swift */; };
 		3E6CB1160803F4C364B64408 /* PeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB94BC4263DEC5030319A /* PeriodsViewModel.swift */; };
 		3E6CB196F1AB8C1D20ACDF4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CB5064C1FC5FA751AD4CB /* .gitignore */; };
@@ -33,8 +34,8 @@
 		3E6CB6A6339E0521B69E5C7A /* Application+getContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */; };
 		3E6CB770A70BE7ED11EBABFB /* BalanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBA1F92353BBE1D3C2E3A /* BalanceRepository.swift */; };
 		3E6CB775021A7FEB28EC28B7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB43ACE57D6BE6F48A9C2 /* GameView.swift */; };
+		3E6CB81B685EE91AC5B626DE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF3E5D6CB4B89C2EDD19 /* APIError.swift */; };
 		3E6CB836D10885D5A8BB2696 /* ArticleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCF0C7622CEB588A6D7C /* ArticleSelector.swift */; };
-		3E6CB848FE79E6EA6709D57E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB8288B9EDEBE574CAD94 /* APIError.swift */; };
 		3E6CB88916BEC7C82C837C8E /* PeriodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB93DA85619894D4D7D04 /* PeriodsView.swift */; };
 		3E6CB8AFAEEB64824E50B8D6 /* BalanceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBE6059FF8FA5D88E9F31 /* BalanceMapper.swift */; };
 		3E6CB8D65114013B3153A6C4 /* PeriodsRepositoryIml.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB381FC89FCFBE11FE69E /* PeriodsRepositoryIml.swift */; };
@@ -123,6 +124,7 @@
 		3E6CB55A07D8D5C879570653 /* ArticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		3E6CB5E38CDFA4E05D2FBB5F /* BalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		3E6CB60195CE8D3ECEA55B2C /* GameRepositoryIml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepositoryIml.swift; sourceTree = "<group>"; };
+		3E6CB62261457DB15A26E872 /* UrlNotFoundError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlNotFoundError.swift; sourceTree = "<group>"; };
 		3E6CB697B756DA3B226A4825 /* ArticleTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTestView.swift; sourceTree = "<group>"; };
 		3E6CB6D0163414AF74176523 /* ArticleRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
 		3E6CB6F7F39CB651EAC8D3EE /* ArticleReadMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleReadMapper.swift; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 		3E6CB7E151124650786191EE /* GameResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		3E6CB8005D0E7EB3F7646DEE /* EventDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDto.swift; sourceTree = "<group>"; };
 		3E6CB80815CBE7510A181C4F /* UIColor+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
-		3E6CB8288B9EDEBE574CAD94 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3E6CB85C0C1EBF4A6EE73C5D /* GamePanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePanelView.swift; sourceTree = "<group>"; };
 		3E6CB891CD4767EFE23E8F0B /* NavigationSeeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSeeView.swift; sourceTree = "<group>"; };
 		3E6CB897BF9BAB338D7C441A /* BalanceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
@@ -162,12 +163,13 @@
 		3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceRepositoryImpl.swift; sourceTree = "<group>"; };
 		3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Application+getContext.swift"; sourceTree = "<group>"; };
 		3E6CBF29A059F4BC862243C8 /* GameRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
+		3E6CBF3E5D6CB4B89C2EDD19 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3E6CBF79862D4EEAE37C3713 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A179FCC25703B140020C7A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A179FD025703B190020C7A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7A69060D257393D800E87992 /* article.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = article.xcdatamodel; sourceTree = "<group>"; };
+		7A69060D257393D800E87992 /* Article.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Article.xcdatamodel; sourceTree = "<group>"; };
 		7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balance.xcdatamodel; sourceTree = "<group>"; };
 		7AF43F75252F7241006B94D6 /* history-quiz-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "history-quiz-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF43F78252F7241006B94D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -352,7 +354,6 @@
 		3E6CBC5F987921A620F050D7 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				3E6CB8288B9EDEBE574CAD94 /* APIError.swift */,
 				3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */,
 				3E6CB795C5305634652E9F36 /* Router.swift */,
 				3E6CBCD232D3E08B35F6E2FA /* ArticleAvailable.swift */,
@@ -361,6 +362,7 @@
 				3E6CBBE16AC7D4F503356C01 /* String+localized.swift */,
 				3E6CB72897B9D4DD28837998 /* SimpleButtonModifier.swift */,
 				3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */,
+				3E6CBCCF450ECAF3FBBBF30F /* error */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -371,6 +373,15 @@
 				3E6CBDB9374364DC0043C7B3 /* MainView.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		3E6CBCCF450ECAF3FBBBF30F /* error */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CBF3E5D6CB4B89C2EDD19 /* APIError.swift */,
+				3E6CB62261457DB15A26E872 /* UrlNotFoundError.swift */,
+			);
+			path = error;
 			sourceTree = "<group>";
 		};
 		3E6CBD1259DFB4C5A5BC1593 /* domain */ = {
@@ -630,7 +641,6 @@
 				7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */,
 				7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */,
 				7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */,
-				3E6CB848FE79E6EA6709D57E /* APIError.swift in Sources */,
 				3E6CBD0C1EFFE39B4FB63BDB /* NetworkConfig.swift in Sources */,
 				3E6CB54F4E4D6A9B18DEE0A6 /* Router.swift in Sources */,
 				3E6CB06B8B9F1C14CB817AEB /* ArticleAvailable.swift in Sources */,
@@ -689,6 +699,8 @@
 				3E6CB6A6339E0521B69E5C7A /* Application+getContext.swift in Sources */,
 				3E6CB1094F43D1FFE2A32B3F /* ReadArticle.swift in Sources */,
 				3E6CB05E1D7979E1A0982AE4 /* ArticleReadMapper.swift in Sources */,
+				3E6CB81B685EE91AC5B626DE /* APIError.swift in Sources */,
+				3E6CB0973898C9B465BC0781 /* UrlNotFoundError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,9 +988,9 @@
 		7A69060C257393D800E87992 /* article.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7A69060D257393D800E87992 /* article.xcdatamodel */,
+				7A69060D257393D800E87992 /* Article.xcdatamodel */,
 			);
-			currentVersion = 7A69060D257393D800E87992 /* article.xcdatamodel */;
+			currentVersion = 7A69060D257393D800E87992 /* Article.xcdatamodel */;
 			path = article.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
