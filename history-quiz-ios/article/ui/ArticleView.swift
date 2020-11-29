@@ -12,7 +12,12 @@ struct ArticleView: View {
     var body: some View {
         Group {
             if let article = viewModel.article, let testInfo = viewModel.testInfo {
-                LoadedArticleView(article: article, testInfo: testInfo)
+                LoadedArticleView(
+                        article: article,
+                        testInfo: testInfo,
+                        haveRead: viewModel.haveRead,
+                        onReadClick: viewModel.onReadClick
+                )
             } else {
                 ProgressView()
             }
@@ -28,11 +33,17 @@ struct LoadedArticleView: View {
     @State
     private var showRules: Bool = false
 
-    var article: Article
-    var testInfo: CommonListUiModel
+    let article: Article
+    let testInfo: CommonListUiModel
+    let haveRead: Bool
+    let onReadClick: () -> Void
 
-
-    init(article: Article, testInfo: CommonListUiModel) {
+    init(
+            article: Article,
+            testInfo: CommonListUiModel,
+            haveRead: Bool,
+            onReadClick: @escaping () -> Void
+    ) {
         selectors = [.Text]
         if (!article.events.isEmpty) {
             selectors.append(.Events)
@@ -43,6 +54,8 @@ struct LoadedArticleView: View {
         selectors.append(.Test)
         self.article = article
         self.testInfo = testInfo
+        self.haveRead = haveRead
+        self.onReadClick = onReadClick
     }
 
     var body: some View {
@@ -52,7 +65,11 @@ struct LoadedArticleView: View {
                 Group {
                     switch selectors[selectedIndex] {
                     case .Text:
-                        ParagraphsView(text: article.text)
+                        ParagraphsView(
+                                text: article.text,
+                                haveRead: haveRead,
+                                onReadClick: onReadClick
+                        )
                     case .Events:
                         VStack(alignment: .leading) {
                             ForEach(article.events) { event in

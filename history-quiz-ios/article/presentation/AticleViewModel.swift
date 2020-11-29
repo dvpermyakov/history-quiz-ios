@@ -16,6 +16,9 @@ class ArticleViewModel: ObservableObject {
     @Published
     var testInfo: CommonListUiModel? = nil
 
+    @Published
+    var haveRead: Bool = false
+
     init(id: String, category: String, repository: ArticleRepository) {
         self.repository = repository
         repository.getArticle(id: id, category: category)
@@ -33,6 +36,10 @@ class ArticleViewModel: ObservableObject {
                     ])
                 })
                 .store(in: &disposables)
+    }
+
+    func onReadClick() {
+        self.haveRead = true
     }
 
 }

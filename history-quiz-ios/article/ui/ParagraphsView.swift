@@ -7,7 +7,9 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ParagraphsView: View {
-    var text: ArticleText
+    let text: ArticleText
+    let haveRead: Bool
+    let onReadClick: () -> Void
 
     var body: some View {
         VStack {
@@ -24,6 +26,20 @@ struct ParagraphsView: View {
                     Text(paragraph.text).font(Font.system(.body))
                 }.padding()
             }
+            Button(action: onReadClick) {
+                Text("I have read the article").asSimpleButton(buttonColor)
+            }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.bottom, 30)
+                    .frame(maxWidth: .infinity, alignment: .center)
+        }
+    }
+
+    private var buttonColor: Color {
+        if haveRead {
+            return Color.gray
+        } else {
+            return Color.blue
         }
     }
 }
