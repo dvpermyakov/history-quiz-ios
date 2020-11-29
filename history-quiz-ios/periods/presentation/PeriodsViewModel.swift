@@ -13,6 +13,8 @@ class PeriodsViewModel: ObservableObject {
 
     @Published
     var periods: [Period] = []
+    @Published
+    var error: String? = nil
 
     init(repository: PeriodsRepository) {
         self.repository = repository
@@ -21,7 +23,12 @@ class PeriodsViewModel: ObservableObject {
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
-                    print("getPeriods \(completion)")
+                    switch completion {
+                    case .finished:
+                        return
+                    case .failure(let er):
+                        self.error = er.localizedDescription
+                    }
                 }, receiveValue: { output in
                     print(output)
                     self.periods = output

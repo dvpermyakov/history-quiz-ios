@@ -11,7 +11,9 @@ struct PeriodsView: View {
     var viewModel: PeriodsViewModel
 
     var body: some View {
-        if viewModel.periods.isEmpty {
+        if let error = viewModel.error {
+            Text(error)
+        } else if viewModel.periods.isEmpty {
             ProgressView()
         } else {
             LoadedPeriodsView(periods: viewModel.periods)
