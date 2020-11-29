@@ -29,6 +29,9 @@ struct BalanceView: View {
                     }
                 }.navigationBarTitle(String(format: "Balance with param".localized(), viewModel.balanceSum)).padding()
             }
-        }.onAppear(perform: viewModel.onAppear)
+        }
+                .onAppear(perform: viewModel.onAppear)
+                .onDisappear(perform: viewModel.onDisappear)
+
     }
 }

@@ -29,6 +29,10 @@ class BalanceViewModel: ObservableObject {
         updateTransactions()
     }
 
+    func onDisappear() {
+        // todo: need to implement by disposable
+    }
+
     private func updateTransactions() {
         let transactions = repository.getAllTransactions()
 

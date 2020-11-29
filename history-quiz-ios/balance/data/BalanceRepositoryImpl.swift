@@ -37,17 +37,8 @@ class BalanceRepositoryImpl: BalanceRepository {
         let request = NSFetchRequest<TransactionEntity>(entityName: "TransactionEntity")
         request.predicate = NSPredicate(format: "TRUEPREDICATE")
         return try! context.fetch(request).map { entity in
-            let x = (entity as TransactionEntity)
-            print(x.amount)
-            return x.map()
+            (entity as TransactionEntity).map()
         }
-    }
-
-    private func getContext() -> NSManagedObjectContext? {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
     }
 
 }
