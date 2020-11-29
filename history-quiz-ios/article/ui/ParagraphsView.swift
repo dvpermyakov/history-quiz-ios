@@ -20,7 +20,9 @@ struct ParagraphsView: View {
         VStack(alignment: .leading) {
             ForEach(text.paragraphs) { paragraph in
                 VStack(alignment: .leading) {
-                    Text(paragraph.title).font(Font.system(.body)).bold()
+                    Text(paragraph.title)
+                            .font(Font.system(.body))
+                            .bold()
                     Group {
                         if let url = paragraph.image, !url.isEmpty {
                             KFImage(URL(string: url))
@@ -31,7 +33,9 @@ struct ParagraphsView: View {
                                     .scaledToFit()
                         }
                     }
-                    Text(paragraph.text).font(Font.system(.body))
+                    ParagraphTextView(
+                            paragraphTexts: paragraph.text.parse()
+                    )
                 }.padding()
             }
             Button(action: {
@@ -63,6 +67,88 @@ struct ParagraphsView: View {
             return Color.gray
         } else {
             return Color.blue
+        }
+    }
+}
+
+extension String {
+    func parse() -> [ParagraphText] {
+        var result = [ParagraphText]()
+        let range = NSRange(location: 0, length: self.utf16.count)
+        let regex = try! NSRegularExpression(pattern: "<a href=\"app\\.opened:\\/\\/mark\\?id=(\\d*)&cat=(\\d)\">(.*?)<\\/a>")
+        var lastIndex = 0
+        regex.matches(in: self, range: range).forEach { match in
+            result.append(
+                    ParagraphText.Text(
+                            value: self.substring(
+                                    lastIndex,
+                                    match.range(at: 0).lowerBound
+                            )
+                    )
+            )
+            result.append(
+                    ParagraphText.Link(
+                            value: self.substring(
+                                    match.range(at: 3).lowerBound,
+                                    match.range(at: 3).upperBound
+                            ),
+                            articleId: self.substring(
+                                    match.range(at: 1).lowerBound,
+                                    match.range(at: 1).upperBound
+                            ),
+                            articleCategory: self.substring(
+                                    match.range(at: 2).lowerBound,
+                                    match.range(at: 2).upperBound
+                            )
+                    )
+            )
+            lastIndex = match.range(at: 0).upperBound
+        }
+        result.append(
+                ParagraphText.Text(
+                        value: self.substring(lastIndex, self.count - 1)
+                )
+        )
+        return result
+    }
+}
+
+enum ParagraphText: Identifiable, Hashable {
+    var id: String {
+        switch self {
+        case .Text(value: let value):
+            return value
+        case .Link(value: let value, articleId: _, articleCategory: _):
+            return value
+        }
+    }
+    case Text(
+            value: String
+    )
+    case Link(
+            value: String,
+            articleId: String,
+            articleCategory: String
+    )
+}
+
+struct ParagraphTextView: View {
+    var paragraphTexts: [ParagraphText]
+
+    var body: some View {
+        VStack {
+            paragraphTexts.map { paragraphText in
+                switch paragraphText {
+                case .Text(value: let value):
+                    return Text(value)
+                            .font(Font.system(.body))
+                            .foregroundColor(Color.black)
+                case .Link(value: let value, articleId: _, articleCategory: _):
+                    return Text(value)
+                            .font(Font.system(.body))
+                            .foregroundColor(Color.blue)
+                }
+            }.reduce(Text(""), +)
         }
     }
 }
