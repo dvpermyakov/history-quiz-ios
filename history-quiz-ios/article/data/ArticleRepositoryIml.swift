@@ -10,24 +10,26 @@ import CoreData
 class ArticleRepositoryIml: ArticleRepository {
     private let PATH_GAME = "/api/history/mark_info"
 
-    func setReadArticle(item: ReadArticle) -> Bool {
-        guard let context = getArticleContext() else {
-            return false
-        }
-        item.setEntity(for: context)
-        try? context.save()
-
-        return true
+    func setReadArticle(item: ReadArticle) -> AnyPublisher<Bool, Never> {
+        Future<Bool, Never> { promise in
+            guard let context = getArticleContext() else {
+                return promise(.success(false))
+            }
+            item.setEntity(for: context)
+            try? context.save()
+            return promise(.success(true))
+        }.eraseToAnyPublisher()
     }
 
-    func getReadArticle(articleId: String, articleCategory: String) -> ReadArticle? {
-        guard let context = getArticleContext() else {
-            return nil
-        }
-        let request = NSFetchRequest<ReadArticleEntity>(entityName: "ReadArticleEntity")
-        request.predicate = NSPredicate(format: "articleId = %@ AND articleCategory = %@", articleId, articleCategory)
-
-        return try? context.fetch(request).first?.map()
+    func getReadArticle(articleId: String, articleCategory: String) -> AnyPublisher<ReadArticle?, Never> {
+        Future<ReadArticle?, Never> { promise in
+            guard let context = getArticleContext() else {
+                return promise(.success(nil))
+            }
+            let request = NSFetchRequest<ReadArticleEntity>(entityName: "ReadArticleEntity")
+            request.predicate = NSPredicate(format: "articleId = %@ AND articleCategory = %@", articleId, articleCategory)
+            return promise(.success(try? context.fetch(request).first?.map()))
+        }.eraseToAnyPublisher()
     }
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {

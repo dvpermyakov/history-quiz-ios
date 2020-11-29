@@ -33,6 +33,7 @@ class ArticleViewModel: ObservableObject {
         self.articleCategory = category
         self.articleRepository = articleRepository
         self.balanceRepository = balanceRepository
+
         articleRepository.getArticle(id: id, category: category)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
@@ -53,8 +54,14 @@ class ArticleViewModel: ObservableObject {
                     ])
                 })
                 .store(in: &disposables)
-        let readArticle = articleRepository.getReadArticle(articleId: id, articleCategory: category)
-        self.haveRead = readArticle != nil
+
+        articleRepository.getReadArticle(articleId: id, articleCategory: category)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { readArticle in
+                    self.haveRead = readArticle != nil
+                }
+                .store(in: &disposables)
     }
 
     func onReadClick() {
@@ -73,12 +80,19 @@ class ArticleViewModel: ObservableObject {
                         print("transaction \(transaction) was created")
                     }
                     .store(in: &disposables)
-            articleRepository.setReadArticle(item: ReadArticle(
+            let readArticle = ReadArticle(
                     id: UUID(),
                     articleId: articleId,
                     articleCategory: articleCategory,
                     date: Date()
-            ))
+            )
+            articleRepository.setReadArticle(item: readArticle)
+                    .subscribe(on: DispatchQueue.global())
+                    .receive(on: DispatchQueue.main)
+                    .sink { success in
+                        print("readArticle \(readArticle) was created")
+                    }
+                    .store(in: &disposables)
         }
     }
 

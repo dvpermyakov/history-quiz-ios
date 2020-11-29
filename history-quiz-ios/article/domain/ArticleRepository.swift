@@ -7,9 +7,9 @@ import Foundation
 import Combine
 
 protocol ArticleRepository {
-    func setReadArticle(item: ReadArticle) -> Bool
+    func setReadArticle(item: ReadArticle) -> AnyPublisher<Bool, Never>
 
-    func getReadArticle(articleId: String, articleCategory: String) -> ReadArticle?
+    func getReadArticle(articleId: String, articleCategory: String) -> AnyPublisher<ReadArticle?, Never>
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error>
 }
