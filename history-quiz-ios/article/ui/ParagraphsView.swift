@@ -29,6 +29,7 @@ struct ParagraphsView: View {
             Button(action: onReadClick) {
                 Text("I have read the article").asSimpleButton(buttonColor)
             }
+                    .disabled(haveRead)
                     .buttonStyle(PlainButtonStyle())
                     .padding(.bottom, 30)
                     .frame(maxWidth: .infinity, alignment: .center)
