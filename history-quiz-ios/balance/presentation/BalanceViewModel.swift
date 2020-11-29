@@ -22,6 +22,14 @@ class BalanceViewModel: ObservableObject {
 
     init(repository: BalanceRepository) {
         self.repository = repository
+        updateTransactions()
+    }
+
+    func onAppear() {
+        updateTransactions()
+    }
+
+    private func updateTransactions() {
         let transactions = repository.getAllTransactions()
 
         balanceSum = String(

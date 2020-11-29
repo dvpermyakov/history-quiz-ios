@@ -7,7 +7,8 @@ import Foundation
 import Combine
 
 class ArticleViewModel: ObservableObject {
-    private let repository: ArticleRepository
+    private let articleRepository: ArticleRepository
+    private let balanceRepository: BalanceRepository
     private var disposables = Set<AnyCancellable>()
 
     @Published
@@ -19,9 +20,15 @@ class ArticleViewModel: ObservableObject {
     @Published
     var haveRead: Bool = false
 
-    init(id: String, category: String, repository: ArticleRepository) {
-        self.repository = repository
-        repository.getArticle(id: id, category: category)
+    init(
+            id: String,
+            category: String,
+            articleRepository: ArticleRepository,
+            balanceRepository: BalanceRepository
+    ) {
+        self.articleRepository = articleRepository
+        self.balanceRepository = balanceRepository
+        articleRepository.getArticle(id: id, category: category)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
@@ -39,7 +46,17 @@ class ArticleViewModel: ObservableObject {
     }
 
     func onReadClick() {
-        self.haveRead = true
+        if (!self.haveRead) {
+            self.haveRead = true
+            balanceRepository.createTransaction(
+                    value: Transaction(
+                            id: UUID(),
+                            amount: 5,
+                            date: Date(),
+                            type: Transaction.TransactionType.ArticleRead
+                    )
+            )
+        }
     }
 
 }

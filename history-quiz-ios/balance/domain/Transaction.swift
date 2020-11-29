@@ -13,6 +13,7 @@ struct Transaction: Identifiable, Hashable {
 
     enum TransactionType: Int {
         case DailyAward = 0
+        case ArticleRead = 1
         case Unknown = -1
     }
 }
@@ -22,6 +23,8 @@ extension Transaction {
         switch self.type {
         case .DailyAward:
             return "Daily bonus".localized()
+        case .ArticleRead:
+            return "Read article".localized()
         case .Unknown:
             return "Unknown".localized()
         }

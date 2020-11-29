@@ -6,42 +6,42 @@
 import Foundation
 
 class Router {
+    private static let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
+    private static let periodsRepository: PeriodsRepository = PeriodsRepositoryIml()
+    private static let gameRepository: GameRepository = GameRepositoryIml()
+    private static let articleRepository: ArticleRepository = ArticleRepositoryIml()
 
     static func createMain() -> MainView {
-        let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
-        return MainView(viewModel: MainViewModel(
+        MainView(viewModel: MainViewModel(
                 repository: balanceRepository
         ))
     }
 
     static func createPeriods() -> PeriodsView {
-        let periodsRepository: PeriodsRepository = PeriodsRepositoryIml()
-        return PeriodsView(viewModel: PeriodsViewModel(
+        PeriodsView(viewModel: PeriodsViewModel(
                 repository: periodsRepository
         ))
     }
 
     static func createBalance() -> BalanceView {
-        let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
-        return BalanceView(viewModel: BalanceViewModel(
+        BalanceView(viewModel: BalanceViewModel(
                 repository: balanceRepository
         ))
     }
 
     static func createTest(test: Test) -> GameView {
-        let gameRepository: GameRepository = GameRepositoryIml()
-        return GameView(viewModel: GameViewModel(
+        GameView(viewModel: GameViewModel(
                 test: test,
                 repository: gameRepository
         ))
     }
 
     static func createArticle(for item: ArticleAvailable) -> ArticleView {
-        let articleRepository: ArticleRepository = ArticleRepositoryIml()
-        return ArticleView(viewModel: ArticleViewModel(
+        ArticleView(viewModel: ArticleViewModel(
                 id: item.id,
                 category: item.category,
-                repository: articleRepository
+                articleRepository: articleRepository,
+                balanceRepository: balanceRepository
         ))
     }
 }
