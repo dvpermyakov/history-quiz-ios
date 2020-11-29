@@ -9,7 +9,7 @@ import Combine
 protocol BalanceRepository {
     var lastDailyAwardDate: Date? { get set }
 
-    func createTransaction(value: Transaction) -> Bool
+    func createTransaction(value: Transaction) -> AnyPublisher<Bool, Never>
 
     func getAllTransactions() -> AnyPublisher<[Transaction], Never>
 }

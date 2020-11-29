@@ -21,14 +21,16 @@ class BalanceRepositoryImpl: BalanceRepository {
         }
     }
 
-    func createTransaction(value transaction: Transaction) -> Bool {
-        guard let context = getBalanceContext() else {
-            return false
-        }
-        transaction.setEntity(for: context)
-        try? context.save()
+    func createTransaction(value: Transaction) -> AnyPublisher<Bool, Never> {
+        Future<Bool, Never> { promise in
+            guard let context = getBalanceContext() else {
+                return promise(.success(false))
+            }
+            value.setEntity(for: context)
+            try? context.save()
 
-        return true
+            return promise(.success(true))
+        }.eraseToAnyPublisher()
     }
 
     func getAllTransactions() -> AnyPublisher<[Transaction], Never> {

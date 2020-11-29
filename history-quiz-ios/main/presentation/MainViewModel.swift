@@ -4,10 +4,11 @@
 //
 
 import Foundation
+import Combine
 
 class MainViewModel: ObservableObject {
-
     private var repository: BalanceRepository
+    private var disposables = Set<AnyCancellable>()
 
     @Published
     var showDailyAwardAlert = false
@@ -28,13 +29,18 @@ class MainViewModel: ObservableObject {
     private func updateDailyAward() {
         self.showDailyAwardAlert = true
         self.repository.lastDailyAwardDate = Date()
-        self.repository.createTransaction(
-                value: Transaction(
-                        id: UUID(),
-                        amount: 30,
-                        date: Date(),
-                        type: Transaction.TransactionType.DailyAward
-                )
+        let transaction = Transaction(
+                id: UUID(),
+                amount: 30,
+                date: Date(),
+                type: Transaction.TransactionType.DailyAward
         )
+        self.repository.createTransaction(value: transaction)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { success in
+                    print("transaction \(transaction) was created")
+                }
+                .store(in: &disposables)
     }
 }
