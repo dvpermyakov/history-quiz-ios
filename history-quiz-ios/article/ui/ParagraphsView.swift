@@ -22,8 +22,11 @@ struct ParagraphsView: View {
                 VStack(alignment: .leading) {
                     Text(paragraph.title).font(Font.system(.body)).bold()
                     Group {
-                        if let url = paragraph.image {
+                        if let url = paragraph.image, !url.isEmpty {
                             KFImage(URL(string: url))
+                                    .placeholder {
+                                        ProgressView()
+                                    }
                                     .resizable()
                                     .scaledToFit()
                         }
