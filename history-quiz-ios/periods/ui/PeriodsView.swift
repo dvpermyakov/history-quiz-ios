@@ -44,6 +44,9 @@ struct PeriodView: View {
         Group {
             VStack(alignment: .leading) {
                 KFImage(URL(string: period.image))
+                        .placeholder {
+                            ProgressView()
+                        }
                         .centerCropped()
                         .frame(maxWidth: .infinity)
                         .frame(height: 170)

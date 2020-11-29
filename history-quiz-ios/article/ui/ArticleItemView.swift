@@ -13,6 +13,9 @@ struct ArticleItemView: View {
         Group {
             HStack(alignment: .center) {
                 KFImage(URL(string: item.image))
+                        .placeholder {
+                            ProgressView()
+                        }
                         .centerCropped()
                         .clipShape(Circle())
                         .frame(width: 100, height: 100)
