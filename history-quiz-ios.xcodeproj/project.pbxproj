@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E6CB05E1D7979E1A0982AE4 /* ArticleReadMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB6F7F39CB651EAC8D3EE /* ArticleReadMapper.swift */; };
 		3E6CB064D938F864E654B33F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB5E38CDFA4E05D2FBB5F /* BalanceView.swift */; };
 		3E6CB06B8B9F1C14CB817AEB /* ArticleAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCD232D3E08B35F6E2FA /* ArticleAvailable.swift */; };
 		3E6CB08FB13F5645AEBACF35 /* ArticleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB2DA76B67E0112CBA0B3 /* ArticleItemView.swift */; };
+		3E6CB1094F43D1FFE2A32B3F /* ReadArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBAA5B16430C349CBA35E /* ReadArticle.swift */; };
 		3E6CB1160803F4C364B64408 /* PeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB94BC4263DEC5030319A /* PeriodsViewModel.swift */; };
 		3E6CB196F1AB8C1D20ACDF4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CB5064C1FC5FA751AD4CB /* .gitignore */; };
 		3E6CB1D0E5561D6BCAEBC314 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCF48FB352ED6F15E4C0 /* GameViewModel.swift */; };
@@ -28,6 +30,7 @@
 		3E6CB55F2187D36A850CE333 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBDD0D24A333DF0C3EAB6 /* Game.swift */; };
 		3E6CB5DC6FB26A1E913675B8 /* PeriodsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBA27F1F6D418CEC9B593 /* PeriodsDto.swift */; };
 		3E6CB62575F89D960D05A54C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBB3B2B36717BB435111E /* Event.swift */; };
+		3E6CB6A6339E0521B69E5C7A /* Application+getContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */; };
 		3E6CB770A70BE7ED11EBABFB /* BalanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBA1F92353BBE1D3C2E3A /* BalanceRepository.swift */; };
 		3E6CB775021A7FEB28EC28B7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB43ACE57D6BE6F48A9C2 /* GameView.swift */; };
 		3E6CB836D10885D5A8BB2696 /* ArticleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCF0C7622CEB588A6D7C /* ArticleSelector.swift */; };
@@ -65,6 +68,7 @@
 		3E6CBFE8C149A698182CB715 /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB377870F596A77233D94 /* GameDto.swift */; };
 		3E6CBFF86990A4C68E379331 /* BalanceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */; };
 		7A179FCB25703B140020C7A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A179FCD25703B140020C7A6 /* Localizable.strings */; };
+		7A69060E257393D800E87992 /* article.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A69060C257393D800E87992 /* article.xcdatamodeld */; };
 		7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */; };
 		7A99D96925725A4B007AFD6A /* GameViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB53AAB0F01FA5F152338 /* GameViewModelTest.swift */; };
 		7AF43F79252F7241006B94D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43F78252F7241006B94D6 /* AppDelegate.swift */; };
@@ -121,6 +125,7 @@
 		3E6CB60195CE8D3ECEA55B2C /* GameRepositoryIml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepositoryIml.swift; sourceTree = "<group>"; };
 		3E6CB697B756DA3B226A4825 /* ArticleTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTestView.swift; sourceTree = "<group>"; };
 		3E6CB6D0163414AF74176523 /* ArticleRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
+		3E6CB6F7F39CB651EAC8D3EE /* ArticleReadMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleReadMapper.swift; sourceTree = "<group>"; };
 		3E6CB72897B9D4DD28837998 /* SimpleButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonModifier.swift; sourceTree = "<group>"; };
 		3E6CB795C5305634652E9F36 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3E6CB7E151124650786191EE /* GameResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 		3E6CBA1F92353BBE1D3C2E3A /* BalanceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceRepository.swift; sourceTree = "<group>"; };
 		3E6CBA27F1F6D418CEC9B593 /* PeriodsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodsDto.swift; sourceTree = "<group>"; };
 		3E6CBA3B53F7315B4C1A5AA1 /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		3E6CBAA5B16430C349CBA35E /* ReadArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadArticle.swift; sourceTree = "<group>"; };
 		3E6CBB3B2B36717BB435111E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3E6CBB72DA04E9DB65FDDD3F /* Image+croped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+croped.swift"; sourceTree = "<group>"; };
 		3E6CBB768F2DB03FA87BE327 /* ArticleMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleMapper.swift; sourceTree = "<group>"; };
@@ -154,12 +160,14 @@
 		3E6CBE9783555D54A3A15711 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		3E6CBEEE7AC1193A2009193E /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
 		3E6CBF0F7458D52A1EA87280 /* BalanceRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceRepositoryImpl.swift; sourceTree = "<group>"; };
+		3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Application+getContext.swift"; sourceTree = "<group>"; };
 		3E6CBF29A059F4BC862243C8 /* GameRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		3E6CBF79862D4EEAE37C3713 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7A0B8CF82546C57800C871C3 /* history-quiz-ios-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "history-quiz-ios-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0B8CFC2546C57800C871C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A179FCC25703B140020C7A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A179FD025703B190020C7A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A69060D257393D800E87992 /* article.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = article.xcdatamodel; sourceTree = "<group>"; };
 		7A966C822548021C00EAD1A8 /* Balance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balance.xcdatamodel; sourceTree = "<group>"; };
 		7AF43F75252F7241006B94D6 /* history-quiz-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "history-quiz-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF43F78252F7241006B94D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +206,8 @@
 				3E6CBEEE7AC1193A2009193E /* EventMapper.swift */,
 				3E6CB0142091F66E2A3BC039 /* PersonDto.swift */,
 				3E6CB4E684E95BBEEA22455A /* PersonMapper.swift */,
+				7A69060C257393D800E87992 /* article.xcdatamodeld */,
+				3E6CB6F7F39CB651EAC8D3EE /* ArticleReadMapper.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -350,6 +360,7 @@
 				3E6CBB72DA04E9DB65FDDD3F /* Image+croped.swift */,
 				3E6CBBE16AC7D4F503356C01 /* String+localized.swift */,
 				3E6CB72897B9D4DD28837998 /* SimpleButtonModifier.swift */,
+				3E6CBF1B250A201774CC6D30 /* Application+getContext.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 				3E6CBB3B2B36717BB435111E /* Event.swift */,
 				3E6CB9F00BE8678F616E24BF /* Person.swift */,
 				3E6CB6D0163414AF74176523 /* ArticleRepository.swift */,
+				3E6CBAA5B16430C349CBA35E /* ReadArticle.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -468,21 +480,21 @@
 		7AF43F77252F7241006B94D6 /* history-quiz-ios */ = {
 			isa = PBXGroup;
 			children = (
-				7A9E75BE252F7692008DB80D /* game */,
-				7AF43F78252F7241006B94D6 /* AppDelegate.swift */,
-				7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */,
-				7AF43F7E252F7243006B94D6 /* Assets.xcassets */,
-				7AF43F83252F7243006B94D6 /* LaunchScreen.storyboard */,
-				7AF43F86252F7243006B94D6 /* Info.plist */,
-				7AF43F80252F7243006B94D6 /* Preview Content */,
 				3E6CB5064C1FC5FA751AD4CB /* .gitignore */,
-				3E6CB41E0D859B337017AD10 /* periods */,
-				3E6CBC5F987921A620F050D7 /* common */,
+				7AF43F78252F7241006B94D6 /* AppDelegate.swift */,
 				3E6CBFBFF6A07A0610E3489E /* article */,
-				3E6CB0C475907AE9A0B03924 /* main */,
+				7AF43F7E252F7243006B94D6 /* Assets.xcassets */,
 				3E6CBF520675D28DEADE2060 /* balance */,
+				3E6CBC5F987921A620F050D7 /* common */,
 				3E6CB626E4F008B8B37EA6BF /* common-ui */,
+				7A9E75BE252F7692008DB80D /* game */,
+				7AF43F86252F7243006B94D6 /* Info.plist */,
+				7AF43F83252F7243006B94D6 /* LaunchScreen.storyboard */,
 				7A179FCD25703B140020C7A6 /* Localizable.strings */,
+				3E6CB0C475907AE9A0B03924 /* main */,
+				3E6CB41E0D859B337017AD10 /* periods */,
+				7AF43F80252F7243006B94D6 /* Preview Content */,
+				7AF43F7A252F7241006B94D6 /* SceneDelegate.swift */,
 			);
 			path = "history-quiz-ios";
 			sourceTree = "<group>";
@@ -644,6 +656,7 @@
 				3E6CBF061D8A32C5F9EC6544 /* PeriodMapper.swift in Sources */,
 				3E6CB5DC6FB26A1E913675B8 /* PeriodsDto.swift in Sources */,
 				3E6CB8D65114013B3153A6C4 /* PeriodsRepositoryIml.swift in Sources */,
+				7A69060E257393D800E87992 /* article.xcdatamodeld in Sources */,
 				3E6CB88916BEC7C82C837C8E /* PeriodsView.swift in Sources */,
 				3E6CB1160803F4C364B64408 /* PeriodsViewModel.swift in Sources */,
 				3E6CBAAC1B07EEA2184D9418 /* PeriodsRepository.swift in Sources */,
@@ -673,6 +686,9 @@
 				3E6CBF4F00AA17F61CF6CD93 /* GameResult.swift in Sources */,
 				3E6CBCD592EC42E443792D6A /* GameResultView.swift in Sources */,
 				3E6CBB8DC1FBDA1D9F9EF644 /* SimpleButtonModifier.swift in Sources */,
+				3E6CB6A6339E0521B69E5C7A /* Application+getContext.swift in Sources */,
+				3E6CB1094F43D1FFE2A32B3F /* ReadArticle.swift in Sources */,
+				3E6CB05E1D7979E1A0982AE4 /* ArticleReadMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,6 +973,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		7A69060C257393D800E87992 /* article.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A69060D257393D800E87992 /* article.xcdatamodel */,
+			);
+			currentVersion = 7A69060D257393D800E87992 /* article.xcdatamodel */;
+			path = article.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		7A966C812548021C00EAD1A8 /* Balance.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
