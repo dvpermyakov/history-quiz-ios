@@ -16,7 +16,7 @@ class ArticleRepositoryIml: ArticleRepository {
             URLQueryItem(name: "category", value: category)
         ]
         guard let url = components?.url else {
-            return AnyPublisher<Article, Error>(Empty())
+            return Fail(error: UrlNotFoundError()).eraseToAnyPublisher()
         }
         return URLSession.shared
                 .dataTaskPublisher(for: URLRequest(url: url))

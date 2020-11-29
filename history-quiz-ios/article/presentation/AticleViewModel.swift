@@ -13,10 +13,10 @@ class ArticleViewModel: ObservableObject {
 
     @Published
     var article: Article? = nil
-
+    @Published
+    var error: String? = nil
     @Published
     var testInfo: CommonListUiModel? = nil
-
     @Published
     var haveRead: Bool = false
 

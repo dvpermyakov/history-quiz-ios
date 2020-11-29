@@ -18,6 +18,8 @@ struct ArticleView: View {
                         haveRead: viewModel.haveRead,
                         onReadClick: viewModel.onReadClick
                 )
+            } else if let error = viewModel.error {
+                Text(error)
             } else {
                 ProgressView()
             }
