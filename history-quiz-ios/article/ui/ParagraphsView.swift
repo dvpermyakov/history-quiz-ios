@@ -17,7 +17,7 @@ struct ParagraphsView: View {
     private var showingReadArticle = false
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ForEach(text.paragraphs) { paragraph in
                 VStack(alignment: .leading) {
                     Text(paragraph.title).font(Font.system(.body)).bold()
