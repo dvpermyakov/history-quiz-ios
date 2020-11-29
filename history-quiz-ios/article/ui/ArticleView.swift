@@ -34,6 +34,8 @@ struct LoadedArticleView: View {
     private var selectedIndex: Int = 0
     @State
     private var showRules: Bool = false
+    @State
+    private var moveToTest: Bool = false
 
     let article: Article
     let testInfo: CommonListUiModel
@@ -70,7 +72,18 @@ struct LoadedArticleView: View {
                         ParagraphsView(
                                 text: article.text,
                                 haveRead: haveRead,
-                                onReadClick: onReadClick
+                                onReadClick: onReadClick,
+                                moveToTestInfo: {
+                                    if let testIndex = selectors.firstIndex(of: .Test) {
+                                        self.selectedIndex = testIndex
+                                    }
+                                },
+                                startTest: {
+                                    if let testIndex = selectors.firstIndex(of: .Test) {
+                                        self.selectedIndex = testIndex
+                                    }
+                                    self.moveToTest = true
+                                }
                         )
                     case .Events:
                         VStack(alignment: .leading) {
@@ -88,7 +101,8 @@ struct LoadedArticleView: View {
                         ArticleTestView(
                                 test: article.test,
                                 testInfo: testInfo,
-                                showRules: $showRules
+                                showRules: $showRules,
+                                moveToTest: $moveToTest
                         )
                     }
                 }

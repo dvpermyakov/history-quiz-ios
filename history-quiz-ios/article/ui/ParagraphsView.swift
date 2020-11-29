@@ -10,6 +10,11 @@ struct ParagraphsView: View {
     let text: ArticleText
     let haveRead: Bool
     let onReadClick: () -> Void
+    let moveToTestInfo: () -> Void
+    let startTest: () -> Void
+
+    @State
+    private var showingReadArticle = false
 
     var body: some View {
         VStack {
@@ -26,7 +31,10 @@ struct ParagraphsView: View {
                     Text(paragraph.text).font(Font.system(.body))
                 }.padding()
             }
-            Button(action: onReadClick) {
+            Button(action: {
+                onReadClick()
+                self.showingReadArticle = true
+            }) {
                 Text("I have read the article").asSimpleButton(buttonColor)
             }
                     .disabled(haveRead)
@@ -34,6 +42,17 @@ struct ParagraphsView: View {
                     .padding(.bottom, 30)
                     .frame(maxWidth: .infinity, alignment: .center)
         }
+                .actionSheet(isPresented: $showingReadArticle) {
+                    ActionSheet(
+                            title: Text("You have read this article!"),
+                            message: Text("Would you like to start test of this article?"),
+                            buttons: [
+                                .default(Text("Move to test information"), action: moveToTestInfo),
+                                .default(Text("Start test"), action: startTest),
+                                .cancel()
+                            ]
+                    )
+                }
     }
 
     private var buttonColor: Color {

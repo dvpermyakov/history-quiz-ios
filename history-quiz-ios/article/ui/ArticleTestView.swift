@@ -11,6 +11,8 @@ struct ArticleTestView: View {
 
     @Binding
     var showRules: Bool
+    @Binding
+    var moveToTest: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,8 +24,9 @@ struct ArticleTestView: View {
                 }) {
                     Text("Rules")
                 }.padding()
-                NavigationLink(destination: Router.createTest(test: test)
-                        .navigationBarTitle("Test")
+                NavigationLink(
+                        destination: Router.createTest(test: test).navigationBarTitle("Test"),
+                        isActive: $moveToTest
                 ) {
                     HStack {
                         Text("Start")
