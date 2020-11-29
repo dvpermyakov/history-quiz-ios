@@ -30,7 +30,6 @@ class PeriodsViewModel: ObservableObject {
                         self.error = er.localizedDescription
                     }
                 }, receiveValue: { output in
-                    print(output)
                     self.periods = output
                 })
                 .store(in: &disposables)
