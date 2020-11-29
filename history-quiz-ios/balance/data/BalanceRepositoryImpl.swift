@@ -5,6 +5,7 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
 class BalanceRepositoryImpl: BalanceRepository {
     private let LAST_DAILY_AWARD_KEY = "LAST_DAILY_AWARD_KEY"
@@ -30,15 +31,18 @@ class BalanceRepositoryImpl: BalanceRepository {
         return true
     }
 
-    func getAllTransactions() -> [Transaction] {
-        guard let context = getBalanceContext() else {
-            return []
-        }
-        let request = NSFetchRequest<TransactionEntity>(entityName: "TransactionEntity")
-        request.predicate = NSPredicate(format: "TRUEPREDICATE")
-        return try! context.fetch(request).map { entity in
-            (entity as TransactionEntity).map()
-        }
+    func getAllTransactions() -> AnyPublisher<[Transaction], Never> {
+        Future<[Transaction], Never> { promise in
+            guard let context = getBalanceContext() else {
+                return promise(.success([]))
+            }
+            let request = NSFetchRequest<TransactionEntity>(entityName: "TransactionEntity")
+            request.predicate = NSPredicate(format: "TRUEPREDICATE")
+            let transactions = try! context.fetch(request).map { entity in
+                (entity as TransactionEntity).map()
+            }
+            return promise(.success(transactions))
+        }.eraseToAnyPublisher()
     }
 
 }

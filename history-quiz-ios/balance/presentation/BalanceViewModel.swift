@@ -4,10 +4,11 @@
 //
 
 import Foundation
+import Combine
 
 class BalanceViewModel: ObservableObject {
-
     private let repository: BalanceRepository
+    private var disposables = Set<AnyCancellable>()
 
     @Published
     var balanceSum: String = ""
@@ -30,12 +31,22 @@ class BalanceViewModel: ObservableObject {
     }
 
     func onDisappear() {
-        // todo: need to implement by disposable
+        disposables.forEach { item in
+            item.cancel()
+        }
     }
 
     private func updateTransactions() {
-        let transactions = repository.getAllTransactions()
+        repository.getAllTransactions()
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { transactions in
+                    self.applyTransactions(transactions)
+                }
+                .store(in: &disposables)
+    }
 
+    private func applyTransactions(_ transactions: [Transaction]) {
         balanceSum = String(
                 transactions.map { transaction in
                     transaction.amount

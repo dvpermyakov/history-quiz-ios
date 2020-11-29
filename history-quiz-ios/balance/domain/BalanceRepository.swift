@@ -4,11 +4,12 @@
 //
 
 import Foundation
+import Combine
 
 protocol BalanceRepository {
     var lastDailyAwardDate: Date? { get set }
 
     func createTransaction(value: Transaction) -> Bool
 
-    func getAllTransactions() -> [Transaction]
+    func getAllTransactions() -> AnyPublisher<[Transaction], Never>
 }
