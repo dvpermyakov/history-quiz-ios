@@ -36,8 +36,7 @@ struct ArticleItemView: View {
                 }.frame(maxWidth: .infinity).padding(10)
             }
                     .background(Color.white)
-                    .cornerRadius(15)
-                    .shadow(color: Color.gray, radius: 2)
+                    .asCard()
         }.padding()
     }
 }

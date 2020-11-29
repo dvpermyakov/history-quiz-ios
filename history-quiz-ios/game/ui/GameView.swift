@@ -71,8 +71,7 @@ struct QuestionGameView: View {
                     .padding(.top, 10)
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .background(Color.white)
-                    .cornerRadius(15)
-                    .shadow(color: Color.gray, radius: 2)
+                    .asCard()
         }.padding(50)
     }
 

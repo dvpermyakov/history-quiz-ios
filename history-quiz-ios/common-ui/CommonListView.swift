@@ -41,8 +41,7 @@ struct CommonListView: View {
                 }
             }
                     .background(Color.white)
-                    .cornerRadius(15)
-                    .shadow(color: Color.gray, radius: 2)
+                    .asCard()
         }
     }
 }
