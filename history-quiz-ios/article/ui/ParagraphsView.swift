@@ -106,7 +106,7 @@ extension String {
         }
         result.append(
                 ParagraphText.Text(
-                        value: self.substring(lastIndex, self.count - 1)
+                        value: self.substring(lastIndex, self.count)
                 )
         )
         return result
