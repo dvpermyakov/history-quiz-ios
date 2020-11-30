@@ -147,6 +147,7 @@ struct ParagraphTextView: View {
                     return Text(value)
                             .font(Font.system(.body))
                             .foregroundColor(Color.blue)
+                            .underline()
                 }
             }.reduce(Text(""), +)
         }
