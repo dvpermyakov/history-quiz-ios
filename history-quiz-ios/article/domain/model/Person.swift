@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct Person : Identifiable, Hashable, ArticleAvailable {
+struct Person: Identifiable, Hashable, ArticleAvailable, ArticleDescription {
     let id: String
     let category: String
     let name: String

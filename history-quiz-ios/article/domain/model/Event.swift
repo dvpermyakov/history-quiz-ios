@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct Event : Identifiable, Hashable, ArticleAvailable {
+struct Event : Identifiable, Hashable, ArticleAvailable, ArticleDescription {
     let id: String
     let category: String
     let name: String

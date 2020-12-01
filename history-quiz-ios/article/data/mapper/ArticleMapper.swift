@@ -46,6 +46,18 @@ extension TestDto {
     }
 }
 
+extension ArticleInfoDto {
+    func map() -> ArticleInfo {
+        ArticleInfo(
+                id: self.id,
+                category: self.category,
+                name: self.name,
+                description: self.description,
+                image: self.image
+        )
+    }
+}
+
 extension ReadArticleEntity {
     func map() -> ReadArticle {
         ReadArticle(

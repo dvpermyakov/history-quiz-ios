@@ -8,7 +8,8 @@ import Combine
 import CoreData
 
 class ArticleRepositoryIml: ArticleRepository {
-    private let PATH_GAME = "/api/history/mark_info"
+    private let PATH_ARTICLE = "/api/history/mark_info"
+    private let PATH_ARTICLE_INFO = "/api/history/short_mark_info"
 
     func setReadArticle(item: ReadArticle) -> AnyPublisher<Bool, Never> {
         Future<Bool, Never> { promise in
@@ -55,7 +56,7 @@ class ArticleRepositoryIml: ArticleRepository {
     }
 
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {
-        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_GAME)
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_ARTICLE)
         components?.queryItems = [
             URLQueryItem(name: "mark_id", value: id),
             URLQueryItem(name: "category", value: category)
@@ -72,6 +73,30 @@ class ArticleRepositoryIml: ArticleRepository {
                     return element.data
                 }
                 .decode(type: ArticleDto.self, decoder: JSONDecoder())
+                .map { dto in
+                    dto.map()
+                }
+                .eraseToAnyPublisher()
+    }
+
+    func getArticleInfo(id: String, category: String) -> AnyPublisher<ArticleInfo, Error> {
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_ARTICLE_INFO)
+        components?.queryItems = [
+            URLQueryItem(name: "mark_id", value: id),
+            URLQueryItem(name: "category", value: category)
+        ]
+        guard let url = components?.url else {
+            return Fail(error: UrlNotFoundError()).eraseToAnyPublisher()
+        }
+        return URLSession.shared
+                .dataTaskPublisher(for: URLRequest(url: url))
+                .tryMap() { element -> Data in
+                    guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                        throw APIError()
+                    }
+                    return element.data
+                }
+                .decode(type: ArticleInfoDto.self, decoder: JSONDecoder())
                 .map { dto in
                     dto.map()
                 }
