@@ -17,6 +17,10 @@ class ArticleViewModel: ObservableObject {
     @Published
     var article: Article? = nil
     @Published
+    var openArticleDescription: Bool = false
+    @Published
+    var articleDescription: ArticleDescription? = nil
+    @Published
     var error: String? = nil
     @Published
     var testInfo: CommonListUiModel? = nil
@@ -44,9 +48,9 @@ class ArticleViewModel: ObservableObject {
                     case .failure(let er):
                         self.error = er.localizedDescription
                     }
-                }, receiveValue: { output in
-                    self.article = output
-                    let test = output.test
+                }, receiveValue: { article in
+                    self.article = article
+                    let test = article.test
                     self.testInfo = CommonListUiModel(list: [
                         CommonListUiModel.Item(name: "Question amount".localized(), value: String(test.questionAmount)),
                         CommonListUiModel.Item(name: "Available seconds".localized(), value: String(test.seconds)),
@@ -97,12 +101,14 @@ class ArticleViewModel: ObservableObject {
     }
 
     func onLinkClick(articleId: String, articleCategory: String) {
+        self.openArticleDescription = true
         let openedArticle = OpenedArticle(
                 id: UUID(),
                 articleId: articleId,
                 articleCategory: articleCategory,
                 date: Date()
         )
+        loadArticleDescription(openedArticle)
         articleRepository.getOpenedArticle(
                         articleId: articleId,
                         articleCategory: articleCategory
@@ -115,6 +121,27 @@ class ArticleViewModel: ObservableObject {
                     }
                 }
                 .store(in: &disposables)
+    }
+
+    private func loadArticleDescription(_ article: OpenedArticle) {
+        if let foundEvent = self.article?.events.first(where: { event in
+            event.id == article.articleId && event.category == article.articleCategory
+        }) {
+            self.articleDescription = foundEvent
+        } else if let foundPerson = self.article?.persons.first(where: { person in
+            person.id == article.articleId && person.category == article.articleCategory
+        }) {
+            self.articleDescription = foundPerson
+        } else {
+            self.articleRepository.getArticleInfo(id: article.articleId, category: article.articleCategory)
+                    .subscribe(on: DispatchQueue.global())
+                    .receive(on: DispatchQueue.main)
+                    .sink(receiveCompletion: { completion in
+                    }, receiveValue: { articleInfo in
+                        self.articleDescription = articleInfo
+                    })
+                    .store(in: &disposables)
+        }
     }
 
     private func saveOpenedArticle(_ article: OpenedArticle) {
