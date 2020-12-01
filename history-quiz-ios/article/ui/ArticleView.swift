@@ -101,7 +101,9 @@ struct LoadedArticleView: View {
                                 onLinkTap: { articleId, articleCategory in
                                     onLinkTap(articleId, articleCategory)
                                 }
-                        )
+                        ).sheet(isPresented: $openArticleDescription) {
+                            ArticleClarificationView(article: articleDescription)
+                        }
                     case .Events:
                         VStack(alignment: .leading) {
                             ForEach(article.events) { event in
@@ -120,16 +122,12 @@ struct LoadedArticleView: View {
                                 testInfo: testInfo,
                                 showRules: $showRules,
                                 moveToTest: $moveToTest
-                        )
+                        ).sheet(isPresented: $showRules) {
+                            TestRulesView()
+                        }
                     }
                 }
             }
         }
-                .sheet(isPresented:  $showRules) {
-                    TestRulesView()
-                }
-                .sheet(isPresented: $openArticleDescription) {
-                    ArticleClarificationView(article: articleDescription)
-                }
     }
 }
