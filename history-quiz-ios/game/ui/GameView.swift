@@ -13,7 +13,7 @@ struct GameView: View {
     var viewModel: GameViewModel
 
     var body: some View {
-        Group {
+        NavigationView {
             if let gameResult = viewModel.gameResult {
                 GameResultView(result: gameResult).environmentObject(viewModel)
             } else if let question = viewModel.currentQuestion {
@@ -36,9 +36,12 @@ struct GameView: View {
             } else {
                 ProgressView()
             }
-        }.onDisappear {
-            viewModel.restartGame()
         }
+                .onDisappear {
+                    viewModel.restartGame()
+                }
+                .navigationBarTitle("Test")
+                .navigationBarTitleDisplayMode(.inline)
     }
 
 }
