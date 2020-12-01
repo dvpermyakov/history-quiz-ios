@@ -22,8 +22,8 @@ class MainViewModel: ObservableObject {
             let transaction = Transaction.create(.StartAward)
             updateDailyAward(transaction)
         } else {
-            let diff = Calendar.current.dateComponents([.second], from: lastDailyBalance!, to: Date())
-            if let second = diff.second, second > 10 {
+            let diff = Calendar.current.dateComponents([.hour], from: lastDailyBalance!, to: Date())
+            if let hours = diff.hour, hours > 24 {
                 let transaction = Transaction.create(.DailyAward)
                 updateDailyAward(transaction)
             }
