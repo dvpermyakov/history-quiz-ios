@@ -118,6 +118,7 @@ struct LoadedArticleView: View {
                         ArticleTestView(
                                 test: article.test,
                                 testInfo: testInfo,
+                                showRules: $showRules,
                                 moveToTest: $moveToTest
                         )
                     }
