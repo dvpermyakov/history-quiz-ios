@@ -14,6 +14,8 @@ struct ArticleView: View {
             if let article = viewModel.article, let testInfo = viewModel.testInfo {
                 LoadedArticleView(
                         article: article,
+                        openArticleDescription: $viewModel.openArticleDescription,
+                        articleDescription: viewModel.articleDescription,
                         testInfo: testInfo,
                         haveRead: viewModel.haveRead,
                         onReadClick: viewModel.onReadClick,
@@ -39,13 +41,19 @@ struct LoadedArticleView: View {
     private var moveToTest: Bool = false
 
     let article: Article
+    let articleDescription: ArticleDescription?
     let testInfo: CommonListUiModel
     let haveRead: Bool
     let onReadClick: () -> Void
     let onLinkTap: (String, String) -> Void
 
+    @Binding
+    var openArticleDescription: Bool
+
     init(
             article: Article,
+            openArticleDescription: Binding<Bool>,
+            articleDescription: ArticleDescription?,
             testInfo: CommonListUiModel,
             haveRead: Bool,
             onReadClick: @escaping () -> Void,
@@ -60,6 +68,8 @@ struct LoadedArticleView: View {
         }
         selectors.append(.Test)
         self.article = article
+        self._openArticleDescription = openArticleDescription
+        self.articleDescription = articleDescription
         self.testInfo = testInfo
         self.haveRead = haveRead
         self.onReadClick = onReadClick
@@ -88,7 +98,9 @@ struct LoadedArticleView: View {
                                     }
                                     self.moveToTest = true
                                 },
-                                onLinkTap: onLinkTap
+                                onLinkTap: { articleId, articleCategory in
+                                    onLinkTap(articleId, articleCategory)
+                                }
                         )
                     case .Events:
                         VStack(alignment: .leading) {
@@ -106,20 +118,17 @@ struct LoadedArticleView: View {
                         ArticleTestView(
                                 test: article.test,
                                 testInfo: testInfo,
-                                showRules: $showRules,
                                 moveToTest: $moveToTest
                         )
                     }
                 }
             }
         }
-                .sheet(isPresented: $showRules) {
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
-                            Text("Rules information".localized())
-                        }.padding()
-                    }
+                .sheet(isPresented:  $showRules) {
+
+                }
+                .sheet(isPresented: $openArticleDescription) {
+                    ArticleClarificationView(article: articleDescription)
                 }
     }
 }
