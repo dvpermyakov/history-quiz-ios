@@ -102,7 +102,12 @@ struct LoadedArticleView: View {
                                     onLinkTap(articleId, articleCategory)
                                 }
                         ).sheet(isPresented: $openArticleDescription) {
-                            ArticleClarificationView(article: articleDescription)
+                            ArticleClarificationView(
+                                    article: articleDescription,
+                                    onBack: {
+                                        openArticleDescription = false
+                                    }
+                            )
                         }
                     case .Events:
                         VStack(alignment: .leading) {

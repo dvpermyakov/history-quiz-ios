@@ -4,20 +4,33 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct ArticleClarificationView: View {
     let article: ArticleDescription?
+    let onBack: () -> Void
 
     var body: some View {
-        ScrollView {
-            if let article = self.article {
-                VStack {
-                    Text(article.name)
-                    Text(article.description)
-                }
-            } else {
-                ProgressView()
+        VStack(alignment: .leading) {
+            Button(action: onBack) {
+                NavigationBackView()
             }
-        }
+            ScrollView {
+                if let article = self.article {
+                    VStack(alignment: .leading) {
+                        Text(article.name).font(Font.system(size: 20))
+                        KFImage(URL(string: article.image))
+                                .placeholder {
+                                    ProgressView()
+                                }
+                                .resizable()
+                                .scaledToFit()
+                        Text(article.description)
+                    }.padding(.top, 20)
+                } else {
+                    ProgressView()
+                }
+            }
+        }.padding()
     }
 }

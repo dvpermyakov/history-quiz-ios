@@ -8,4 +8,5 @@ import Foundation
 protocol ArticleDescription {
     var name: String { get }
     var description: String { get }
+    var image: String { get }
 }
