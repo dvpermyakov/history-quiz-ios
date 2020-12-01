@@ -17,9 +17,9 @@ class ArticleViewModel: ObservableObject {
     @Published
     var article: Article? = nil
     @Published
-    var openArticleDescription: Bool = false
+    var openArticleClarification: Bool = false
     @Published
-    var articleDescription: ArticleDescription? = nil
+    var articleClarification: ArticleClarificationUiModel? = nil
     @Published
     var error: String? = nil
     @Published
@@ -96,14 +96,13 @@ class ArticleViewModel: ObservableObject {
     }
 
     func onLinkClick(articleId: String, articleCategory: String) {
-        self.openArticleDescription = true
+        self.openArticleClarification = true
         let openedArticle = OpenedArticle(
                 id: UUID(),
                 articleId: articleId,
                 articleCategory: articleCategory,
                 date: Date()
         )
-        loadArticleDescription(openedArticle)
         articleRepository.getOpenedArticle(
                         articleId: articleId,
                         articleCategory: articleCategory
@@ -111,6 +110,10 @@ class ArticleViewModel: ObservableObject {
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink { savedOpenedArticle in
+                    self.loadArticleDescription(
+                            article: openedArticle,
+                            newArticle: savedOpenedArticle == nil
+                    )
                     if (savedOpenedArticle == nil) {
                         self.saveOpenedArticle(openedArticle)
                     }
@@ -118,22 +121,34 @@ class ArticleViewModel: ObservableObject {
                 .store(in: &disposables)
     }
 
-    private func loadArticleDescription(_ article: OpenedArticle) {
+    private func loadArticleDescription(
+            article: OpenedArticle,
+            newArticle: Bool
+    ) {
         if let foundEvent = self.article?.events.first(where: { event in
             event.id == article.articleId && event.category == article.articleCategory
         }) {
-            self.articleDescription = foundEvent
+            self.articleClarification = ArticleClarificationUiModel(
+                    article: foundEvent,
+                    newArticle: newArticle
+            )
         } else if let foundPerson = self.article?.persons.first(where: { person in
             person.id == article.articleId && person.category == article.articleCategory
         }) {
-            self.articleDescription = foundPerson
+            self.articleClarification = ArticleClarificationUiModel(
+                    article: foundPerson,
+                    newArticle: newArticle
+            )
         } else {
             self.articleRepository.getArticleInfo(id: article.articleId, category: article.articleCategory)
                     .subscribe(on: DispatchQueue.global())
                     .receive(on: DispatchQueue.main)
                     .sink(receiveCompletion: { completion in
                     }, receiveValue: { articleInfo in
-                        self.articleDescription = articleInfo
+                        self.articleClarification = ArticleClarificationUiModel(
+                                article: articleInfo,
+                                newArticle: newArticle
+                        )
                     })
                     .store(in: &disposables)
         }
@@ -145,6 +160,14 @@ class ArticleViewModel: ObservableObject {
                 .receive(on: DispatchQueue.main)
                 .sink { success in
                     print("openedArticle \(article) was created")
+                }
+                .store(in: &disposables)
+        let transaction = Transaction.create(.ArticleOpened)
+        balanceRepository.createTransaction(value: transaction)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { success in
+                    print("transaction \(transaction) was created")
                 }
                 .store(in: &disposables)
     }

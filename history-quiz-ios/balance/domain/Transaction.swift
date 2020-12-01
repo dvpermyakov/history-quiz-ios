@@ -15,6 +15,7 @@ struct Transaction: Identifiable, Hashable {
         case DailyAward = 0
         case ArticleRead = 1
         case StartAward = 2
+        case ArticleOpened = 3
         case Unknown = -1
     }
 }
@@ -28,6 +29,8 @@ extension Transaction {
             return "Read article".localized()
         case .StartAward:
             return "Start bonus".localized()
+        case .ArticleOpened:
+            return "Article opened".localized()
         case .Unknown:
             return "Unknown".localized()
         }
@@ -52,6 +55,8 @@ extension Transaction.TransactionType {
             return 5
         case .StartAward:
             return 50
+        case .ArticleOpened:
+            return 5
         default:
             return 0
         }

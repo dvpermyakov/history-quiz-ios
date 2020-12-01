@@ -14,8 +14,8 @@ struct ArticleView: View {
             if let article = viewModel.article, let testInfo = viewModel.testInfo {
                 LoadedArticleView(
                         article: article,
-                        openArticleDescription: $viewModel.openArticleDescription,
-                        articleDescription: viewModel.articleDescription,
+                        openArticleClarification: $viewModel.openArticleClarification,
+                        articleClarification: viewModel.articleClarification,
                         testInfo: testInfo,
                         haveRead: viewModel.haveRead,
                         onReadClick: viewModel.onReadClick,
@@ -41,19 +41,19 @@ struct LoadedArticleView: View {
     private var moveToTest: Bool = false
 
     let article: Article
-    let articleDescription: ArticleDescription?
+    let articleClarification: ArticleClarificationUiModel?
     let testInfo: CommonListUiModel
     let haveRead: Bool
     let onReadClick: () -> Void
     let onLinkTap: (String, String) -> Void
 
     @Binding
-    var openArticleDescription: Bool
+    var openArticleClarification: Bool
 
     init(
             article: Article,
-            openArticleDescription: Binding<Bool>,
-            articleDescription: ArticleDescription?,
+            openArticleClarification: Binding<Bool>,
+            articleClarification: ArticleClarificationUiModel?,
             testInfo: CommonListUiModel,
             haveRead: Bool,
             onReadClick: @escaping () -> Void,
@@ -68,8 +68,8 @@ struct LoadedArticleView: View {
         }
         selectors.append(.Test)
         self.article = article
-        self._openArticleDescription = openArticleDescription
-        self.articleDescription = articleDescription
+        self._openArticleClarification = openArticleClarification
+        self.articleClarification = articleClarification
         self.testInfo = testInfo
         self.haveRead = haveRead
         self.onReadClick = onReadClick
@@ -101,11 +101,11 @@ struct LoadedArticleView: View {
                                 onLinkTap: { articleId, articleCategory in
                                     onLinkTap(articleId, articleCategory)
                                 }
-                        ).sheet(isPresented: $openArticleDescription) {
+                        ).sheet(isPresented: $openArticleClarification) {
                             ArticleClarificationView(
-                                    article: articleDescription,
+                                    articleClarification: articleClarification,
                                     onBack: {
-                                        openArticleDescription = false
+                                        openArticleClarification = false
                                     }
                             )
                         }

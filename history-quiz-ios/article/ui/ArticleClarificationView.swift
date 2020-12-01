@@ -7,7 +7,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ArticleClarificationView: View {
-    let article: ArticleDescription?
+    let articleClarification: ArticleClarificationUiModel?
     let onBack: () -> Void
 
     var body: some View {
@@ -16,18 +16,28 @@ struct ArticleClarificationView: View {
                 NavigationBackView()
             }
             ScrollView {
-                if let article = self.article {
+                if let articleClarification = self.articleClarification {
                     VStack(alignment: .leading) {
-                        Text(article.name)
+                        Text(articleClarification.article.name)
                                 .font(Font.system(size: 20))
                                 .bold()
-                        KFImage(URL(string: article.image))
+                        KFImage(URL(string: articleClarification.article.image))
                                 .placeholder {
                                     ProgressView()
                                 }
                                 .resizable()
                                 .scaledToFit()
-                        Text(article.description)
+                        Text(articleClarification.article.description)
+                        if (articleClarification.newArticle) {
+                            VStack(alignment: .center) {
+                                Text("Congrats, you have opened a new article! 🎉🎉🎉")
+                                        .font(Font.system(size: 20))
+                                        .bold()
+                                        .multilineTextAlignment(.center)
+                            }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.top, 30)
+                        }
                     }.padding(.top, 20)
                 } else {
                     ProgressView()
