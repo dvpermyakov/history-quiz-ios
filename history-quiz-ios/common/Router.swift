@@ -5,38 +5,50 @@
 
 import Foundation
 
-class Router {
-    private static let balanceRepository: BalanceRepository = BalanceRepositoryImpl()
-    private static let periodsRepository: PeriodsRepository = PeriodsRepositoryIml()
-    private static let gameRepository: GameRepository = GameRepositoryIml()
-    private static let articleRepository: ArticleRepository = ArticleRepositoryIml()
+class Router: ObservableObject {
+    let balanceRepository: BalanceRepository
+    let periodsRepository: PeriodsRepository
+    let gameRepository: GameRepository
+    let articleRepository: ArticleRepository
 
-    static func createMain() -> MainView {
+    init(
+            balanceRepository: BalanceRepository,
+            periodsRepository: PeriodsRepository,
+            gameRepository: GameRepository,
+            articleRepository: ArticleRepository
+    ) {
+        self.balanceRepository = balanceRepository
+        self.periodsRepository = periodsRepository
+        self.gameRepository = gameRepository
+        self.articleRepository = articleRepository
+    }
+
+    func createMain() -> MainView {
         MainView(viewModel: MainViewModel(
                 repository: balanceRepository
         ))
     }
 
-    static func createPeriods() -> PeriodsView {
+    func createPeriods() -> PeriodsView {
         PeriodsView(viewModel: PeriodsViewModel(
                 repository: periodsRepository
         ))
     }
 
-    static func createBalance() -> BalanceView {
+    func createBalance() -> BalanceView {
         BalanceView(viewModel: BalanceViewModel(
                 repository: balanceRepository
         ))
     }
 
-    static func createTest(test: Test) -> GameView {
+    func createTest(test: Test) -> GameView {
         GameView(viewModel: GameViewModel(
                 test: test,
                 repository: gameRepository
         ))
     }
 
-    static func createArticle(for item: ArticleAvailable) -> ArticleView {
+    func createArticle(for item: ArticleAvailable) -> ArticleView {
         ArticleView(viewModel: ArticleViewModel(
                 id: item.id,
                 category: item.category,

@@ -37,9 +37,9 @@ struct MainTabContentView: View {
         Group {
             switch tab {
             case .Periods:
-                Router.createPeriods()
+                getRouter().createPeriods()
             case .Balance:
-                Router.createBalance()
+                getRouter().createBalance()
             }
         }
     }

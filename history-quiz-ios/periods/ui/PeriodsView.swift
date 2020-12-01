@@ -60,7 +60,7 @@ struct PeriodView: View {
                                 .font(.system(size: 15))
                     }.padding(.leading, 20).padding(.bottom, 10)
 
-                    NavigationLink(destination: Router.createArticle(for: period)
+                    NavigationLink(destination: getRouter().createArticle(for: period)
                             .navigationBarTitle(period.name)
                     ) {
                         NavigationSeeView()

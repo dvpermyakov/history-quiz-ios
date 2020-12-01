@@ -29,7 +29,7 @@ struct ArticleItemView: View {
                     Text(item.subtitle)
                             .foregroundColor(.gray)
                             .font(.system(size: 15))
-                    NavigationLink(destination: Router.createArticle(for: item)
+                    NavigationLink(destination: getRouter().createArticle(for: item)
                             .navigationBarTitle(item.title)
                     ) {
                         NavigationSeeView()

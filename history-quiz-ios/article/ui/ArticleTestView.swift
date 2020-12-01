@@ -25,7 +25,7 @@ struct ArticleTestView: View {
                     Text("Rules")
                 }.padding()
                 NavigationLink(
-                        destination: Router.createTest(test: test).navigationBarTitle("Test"),
+                        destination: getRouter().createTest(test: test).navigationBarTitle("Test"),
                         isActive: $moveToTest
                 ) {
                     HStack {
