@@ -38,7 +38,14 @@ struct LoadedPeriodsView: View {
 }
 
 struct PeriodView: View {
+    @State
+    private var showProfile: Bool = false
+
     let period: Period
+
+    init(period: Period) {
+        self.period = period
+    }
 
     var body: some View {
         Group {
@@ -70,7 +77,17 @@ struct PeriodView: View {
             }
                     .background(Color.white)
                     .asCard()
-        }.padding()
+        }
+                .padding()
+                .navigationBarItems(
+                        trailing: Image(systemName: "person.crop.circle")
+                                .font(.system(size: 30))
+                                .onTapGesture {
+                                    self.showProfile = true
+                                }
+                ).sheet(isPresented: $showProfile) {
+                    Text("Profile!")
+                }
     }
 }
 
