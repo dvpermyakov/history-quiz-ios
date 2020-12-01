@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreData
 
 extension ArticleDto {
     func map() -> Article {
@@ -42,5 +43,47 @@ extension TestDto {
                 mistakesAmount: self.max_mistakes,
                 seconds: self.max_seconds
         )
+    }
+}
+
+extension ReadArticleEntity {
+    func map() -> ReadArticle {
+        ReadArticle(
+                id: self.id!,
+                articleId: self.articleId!,
+                articleCategory: self.articleCategory!,
+                date: self.date!
+        )
+    }
+}
+
+extension ReadArticle {
+    func setEntity(for context: NSManagedObjectContext) {
+        let entity = ReadArticleEntity(context: context)
+        entity.id = self.id
+        entity.articleId = self.articleId
+        entity.articleCategory = self.articleCategory
+        entity.date = self.date
+    }
+}
+
+extension OpenedArticleEntity {
+    func map() -> OpenedArticle {
+        OpenedArticle(
+                id: self.id!,
+                articleId: self.articleId!,
+                articleCategory: self.articleCategory!,
+                date: self.date!
+        )
+    }
+}
+
+extension OpenedArticle {
+    func setEntity(for context: NSManagedObjectContext) {
+        let entity = OpenedArticleEntity(context: context)
+        entity.id = self.id
+        entity.articleId = self.articleId
+        entity.articleCategory = self.articleCategory
+        entity.date = self.date
     }
 }

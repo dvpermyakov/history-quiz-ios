@@ -16,7 +16,8 @@ struct ArticleView: View {
                         article: article,
                         testInfo: testInfo,
                         haveRead: viewModel.haveRead,
-                        onReadClick: viewModel.onReadClick
+                        onReadClick: viewModel.onReadClick,
+                        onLinkTap: viewModel.onLinkClick
                 )
             } else if let error = viewModel.error {
                 Text(error)
@@ -41,12 +42,14 @@ struct LoadedArticleView: View {
     let testInfo: CommonListUiModel
     let haveRead: Bool
     let onReadClick: () -> Void
+    let onLinkTap: (String, String) -> Void
 
     init(
             article: Article,
             testInfo: CommonListUiModel,
             haveRead: Bool,
-            onReadClick: @escaping () -> Void
+            onReadClick: @escaping () -> Void,
+            onLinkTap: @escaping (String, String) -> Void
     ) {
         selectors = [.Text]
         if (!article.events.isEmpty) {
@@ -60,6 +63,7 @@ struct LoadedArticleView: View {
         self.testInfo = testInfo
         self.haveRead = haveRead
         self.onReadClick = onReadClick
+        self.onLinkTap = onLinkTap
     }
 
     var body: some View {
@@ -83,7 +87,8 @@ struct LoadedArticleView: View {
                                         self.selectedIndex = testIndex
                                     }
                                     self.moveToTest = true
-                                }
+                                },
+                                onLinkTap: onLinkTap
                         )
                     case .Events:
                         VStack(alignment: .leading) {

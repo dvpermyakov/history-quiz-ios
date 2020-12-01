@@ -32,6 +32,28 @@ class ArticleRepositoryIml: ArticleRepository {
         }.eraseToAnyPublisher()
     }
 
+    func setOpenedArticle(item: OpenedArticle) -> AnyPublisher<Bool, Never> {
+        Future<Bool, Never> { promise in
+            guard let context = getArticleContext() else {
+                return promise(.success(false))
+            }
+            item.setEntity(for: context)
+            try? context.save()
+            return promise(.success(true))
+        }.eraseToAnyPublisher()
+    }
+
+    func getOpenedArticle(articleId: String, articleCategory: String) -> AnyPublisher<OpenedArticle?, Never> {
+        Future<OpenedArticle?, Never> { promise in
+            guard let context = getArticleContext() else {
+                return promise(.success(nil))
+            }
+            let request = NSFetchRequest<OpenedArticleEntity>(entityName: "OpenedArticleEntity")
+            request.predicate = NSPredicate(format: "articleId = %@ AND articleCategory = %@", articleId, articleCategory)
+            return promise(.success(try? context.fetch(request).first?.map()))
+        }.eraseToAnyPublisher()
+    }
+
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error> {
         var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_GAME)
         components?.queryItems = [

@@ -96,4 +96,35 @@ class ArticleViewModel: ObservableObject {
         }
     }
 
+    func onLinkClick(articleId: String, articleCategory: String) {
+        let openedArticle = OpenedArticle(
+                id: UUID(),
+                articleId: articleId,
+                articleCategory: articleCategory,
+                date: Date()
+        )
+        articleRepository.getOpenedArticle(
+                        articleId: articleId,
+                        articleCategory: articleCategory
+                )
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { savedOpenedArticle in
+                    if (savedOpenedArticle == nil) {
+                        self.saveOpenedArticle(openedArticle)
+                    }
+                }
+                .store(in: &disposables)
+    }
+
+    private func saveOpenedArticle(_ article: OpenedArticle) {
+        articleRepository.setOpenedArticle(item: article)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink { success in
+                    print("openedArticle \(article) was created")
+                }
+                .store(in: &disposables)
+    }
+
 }

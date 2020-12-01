@@ -11,5 +11,9 @@ protocol ArticleRepository {
 
     func getReadArticle(articleId: String, articleCategory: String) -> AnyPublisher<ReadArticle?, Never>
 
+    func setOpenedArticle(item: OpenedArticle) -> AnyPublisher<Bool, Never>
+
+    func getOpenedArticle(articleId: String, articleCategory: String) -> AnyPublisher<OpenedArticle?, Never>
+
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error>
 }

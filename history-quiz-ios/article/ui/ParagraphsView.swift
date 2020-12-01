@@ -7,14 +7,31 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ParagraphsView: View {
+    @State
+    private var showingReadArticle = false
+
     let text: ArticleText
     let haveRead: Bool
     let onReadClick: () -> Void
     let moveToTestInfo: () -> Void
     let startTest: () -> Void
+    let onLinkTap: (String, String) -> Void
 
-    @State
-    private var showingReadArticle = false
+    init(
+            text: ArticleText,
+            haveRead: Bool,
+            onReadClick: @escaping () -> Void,
+            moveToTestInfo: @escaping () -> Void,
+            startTest: @escaping () -> Void,
+            onLinkTap: @escaping (String, String) -> Void
+    ) {
+        self.text = text
+        self.haveRead = haveRead
+        self.onReadClick = onReadClick
+        self.moveToTestInfo = moveToTestInfo
+        self.startTest = startTest
+        self.onLinkTap = onLinkTap
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -34,7 +51,8 @@ struct ParagraphsView: View {
                         }
                     }
                     ParagraphTextView(
-                            paragraphTexts: paragraph.text.parse()
+                            paragraphTexts: paragraph.text.parse(),
+                            onLinkTap: onLinkTap
                     )
                 }.padding()
             }
@@ -67,89 +85,6 @@ struct ParagraphsView: View {
             return Color.gray
         } else {
             return Color.blue
-        }
-    }
-}
-
-extension String {
-    func parse() -> [ParagraphText] {
-        var result = [ParagraphText]()
-        let range = NSRange(location: 0, length: self.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "<a href=\"app\\.opened:\\/\\/mark\\?id=(\\d*)&cat=(\\d)\">(.*?)<\\/a>")
-        var lastIndex = 0
-        regex.matches(in: self, range: range).forEach { match in
-            result.append(
-                    ParagraphText.Text(
-                            value: self.substring(
-                                    lastIndex,
-                                    match.range(at: 0).lowerBound
-                            )
-                    )
-            )
-            result.append(
-                    ParagraphText.Link(
-                            value: self.substring(
-                                    match.range(at: 3).lowerBound,
-                                    match.range(at: 3).upperBound
-                            ),
-                            articleId: self.substring(
-                                    match.range(at: 1).lowerBound,
-                                    match.range(at: 1).upperBound
-                            ),
-                            articleCategory: self.substring(
-                                    match.range(at: 2).lowerBound,
-                                    match.range(at: 2).upperBound
-                            )
-                    )
-            )
-            lastIndex = match.range(at: 0).upperBound
-        }
-        result.append(
-                ParagraphText.Text(
-                        value: self.substring(lastIndex, self.count)
-                )
-        )
-        return result
-    }
-}
-
-enum ParagraphText: Identifiable, Hashable {
-    var id: String {
-        switch self {
-        case .Text(value: let value):
-            return value
-        case .Link(value: let value, articleId: _, articleCategory: _):
-            return value
-        }
-    }
-    case Text(
-            value: String
-    )
-    case Link(
-            value: String,
-            articleId: String,
-            articleCategory: String
-    )
-}
-
-struct ParagraphTextView: View {
-    var paragraphTexts: [ParagraphText]
-
-    var body: some View {
-        VStack {
-            paragraphTexts.map { paragraphText in
-                switch paragraphText {
-                case .Text(value: let value):
-                    return Text(value)
-                            .font(Font.system(.body))
-                            .foregroundColor(Color.black)
-                case .Link(value: let value, articleId: _, articleCategory: _):
-                    return Text(value)
-                            .font(Font.system(.body))
-                            .foregroundColor(Color.blue)
-                            .underline()
-                }
-            }.reduce(Text(""), +)
         }
     }
 }
