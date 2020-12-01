@@ -6,8 +6,10 @@
 import SwiftUI
 
 struct GameResultView: View {
+    @EnvironmentObject
+    var viewModel: GameViewModel
+
     let result: GameResult
-    let onStartAgain: () -> Void
 
     var body: some View {
         ScrollView {
@@ -18,7 +20,7 @@ struct GameResultView: View {
                     CommonListUiModel.Item(name: "Time spent".localized(), value: "\(result.timeConsumed)/\(result.test.seconds)"),
                     CommonListUiModel.Item(name: "Mistakes".localized(), value: "\(result.mistakesMade)/\(result.test.mistakesAmount)")
                 ]))
-                Button(action: onStartAgain) {
+                Button(action: viewModel.restartGame) {
                     HStack {
                         Text("Start again")
                         Image(systemName: "chevron.right")
