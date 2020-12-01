@@ -125,7 +125,7 @@ struct LoadedArticleView: View {
             }
         }
                 .sheet(isPresented:  $showRules) {
-
+                    TestRulesView()
                 }
                 .sheet(isPresented: $openArticleDescription) {
                     ArticleClarificationView(article: articleDescription)
