@@ -13,7 +13,7 @@ struct GameView: View {
     var viewModel: GameViewModel
 
     var body: some View {
-        NavigationView {
+        Group {
             if let gameResult = viewModel.gameResult {
                 GameResultView(result: gameResult).environmentObject(viewModel)
             } else if let question = viewModel.currentQuestion {
