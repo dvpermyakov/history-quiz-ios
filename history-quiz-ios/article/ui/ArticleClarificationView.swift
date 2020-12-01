@@ -18,7 +18,9 @@ struct ArticleClarificationView: View {
             ScrollView {
                 if let article = self.article {
                     VStack(alignment: .leading) {
-                        Text(article.name).font(Font.system(size: 20))
+                        Text(article.name)
+                                .font(Font.system(size: 20))
+                                .bold()
                         KFImage(URL(string: article.image))
                                 .placeholder {
                                     ProgressView()

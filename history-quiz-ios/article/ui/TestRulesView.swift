@@ -15,7 +15,10 @@ struct TestRulesView: View {
             }
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
+                    Text("Rules")
+                            .font(Font.system(size: 24))
+                            .bold()
+                            .padding(.bottom, 10)
                     Text("Rules information".localized())
                 }.padding(.top, 20)
             }
