@@ -38,3 +38,6 @@
 "Move to test information" = "Информация о тесте";
 "Start test" = "Начать тест";
 "Start bonus" = "Стартовый бонус";
+"Money" = "Монеты";
+"You can use money to spend and collect them!" = "Вы можете тратить и накапливать монеты в приложении";
+"Get with param" = "Получить: %@";

@@ -22,8 +22,8 @@ class MainViewModel: ObservableObject {
             let transaction = Transaction.create(.StartAward)
             updateDailyAward(transaction)
         } else {
-            let diff = Calendar.current.dateComponents([.hour], from: lastDailyBalance!, to: Date())
-            if let hours = diff.hour, hours > 24 {
+            let diff = Calendar.current.dateComponents([.second], from: lastDailyBalance!, to: Date())
+            if let second = diff.second, second > 10 {
                 let transaction = Transaction.create(.DailyAward)
                 updateDailyAward(transaction)
             }
@@ -34,15 +34,15 @@ class MainViewModel: ObservableObject {
         switch transaction.type {
         case .DailyAward:
             awardInfo = AwardInfo(
-                    title: "Daily reward",
-                    description: "You receive your new daily reward! Congrats!",
-                    confirmButton: "Get: \(transaction.type.amount)"
+                    title: "Daily reward".localized(),
+                    description: "You receive your new daily reward! Congrats!".localized(),
+                    confirmButton: String(format: "Get with param".localized(), String(transaction.type.amount))
             )
         case .StartAward:
             awardInfo = AwardInfo(
-                    title: "Money",
-                    description: "You can use money to spend and collect them!",
-                    confirmButton: "Get: \(transaction.type.amount)"
+                    title: "Money".localized(),
+                    description: "You can use money to spend and collect them!".localized(),
+                    confirmButton: String(format: "Get with param".localized(), String(transaction.type.amount))
             )
         default:
             awardInfo = nil
