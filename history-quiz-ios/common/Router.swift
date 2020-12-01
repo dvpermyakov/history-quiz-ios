@@ -56,4 +56,8 @@ class Router: ObservableObject {
                 balanceRepository: balanceRepository
         ))
     }
+
+    func createArticleList() -> ArticleListView {
+        ArticleListView()
+    }
 }

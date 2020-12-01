@@ -13,7 +13,7 @@ struct MainView: View {
 
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        tabs = [MainTab.Periods, MainTab.Balance]
+        tabs = [MainTab.Periods, MainTab.Balance, MainTab.Articles]
     }
 
     var body: some View {
@@ -40,6 +40,8 @@ struct MainTabContentView: View {
                 getRouter().createPeriods()
             case .Balance:
                 getRouter().createBalance()
+            case .Articles:
+                getRouter().createArticleList()
             }
         }
     }
@@ -49,6 +51,7 @@ struct MainTabContentView: View {
 enum MainTab {
     case Periods
     case Balance
+    case Articles
 }
 
 extension MainTab: Identifiable {
@@ -58,6 +61,8 @@ extension MainTab: Identifiable {
             return "periods_id"
         case .Balance:
             return "balance_id"
+        case .Articles:
+            return "articles_id"
         }
     }
 
@@ -67,6 +72,8 @@ extension MainTab: Identifiable {
             return LocalizedStringKey("Periods")
         case .Balance:
             return LocalizedStringKey("Balance")
+        case .Articles:
+            return LocalizedStringKey("Articles")
         }
     }
     var image: String {
@@ -75,6 +82,8 @@ extension MainTab: Identifiable {
             return "list.bullet"
         case .Balance:
             return "banknote.fill"
+        case .Articles:
+            return "doc.plaintext"
         }
     }
 }
