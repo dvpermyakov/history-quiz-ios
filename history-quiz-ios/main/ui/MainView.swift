@@ -24,8 +24,8 @@ struct MainView: View {
                     Text(tab.name)
                 }
             }
-        }.alert(isPresented: $viewModel.showDailyAwardAlert) {
-            Alert(title: Text("Daily reward"), message: Text("You receive your new daily reward! Congrats!"))
+        }.alert(isPresented: $viewModel.showAwardAlert) {
+            try! MoneyAlertFactory.createMoneyAlert(viewModel.awardInfo)
         }
     }
 }

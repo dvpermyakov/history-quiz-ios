@@ -14,6 +14,7 @@ struct Transaction: Identifiable, Hashable {
     enum TransactionType: Int {
         case DailyAward = 0
         case ArticleRead = 1
+        case StartAward = 2
         case Unknown = -1
     }
 }
@@ -25,8 +26,34 @@ extension Transaction {
             return "Daily bonus".localized()
         case .ArticleRead:
             return "Read article".localized()
+        case .StartAward:
+            return "Start bonus".localized()
         case .Unknown:
             return "Unknown".localized()
+        }
+    }
+
+    static func create(_ type: Transaction.TransactionType) -> Transaction {
+        Transaction(
+                id: UUID(),
+                amount: type.amount,
+                date: Date(),
+                type: type
+        )
+    }
+}
+
+extension Transaction.TransactionType {
+    var amount: Int {
+        switch self {
+        case .DailyAward:
+            return 30
+        case .ArticleRead:
+            return 5
+        case .StartAward:
+            return 50
+        default:
+            return 0
         }
     }
 }

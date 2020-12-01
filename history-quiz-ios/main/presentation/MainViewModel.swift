@@ -11,30 +11,45 @@ class MainViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var showDailyAwardAlert = false
+    var awardInfo: AwardInfo? = nil
+    @Published
+    var showAwardAlert = false
 
     init(repository: BalanceRepository) {
         self.repository = repository
         let lastDailyBalance = repository.lastDailyAwardDate
         if lastDailyBalance == nil {
-            updateDailyAward()
+            let transaction = Transaction.create(.StartAward)
+            updateDailyAward(transaction)
         } else {
             let diff = Calendar.current.dateComponents([.hour], from: lastDailyBalance!, to: Date())
             if let hours = diff.hour, hours > 24 {
-                updateDailyAward()
+                let transaction = Transaction.create(.DailyAward)
+                updateDailyAward(transaction)
             }
         }
     }
 
-    private func updateDailyAward() {
-        self.showDailyAwardAlert = true
+    private func updateDailyAward(_ transaction: Transaction) {
+        switch transaction.type {
+        case .DailyAward:
+            awardInfo = AwardInfo(
+                    title: "Daily reward",
+                    description: "You receive your new daily reward! Congrats!",
+                    confirmButton: "Get: \(transaction.type.amount)"
+            )
+        case .StartAward:
+            awardInfo = AwardInfo(
+                    title: "Money",
+                    description: "You can use money to spend and collect them!",
+                    confirmButton: "Get: \(transaction.type.amount)"
+            )
+        default:
+            awardInfo = nil
+        }
+        self.showAwardAlert = true
+
         self.repository.lastDailyAwardDate = Date()
-        let transaction = Transaction(
-                id: UUID(),
-                amount: 30,
-                date: Date(),
-                type: Transaction.TransactionType.DailyAward
-        )
         self.repository.createTransaction(value: transaction)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)

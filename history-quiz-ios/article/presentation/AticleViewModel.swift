@@ -71,12 +71,7 @@ class ArticleViewModel: ObservableObject {
     func onReadClick() {
         if (!self.haveRead) {
             self.haveRead = true
-            let transaction = Transaction(
-                    id: UUID(),
-                    amount: 5,
-                    date: Date(),
-                    type: Transaction.TransactionType.ArticleRead
-            )
+            let transaction = Transaction.create(.ArticleRead)
             balanceRepository.createTransaction(value: transaction)
                     .subscribe(on: DispatchQueue.global())
                     .receive(on: DispatchQueue.main)
