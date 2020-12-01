@@ -123,7 +123,9 @@ struct LoadedArticleView: View {
                                 showRules: $showRules,
                                 moveToTest: $moveToTest
                         ).sheet(isPresented: $showRules) {
-                            TestRulesView()
+                            TestRulesView(onBack: {
+                                showRules = false
+                            })
                         }
                     }
                 }

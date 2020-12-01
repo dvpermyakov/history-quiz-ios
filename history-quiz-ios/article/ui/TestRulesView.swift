@@ -6,14 +6,20 @@
 import SwiftUI
 
 struct TestRulesView: View {
+    let onBack: () -> Void
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
-                Text("Rules information".localized())
-            }.padding()
-        }
+        VStack(alignment: .leading) {
+            Button(action: onBack) {
+                NavigationBackView()
+            }
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("Rules").font(Font.system(size: 24)).padding(.bottom, 10)
+                    Text("Rules information".localized())
+                }.padding(.top, 20)
+            }
+        }.padding()
     }
 
 }
