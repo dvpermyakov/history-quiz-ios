@@ -86,7 +86,9 @@ struct PeriodView: View {
                                     self.showProfile = true
                                 }
                 ).sheet(isPresented: $showProfile) {
-                    Text("Profile!")
+                    getRouter().createProfile(onBack: {
+                        showProfile = false
+                    })
                 }
     }
 }

@@ -60,4 +60,8 @@ class Router: ObservableObject {
     func createArticleList() -> ArticleListView {
         ArticleListView()
     }
+
+    func createProfile(onBack: @escaping () -> Void) -> ProfileView {
+        ProfileView(onBack: onBack)
+    }
 }
