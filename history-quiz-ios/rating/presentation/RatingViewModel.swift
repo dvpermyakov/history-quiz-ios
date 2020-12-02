@@ -12,6 +12,8 @@ class RatingViewModel: ObservableObject {
 
     @Published
     var users = [User]()
+    @Published
+    var error: String? = nil
 
     init(ratingRepository: RatingRepository) {
         self.ratingRepository = ratingRepository
@@ -19,6 +21,12 @@ class RatingViewModel: ObservableObject {
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        return
+                    case .failure(let er):
+                        self.error = er.localizedDescription
+                    }
                 }, receiveValue: { users in
                     self.users = users
                 })

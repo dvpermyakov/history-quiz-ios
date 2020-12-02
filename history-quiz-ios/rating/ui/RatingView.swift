@@ -12,11 +12,20 @@ struct RatingView: View {
     var body: some View {
         NavigationView {
             Group {
-                Text("Rating")
+                if let error = viewModel.error {
+                    Text(error)
+                } else if (viewModel.users.isEmpty) {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        VStack {
+                            ForEach(viewModel.users) { user in
+                                Text(user.name)
+                            }
+                        }
+                    }
+                }
             }.navigationBarTitle("Rating")
         }
-//        ForEach(viewModel.users) { user in
-//            Text(user.name)
-//        }
     }
 }

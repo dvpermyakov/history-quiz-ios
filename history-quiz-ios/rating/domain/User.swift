@@ -8,6 +8,6 @@ import Foundation
 struct User: Identifiable {
     let id: String
     let name: String
-    let image: String
+    let image: String?
     let testDone: Int
 }

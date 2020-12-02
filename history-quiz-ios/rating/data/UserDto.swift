@@ -8,6 +8,6 @@ import Foundation
 struct UserDto: Codable {
     let id: String
     let name: String
-    let image: String
+    let image: String?
     let test_done_amount: Int
 }
