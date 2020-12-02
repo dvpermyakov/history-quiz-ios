@@ -11,12 +11,16 @@ struct PeriodsView: View {
     var viewModel: PeriodsViewModel
 
     var body: some View {
-        if let error = viewModel.error {
-            Text(error)
-        } else if viewModel.periods.isEmpty {
-            ProgressView()
-        } else {
-            LoadedPeriodsView(periods: viewModel.periods)
+        NavigationView {
+            Group {
+                if let error = viewModel.error {
+                    Text(error)
+                } else if viewModel.periods.isEmpty {
+                    ProgressView()
+                } else {
+                    LoadedPeriodsView(periods: viewModel.periods)
+                }
+            }.navigationBarTitle("Periods")
         }
     }
 }
@@ -25,14 +29,12 @@ struct LoadedPeriodsView: View {
     var periods: [Period]
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    ForEach(periods) { period in
-                        PeriodView(period: period)
-                    }
-                }.padding(.bottom, 30)
-            }.navigationBarTitle("Periods")
+        ScrollView {
+            VStack {
+                ForEach(periods) { period in
+                    PeriodView(period: period)
+                }
+            }.padding(.bottom, 30)
         }
     }
 }
