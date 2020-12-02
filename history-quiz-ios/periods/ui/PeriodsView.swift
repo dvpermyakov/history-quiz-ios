@@ -31,7 +31,7 @@ struct LoadedPeriodsView: View {
                     ForEach(periods) { period in
                         PeriodView(period: period)
                     }
-                }
+                }.padding(.bottom, 30)
             }.navigationBarTitle("Periods")
         }
     }
@@ -78,7 +78,8 @@ struct PeriodView: View {
                     .background(Color.white)
                     .asCard()
         }
-                .padding()
+                .padding(.horizontal)
+                .padding(.top, 10)
                 .navigationBarItems(
                         trailing: Image(systemName: "person.crop.circle")
                                 .font(.system(size: 30))
