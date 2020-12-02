@@ -12,11 +12,14 @@ struct NewArticles {
 
 extension NewArticles {
     func getUiModels() -> [LoadedArticlesUiModel] {
-        let items = self.persons.map { person in
+        (self.persons.map { person in
             person.map()
         } + self.events.map { event in
             event.map()
+        }).sorted {
+            $0.created > $1.created
+        }.map { item in
+            LoadedArticlesUiModel(date: item.created, articles: [item])
         }
-        return [LoadedArticlesUiModel(date: Date(), articles: items)]
     }
 }

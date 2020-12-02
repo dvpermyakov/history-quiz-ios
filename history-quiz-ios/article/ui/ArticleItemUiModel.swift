@@ -8,6 +8,7 @@ import SwiftUI
 struct ArticleItemUiModel: Identifiable, ArticleAvailable {
     let id: String
     let category: String
+    let created: Date
     let image: String
     let title: String
     let subtitle: String
@@ -24,6 +25,7 @@ extension Person {
         ArticleItemUiModel(
                 id: self.id,
                 category: self.category,
+                created: self.created,
                 image: self.image,
                 title: self.name,
                 subtitle: self.yearTitle,
@@ -42,6 +44,7 @@ extension Event {
         ArticleItemUiModel(
                 id: self.id,
                 category: self.category,
+                created: self.created,
                 image: self.image,
                 title: self.name,
                 subtitle: self.yearTitle,
