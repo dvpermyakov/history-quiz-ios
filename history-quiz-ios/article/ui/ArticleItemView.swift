@@ -18,8 +18,9 @@ struct ArticleItemView: View {
                         }
                         .centerCropped()
                         .clipShape(Circle())
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                         .padding(.leading, 10)
+                        .padding(.vertical, 10)
 
                 VStack(alignment: .leading) {
                     Text(item.title)

@@ -11,4 +11,5 @@ struct PersonDto: Codable {
     let name: String
     let description: String
     let image: String
+    let year_title: String
 }

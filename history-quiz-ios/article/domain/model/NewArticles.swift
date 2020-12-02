@@ -9,3 +9,13 @@ struct NewArticles {
     let persons: [Person]
     let events: [Event]
 }
+
+extension NewArticles {
+    func getUiModels() -> [ArticleItemUiModel] {
+        self.persons.map { person in
+            person.map()
+        } + self.events.map { event in
+            event.map()
+        }
+    }
+}

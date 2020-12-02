@@ -12,7 +12,8 @@ extension PersonDto {
                 category: self.category,
                 name: self.name,
                 description: self.description,
-                image: self.image
+                image: self.image,
+                yearTitle: self.year_title
         )
     }
 }

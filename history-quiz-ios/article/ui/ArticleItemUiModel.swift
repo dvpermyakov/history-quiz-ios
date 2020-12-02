@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct ArticleItemUiModel: ArticleAvailable {
+struct ArticleItemUiModel: Identifiable, ArticleAvailable {
     let id: String
     let category: String
     let image: String
@@ -20,7 +20,7 @@ extension Person {
                 category: self.category,
                 image: self.image,
                 title: self.name,
-                subtitle: self.description
+                subtitle: self.yearTitle
         )
     }
 }
@@ -32,7 +32,7 @@ extension Event {
                 category: self.category,
                 image: self.image,
                 title: self.name,
-                subtitle: self.description
+                subtitle: self.yearTitle
         )
     }
 }

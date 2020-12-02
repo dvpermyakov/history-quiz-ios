@@ -11,4 +11,5 @@ struct Person: Identifiable, Hashable, ArticleAvailable, ArticleDescription {
     let name: String
     let description: String
     let image: String
+    let yearTitle: String
 }

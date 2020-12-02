@@ -25,14 +25,9 @@ extension ArticleListPart {
 }
 
 struct ArticleListSelector: View {
-    @State
-    private var selectedIndex: Int = 0
-
     var selectors: [ArticleListPart]
-
-    init(selectors: [ArticleListPart]) {
-        self.selectors = selectors
-    }
+    @Binding
+    var selectedIndex: Int
 
     var body: some View {
         Picker("selector", selection: $selectedIndex) {
