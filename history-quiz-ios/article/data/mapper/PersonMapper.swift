@@ -13,6 +13,18 @@ extension PersonDto {
                 name: self.name,
                 description: self.description,
                 image: self.image,
+                yearTitle: self.year_title,
+                personTitles: self.person_titles.map { personTitle in
+                    personTitle.map()
+                }
+        )
+    }
+}
+
+extension PersonTitleDto {
+    func map() -> PersonTitle {
+        PersonTitle(
+                name: self.name,
                 yearTitle: self.year_title
         )
     }

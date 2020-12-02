@@ -12,4 +12,10 @@ struct PersonDto: Codable {
     let description: String
     let image: String
     let year_title: String
+    let person_titles: [PersonTitleDto]
+}
+
+struct PersonTitleDto: Codable {
+    let name: String
+    let year_title: String
 }

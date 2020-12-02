@@ -60,11 +60,11 @@ struct LoadedArticleView: View {
             onLinkTap: @escaping (String, String) -> Void
     ) {
         selectors = [.Text]
-        if (!article.events.isEmpty) {
-            selectors.append(.Events)
-        }
         if (!article.persons.isEmpty) {
             selectors.append(.Persons)
+        }
+        if (!article.events.isEmpty) {
+            selectors.append(.Events)
         }
         selectors.append(.Test)
         self.article = article

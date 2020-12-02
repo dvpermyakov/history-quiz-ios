@@ -11,6 +11,12 @@ struct ArticleItemUiModel: Identifiable, ArticleAvailable {
     let image: String
     let title: String
     let subtitle: String
+    let additionalInfo: [AdditionalInfo]
+
+    struct AdditionalInfo {
+        let title: String
+        let subtitle: String
+    }
 }
 
 extension Person {
@@ -20,7 +26,13 @@ extension Person {
                 category: self.category,
                 image: self.image,
                 title: self.name,
-                subtitle: self.yearTitle
+                subtitle: self.yearTitle,
+                additionalInfo: self.personTitles.map { personTitle in
+                    ArticleItemUiModel.AdditionalInfo(
+                            title: personTitle.name,
+                            subtitle: personTitle.yearTitle
+                    )
+                }
         )
     }
 }
@@ -32,7 +44,8 @@ extension Event {
                 category: self.category,
                 image: self.image,
                 title: self.name,
-                subtitle: self.yearTitle
+                subtitle: self.yearTitle,
+                additionalInfo: []
         )
     }
 }

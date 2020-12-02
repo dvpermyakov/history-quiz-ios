@@ -12,4 +12,10 @@ struct Person: Identifiable, Hashable, ArticleAvailable, ArticleDescription {
     let description: String
     let image: String
     let yearTitle: String
+    let personTitles: [PersonTitle]
+}
+
+struct PersonTitle: Hashable {
+    let name: String
+    let yearTitle: String
 }
