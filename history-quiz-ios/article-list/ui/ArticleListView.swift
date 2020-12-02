@@ -6,6 +6,9 @@
 import SwiftUI
 
 struct ArticleListView: View {
+    @ObservedObject
+    var viewModel: ArticleListViewModel
+
     var body: some View {
         NavigationView {
             ScrollView {

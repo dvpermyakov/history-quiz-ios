@@ -18,4 +18,6 @@ protocol ArticleRepository {
     func getArticle(id: String, category: String) -> AnyPublisher<Article, Error>
 
     func getArticleInfo(id: String, category: String) -> AnyPublisher<ArticleInfo, Error>
+
+    func getNewArticles() -> AnyPublisher<NewArticles, Error>
 }

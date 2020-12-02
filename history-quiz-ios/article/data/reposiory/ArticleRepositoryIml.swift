@@ -10,6 +10,7 @@ import CoreData
 class ArticleRepositoryIml: ArticleRepository {
     private let PATH_ARTICLE = "/api/history/mark_info"
     private let PATH_ARTICLE_INFO = "/api/history/short_mark_info"
+    private let PATH_NEW_ARTICLES = "/api/history/new"
 
     func setReadArticle(item: ReadArticle) -> AnyPublisher<Bool, Never> {
         Future<Bool, Never> { promise in
@@ -97,6 +98,30 @@ class ArticleRepositoryIml: ArticleRepository {
                     return element.data
                 }
                 .decode(type: ArticleInfoDto.self, decoder: JSONDecoder())
+                .map { dto in
+                    dto.map()
+                }
+                .eraseToAnyPublisher()
+    }
+
+    func getNewArticles() -> AnyPublisher<NewArticles, Error> {
+        var components = URLComponents(string: NetworkConfig.BASE_URL + PATH_NEW_ARTICLES)
+        components?.queryItems = [
+            URLQueryItem(name: "country_id", value: NetworkConfig.COUNTRY_ID),
+            URLQueryItem(name: "amount", value: "20")
+        ]
+        guard let url = components?.url else {
+            return Fail(error: UrlNotFoundError()).eraseToAnyPublisher()
+        }
+        return URLSession.shared
+                .dataTaskPublisher(for: URLRequest(url: url))
+                .tryMap() { element -> Data in
+                    guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                        throw APIError()
+                    }
+                    return element.data
+                }
+                .decode(type: NewArticlesDto.self, decoder: JSONDecoder())
                 .map { dto in
                     dto.map()
                 }
