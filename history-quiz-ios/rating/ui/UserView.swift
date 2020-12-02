@@ -39,7 +39,7 @@ struct UserView: View {
                     .background(Color.white)
                     .asCard()
                     .padding(.horizontal)
-                    .padding(.top, 10)
+                    .padding(.bottom, 10)
         }
     }
 }

@@ -51,3 +51,4 @@
 "New" = "New";
 "Rating" = "Rating";
 "Test done with parameter" = "Test done: %@";
+"Place with parameter" = "%@ place";
