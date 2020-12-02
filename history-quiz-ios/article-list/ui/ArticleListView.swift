@@ -52,7 +52,7 @@ struct LoadedArticles: View {
                 }
             }
         } else {
-            ProgressView()
+            ProgressView().padding(.top, 30)
         }
     }
 }

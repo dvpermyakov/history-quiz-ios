@@ -10,6 +10,7 @@ extension EventDto {
         Event(
                 id: self.id,
                 category: self.category,
+                created: Date(timeIntervalSince1970: Double(self.created)!),
                 name: self.name,
                 description: self.description,
                 image: self.image,
