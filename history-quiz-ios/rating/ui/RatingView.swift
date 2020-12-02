@@ -10,8 +10,13 @@ struct RatingView: View {
     var viewModel: RatingViewModel
 
     var body: some View {
-        ForEach(viewModel.users) { user in
-            Text(user.name)
+        NavigationView {
+            Group {
+                Text("Rating")
+            }.navigationBarTitle("Rating")
         }
+//        ForEach(viewModel.users) { user in
+//            Text(user.name)
+//        }
     }
 }

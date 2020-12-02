@@ -6,14 +6,14 @@
 import SwiftUI
 
 struct MainView: View {
+    private var tabs: [MainTab]
+
     @ObservedObject
     var viewModel: MainViewModel
 
-    private var tabs: [MainTab]
-
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        tabs = [MainTab.Periods, MainTab.Balance, MainTab.Articles]
+        tabs = [.Periods, .Balance, .Articles, .Rating]
     }
 
     var body: some View {
@@ -42,6 +42,8 @@ struct MainTabContentView: View {
                 getRouter().createBalance()
             case .Articles:
                 getRouter().createArticleList()
+            case .Rating:
+                getRouter().createRating()
             }
         }
     }
@@ -52,6 +54,7 @@ enum MainTab {
     case Periods
     case Balance
     case Articles
+    case Rating
 }
 
 extension MainTab: Identifiable {
@@ -63,9 +66,10 @@ extension MainTab: Identifiable {
             return "balance_id"
         case .Articles:
             return "articles_id"
+        case .Rating:
+            return "rating_id"
         }
     }
-
     var name: LocalizedStringKey {
         switch self {
         case .Periods:
@@ -74,6 +78,8 @@ extension MainTab: Identifiable {
             return LocalizedStringKey("Balance")
         case .Articles:
             return LocalizedStringKey("Articles")
+        case .Rating:
+            return LocalizedStringKey("Rating")
         }
     }
     var image: String {
@@ -84,6 +90,8 @@ extension MainTab: Identifiable {
             return "banknote.fill"
         case .Articles:
             return "doc.plaintext"
+        case .Rating:
+            return "person.3.fill"
         }
     }
 }
