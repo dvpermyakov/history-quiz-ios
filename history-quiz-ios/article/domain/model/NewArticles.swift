@@ -11,11 +11,12 @@ struct NewArticles {
 }
 
 extension NewArticles {
-    func getUiModels() -> [ArticleItemUiModel] {
-        self.persons.map { person in
+    func getUiModels() -> [LoadedArticlesUiModel] {
+        let items = self.persons.map { person in
             person.map()
         } + self.events.map { event in
             event.map()
         }
+        return [LoadedArticlesUiModel(date: Date(), articles: items)]
     }
 }

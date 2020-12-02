@@ -55,6 +55,6 @@ struct ArticleItemView: View {
             }
                     .background(Color.white)
                     .asCard()
-        }.padding()
+        }
     }
 }

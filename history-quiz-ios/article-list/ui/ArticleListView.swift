@@ -41,18 +41,36 @@ struct ArticleListView: View {
     }
 }
 
+struct LoadedArticlesUiModel {
+    let date: Date
+    let articles: [ArticleItemUiModel]
+}
+
 struct LoadedArticles: View {
-    var items: [ArticleItemUiModel]?
+    var items: [LoadedArticlesUiModel]?
 
     var body: some View {
         if let items = self.items {
             VStack(alignment: .leading) {
-                ForEach(items) { item in
-                    ArticleItemView(item: item)
+                ForEach(0..<items.count) { itemIndex in
+                    Text(items[itemIndex].date, style: .date)
+                            .font(.system(size: 22))
+                            .bold()
+                            .padding(.horizontal)
+                            .padding(.top)
+                    ForEach(items[itemIndex].articles) { article in
+                        VStack {
+                            ArticleItemView(item: article)
+                                    .padding(.horizontal)
+                                    .padding(.bottom, 10)
+                        }
+                    }
                 }
             }
         } else {
-            ProgressView().padding(.top, 30)
+            Group {
+                ProgressView()
+            }.padding(.top, 30)
         }
     }
 }

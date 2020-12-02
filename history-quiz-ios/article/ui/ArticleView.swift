@@ -113,12 +113,16 @@ struct LoadedArticleView: View {
                         VStack(alignment: .leading) {
                             ForEach(article.events) { event in
                                 ArticleItemView(item: event.map())
+                                        .padding(.horizontal)
+                                        .padding(.top, 10)
                             }
                         }
                     case .Persons:
                         VStack(alignment: .leading) {
                             ForEach(article.persons) { person in
                                 ArticleItemView(item: person.map())
+                                        .padding(.horizontal)
+                                        .padding(.top, 10)
                             }
                         }
                     case .Test:
