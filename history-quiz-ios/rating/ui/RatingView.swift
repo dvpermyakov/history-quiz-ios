@@ -20,9 +20,9 @@ struct RatingView: View {
                     ScrollView {
                         VStack {
                             ForEach(viewModel.users) { user in
-                                Text(user.name)
+                                UserView(user: user)
                             }
-                        }
+                        }.padding(.bottom, 30)
                     }
                 }
             }.navigationBarTitle("Rating")

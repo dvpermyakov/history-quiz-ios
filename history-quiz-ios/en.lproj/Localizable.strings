@@ -50,3 +50,4 @@
 "Finished" = "Finished";
 "New" = "New";
 "Rating" = "Rating";
+"Test done with parameter" = "Test done: %@";

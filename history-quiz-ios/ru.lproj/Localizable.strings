@@ -49,3 +49,4 @@
 "Finished" = "Выполненные";
 "New" = "Новые";
 "Rating" = "Рейтинг";
+"Test done with parameter" = "Завершено тестов: %@";
