@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-enum ArticleListPart {
+enum ArticleListPart: Hashable {
     case Opened
     case Finished
     case New
@@ -27,12 +27,12 @@ extension ArticleListPart {
 struct ArticleListSelector: View {
     var selectors: [ArticleListPart]
     @Binding
-    var selectedIndex: Int
+    var selected: ArticleListPart
 
     var body: some View {
-        Picker("selector", selection: $selectedIndex) {
-            ForEach(0..<selectors.count) { index in
-                Text(self.selectors[index].name).tag(index)
+        Picker(selection: $selected, label: Text("article list part")) {
+            ForEach(selectors, id: \.self) { selector in
+                Text(selector.name)
             }
         }
                 .pickerStyle(SegmentedPickerStyle())

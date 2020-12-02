@@ -8,7 +8,7 @@ import SwiftUI
 struct ArticleListView: View {
     private var selectors: [ArticleListPart]
     @State
-    private var selectedIndex: Int = 0
+    private var selected: ArticleListPart = .Opened
 
     @ObservedObject
     var viewModel: ArticleListViewModel
@@ -23,10 +23,10 @@ struct ArticleListView: View {
             ScrollView {
                 ArticleListSelector(
                         selectors: selectors,
-                        selectedIndex: $selectedIndex
+                        selected: $selected
                 )
                 Group {
-                    switch selectors[selectedIndex] {
+                    switch selected {
                     case .Opened:
                         LoadedArticles(items: nil)
                     case .Finished:
