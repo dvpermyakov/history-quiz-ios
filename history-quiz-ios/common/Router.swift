@@ -10,17 +10,20 @@ class Router: ObservableObject {
     let periodsRepository: PeriodsRepository
     let gameRepository: GameRepository
     let articleRepository: ArticleRepository
+    let ratingRepository: RatingRepository
 
     init(
             balanceRepository: BalanceRepository,
             periodsRepository: PeriodsRepository,
             gameRepository: GameRepository,
-            articleRepository: ArticleRepository
+            articleRepository: ArticleRepository,
+            ratingRepository: RatingRepository
     ) {
         self.balanceRepository = balanceRepository
         self.periodsRepository = periodsRepository
         self.gameRepository = gameRepository
         self.articleRepository = articleRepository
+        self.ratingRepository = ratingRepository
     }
 
     func createMain() -> MainView {
@@ -65,5 +68,11 @@ class Router: ObservableObject {
 
     func createProfile(onBack: @escaping () -> Void) -> ProfileView {
         ProfileView(onBack: onBack)
+    }
+
+    func createRating() -> RatingView {
+        RatingView(viewModel: RatingViewModel(
+                ratingRepository: ratingRepository
+        ))
     }
 }

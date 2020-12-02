@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 balanceRepository: BalanceRepositoryImpl(),
                 periodsRepository: PeriodsRepositoryIml(),
                 gameRepository: GameRepositoryIml(),
-                articleRepository: ArticleRepositoryIml()
+                articleRepository: ArticleRepositoryIml(),
+                ratingRepository: RatingRepositoryImpl()
         )
     }()
 
