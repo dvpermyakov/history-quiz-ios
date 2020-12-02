@@ -7,6 +7,9 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ArticleItemView: View {
+    @EnvironmentObject
+    var router: Router
+
     let item: ArticleItemUiModel
 
     var body: some View {
@@ -45,7 +48,7 @@ struct ArticleItemView: View {
                             .padding(.top, 10)
                             .padding(.horizontal, 10)
                 }
-                NavigationLink(destination: getRouter().createArticle(for: item)
+                NavigationLink(destination: router.createArticle(for: item)
                         .navigationBarTitle(item.title)
                 ) {
                     NavigationSeeView()

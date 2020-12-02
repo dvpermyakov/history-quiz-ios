@@ -26,17 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    // MARK: - Router
-    lazy var router: Router = {
-        Router(
-                balanceRepository: BalanceRepositoryImpl(),
-                periodsRepository: PeriodsRepositoryIml(),
-                gameRepository: GameRepositoryIml(),
-                articleRepository: ArticleRepositoryIml(),
-                ratingRepository: RatingRepositoryImpl()
-        )
-    }()
-
     // MARK: - Core Data stack
 
     lazy var balancePersistentContainer: NSPersistentContainer = {

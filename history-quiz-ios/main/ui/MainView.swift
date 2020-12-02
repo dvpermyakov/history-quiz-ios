@@ -31,19 +31,22 @@ struct MainView: View {
 }
 
 struct MainTabContentView: View {
+    @EnvironmentObject
+    var router: Router
+
     var tab: MainTab
 
     var body: some View {
         Group {
             switch tab {
             case .Periods:
-                getRouter().createPeriods()
+                router.createPeriods()
             case .Balance:
-                getRouter().createBalance()
+                router.createBalance()
             case .Articles:
-                getRouter().createArticleList()
+                router.createArticleList()
             case .Rating:
-                getRouter().createRating()
+                router.createRating()
             }
         }
     }

@@ -6,6 +6,9 @@
 import SwiftUI
 
 struct ArticleTestView: View {
+    @EnvironmentObject
+    var router: Router
+
     let test: Test
     let testInfo: CommonListUiModel
 
@@ -25,7 +28,7 @@ struct ArticleTestView: View {
                     Text("Rules")
                 }.padding()
                 NavigationLink(
-                        destination: getRouter().createTest(test: test),
+                        destination: router.createTest(test: test),
                         isActive: $moveToTest
                 ) {
                     HStack {

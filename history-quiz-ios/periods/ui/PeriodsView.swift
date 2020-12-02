@@ -43,6 +43,9 @@ struct PeriodView: View {
     @State
     private var showProfile: Bool = false
 
+    @EnvironmentObject
+    var router: Router
+
     let period: Period
 
     init(period: Period) {
@@ -69,7 +72,7 @@ struct PeriodView: View {
                                 .font(.system(size: 15))
                     }.padding(.leading, 20).padding(.bottom, 10)
 
-                    NavigationLink(destination: getRouter().createArticle(for: period)
+                    NavigationLink(destination: router.createArticle(for: period)
                             .navigationBarTitle(period.name)
                     ) {
                         NavigationSeeView()
@@ -89,7 +92,7 @@ struct PeriodView: View {
                                     self.showProfile = true
                                 }
                 ).sheet(isPresented: $showProfile) {
-                    getRouter().createProfile(onBack: {
+                    router.createProfile(onBack: {
                         showProfile = false
                     })
                 }
