@@ -8,10 +8,7 @@ import SwiftUI
 struct CommonListUiModel {
     var list = [Item]()
 
-    struct Item: Identifiable {
-        var id: String {
-            name
-        }
+    struct Item : Hashable {
         let name: String
         let value: String
     }
@@ -23,7 +20,7 @@ struct CommonListView: View {
     var body: some View {
         Group {
             VStack {
-                ForEach(model.list) { item in
+                ForEach(model.list, id: \.self) { item in
                     VStack {
                         HStack {
                             Text(item.name).foregroundColor(.gray).fixedSize()
