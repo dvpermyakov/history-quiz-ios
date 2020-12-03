@@ -44,18 +44,15 @@ struct ParagraphTextView: View {
                 }
             }.reduce(Text(""), +)
         }.onTapGesture(perform: {
-            if let firstLink = paragraphTexts.first { text in
+            if let firstLink = paragraphTexts.first(where: { text in
                 switch text {
                 case .Text(_):
                     return false
                 case .Link(_, _, _):
                     return true
                 }
-            } {
-                switch firstLink {
-                case .Text(_):
-                    print("find wrong text element")
-                case let .Link(_, articleId, articleCategory):
+            }) {
+                if case let .Link(_, articleId, articleCategory) = firstLink {
                     onLinkTap(articleId, articleCategory)
                 }
             }
