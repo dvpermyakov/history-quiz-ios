@@ -13,7 +13,7 @@ extension String {
         var lastIndex = 0
         regex.matches(in: self, range: range).forEach { match in
             result.append(
-                    ParagraphText.Text(
+                    .text(
                             value: self.substring(
                                     lastIndex,
                                     match.range(at: 0).lowerBound
@@ -21,7 +21,7 @@ extension String {
                     )
             )
             result.append(
-                    ParagraphText.Link(
+                    .link(
                             value: self.substring(
                                     match.range(at: 3).lowerBound,
                                     match.range(at: 3).upperBound
@@ -39,7 +39,7 @@ extension String {
             lastIndex = match.range(at: 0).upperBound
         }
         result.append(
-                ParagraphText.Text(
+                .text(
                         value: self.substring(lastIndex, self.count)
                 )
         )

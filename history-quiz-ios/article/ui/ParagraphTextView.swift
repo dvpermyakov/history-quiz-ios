@@ -5,19 +5,11 @@
 
 import SwiftUI
 
-enum ParagraphText: Identifiable, Hashable {
-    var id: String {
-        switch self {
-        case .Text(value: let value):
-            return value
-        case .Link(value: let value, _, _):
-            return value
-        }
-    }
-    case Text(
+enum ParagraphText: Hashable {
+    case text(
             value: String
     )
-    case Link(
+    case link(
             value: String,
             articleId: String,
             articleCategory: String
@@ -32,11 +24,11 @@ struct ParagraphTextView: View {
         VStack {
             paragraphTexts.map { paragraphText in
                 switch paragraphText {
-                case let .Text(value):
+                case let .text(value):
                     return Text(value)
                             .font(Font.system(.body))
                             .foregroundColor(Color.black)
-                case let .Link(value, _, _):
+                case let .link(value, _, _):
                     return Text(value)
                             .font(Font.system(.body))
                             .foregroundColor(Color.blue)
@@ -46,13 +38,13 @@ struct ParagraphTextView: View {
         }.onTapGesture(perform: {
             if let firstLink = paragraphTexts.first(where: { text in
                 switch text {
-                case .Text:
+                case .text:
                     return false
-                case .Link:
+                case .link:
                     return true
                 }
             }) {
-                if case let .Link(_, articleId, articleCategory) = firstLink {
+                if case let .link(_, articleId, articleCategory) = firstLink {
                     onLinkTap(articleId, articleCategory)
                 }
             }
