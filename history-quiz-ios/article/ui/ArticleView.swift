@@ -48,7 +48,7 @@ struct LoadedArticleView: View {
     let onLinkTap: (String, String) -> Void
 
     @Binding
-    var openArticleClarification: Bool
+    private var openArticleClarification: Bool
 
     init(
             article: Article,

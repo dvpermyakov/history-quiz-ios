@@ -15,17 +15,17 @@ class ArticleViewModel: ObservableObject {
     private let articleCategory: String
 
     @Published
-    var article: Article? = nil
+    private(set) var article: Article? = nil
     @Published
     var openArticleClarification: Bool = false
     @Published
-    var articleClarification: ArticleClarificationUiModel? = nil
+    private(set) var articleClarification: ArticleClarificationUiModel? = nil
     @Published
-    var error: String? = nil
+    private(set) var error: String? = nil
     @Published
-    var testInfo: CommonListUiModel? = nil
+    private(set) var testInfo: CommonListUiModel? = nil
     @Published
-    var haveRead: Bool = false
+    private(set) var haveRead: Bool = false
 
     init(
             id: String,

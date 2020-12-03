@@ -12,9 +12,9 @@ class PeriodsViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var periods: [Period] = []
+    private(set) var periods: [Period] = []
     @Published
-    var error: String? = nil
+    private(set) var error: String? = nil
 
     init(repository: PeriodsRepository) {
         self.repository = repository

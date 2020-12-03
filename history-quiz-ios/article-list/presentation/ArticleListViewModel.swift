@@ -11,7 +11,7 @@ class ArticleListViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var newArticles: NewArticles? = nil
+    private(set) var newArticles: NewArticles? = nil
 
     init(articleRepository: ArticleRepository) {
         self.articleRepository = articleRepository

@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var awardInfo: AwardInfo? = nil
+    private(set) var awardInfo: AwardInfo? = nil
     @Published
     var showAwardAlert = false
 

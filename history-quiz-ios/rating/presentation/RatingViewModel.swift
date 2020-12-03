@@ -11,9 +11,9 @@ class RatingViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var users = [User]()
+    private(set) var users = [User]()
     @Published
-    var error: String? = nil
+    private(set) var error: String? = nil
 
     init(ratingRepository: RatingRepository) {
         self.ratingRepository = ratingRepository

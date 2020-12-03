@@ -14,8 +14,8 @@ class GameViewModel: ObservableObject {
     private let repository: GameRepository
     private var disposables = Set<AnyCancellable>()
     private var timer: Timer? = nil
-
     private let test: Test
+
     @Published
     private var game: Game? = nil
     @Published
@@ -26,11 +26,11 @@ class GameViewModel: ObservableObject {
     private var mistakeAmount = 0
 
     @Published
-    var wrongAnswers: [Game.Answer] = []
+    private(set) var wrongAnswers: [Game.Answer] = []
     @Published
-    var rightAnswer: Game.Answer? = nil
+    private(set) var rightAnswer: Game.Answer? = nil
     @Published
-    var gameResult: GameResult? = nil
+    private(set) var gameResult: GameResult? = nil
 
     var currentQuestion: Game.Question? {
         game?.questions[questionIndex]

@@ -11,15 +11,13 @@ class BalanceViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published
-    var balanceSum: String = ""
-
+    private(set) var balanceSum: String = ""
     @Published
-    var receiveBonusesInfo: CommonListUiModel? = nil
+    private(set) var receiveBonusesInfo: CommonListUiModel? = nil
     @Published
-    var spendBonusesInfo: CommonListUiModel? = nil
-
+    private(set) var spendBonusesInfo: CommonListUiModel? = nil
     @Published
-    var transactionsInfo: CommonListUiModel? = nil
+    private(set) var transactionsInfo: CommonListUiModel? = nil
 
     init(repository: BalanceRepository) {
         self.repository = repository
