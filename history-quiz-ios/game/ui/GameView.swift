@@ -78,11 +78,11 @@ struct QuestionGameView: View {
 
     func getAnswerType(answer: Game.Answer) -> AnswerType {
         if answer == rightAnswer {
-            return AnswerType.Right
+            return AnswerType.right
         }
         if wrongAnswers.firstIndex(of: answer) != nil {
-            return AnswerType.Wrong
+            return AnswerType.wrong
         }
-        return AnswerType.Unknown
+        return AnswerType.unknown
     }
 }

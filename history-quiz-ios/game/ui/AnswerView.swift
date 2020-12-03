@@ -6,30 +6,30 @@
 import SwiftUI
 
 enum AnswerType {
-    case Unknown
-    case Wrong
-    case Right
+    case unknown
+    case wrong
+    case right
 }
 
 extension AnswerType {
     var backgroundColor: Color {
         switch self {
-        case .Unknown:
+        case .unknown:
             return Color.white
-        case .Wrong:
+        case .wrong:
             return Color.red
-        case .Right:
+        case .right:
             return Color.green
         }
     }
 
     var textColor: Color {
         switch self {
-        case .Unknown:
+        case .unknown:
             return Color.black
-        case .Wrong:
+        case .wrong:
             return Color.white
-        case .Right:
+        case .right:
             return Color.white
         }
     }
