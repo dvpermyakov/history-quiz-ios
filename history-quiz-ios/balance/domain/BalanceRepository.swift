@@ -7,7 +7,10 @@ import Foundation
 import Combine
 
 protocol BalanceRepository {
-    var lastDailyAwardDate: Date? { get set }
+
+    func setLastDailyAwardDate(date: Date)
+
+    func getLastDailyAwardDate() -> Date?
 
     func createTransaction(value: Transaction) -> AnyPublisher<Bool, Never>
 

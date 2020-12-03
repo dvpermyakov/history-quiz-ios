@@ -30,7 +30,7 @@ extension ArticlePart {
 struct ArticleSelector: View {
     @Binding
     var selectedIndex: Int
-    var selectors: [ArticlePart]
+    let selectors: [ArticlePart]
 
     var body: some View {
         Picker("selector", selection: $selectedIndex) {

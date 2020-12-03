@@ -7,7 +7,7 @@ import Foundation
 import Combine
 
 class MainViewModel: ObservableObject {
-    private var repository: BalanceRepository
+    private let repository: BalanceRepository
     private var disposables = Set<AnyCancellable>()
 
     @Published
@@ -17,7 +17,7 @@ class MainViewModel: ObservableObject {
 
     init(repository: BalanceRepository) {
         self.repository = repository
-        let lastDailyBalance = repository.lastDailyAwardDate
+        let lastDailyBalance = repository.getLastDailyAwardDate()
         if lastDailyBalance == nil {
             let transaction = Transaction.create(.startAward)
             updateDailyAward(transaction)
@@ -49,7 +49,7 @@ class MainViewModel: ObservableObject {
         }
         self.showAwardAlert = true
 
-        self.repository.lastDailyAwardDate = Date()
+        self.repository.setLastDailyAwardDate(date: Date())
         self.repository.createTransaction(value: transaction)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)

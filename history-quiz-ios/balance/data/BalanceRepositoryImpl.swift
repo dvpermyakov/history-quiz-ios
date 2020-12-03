@@ -10,15 +10,12 @@ import Combine
 class BalanceRepositoryImpl: BalanceRepository {
     private let LAST_DAILY_AWARD_KEY = "LAST_DAILY_AWARD_KEY"
 
-    var lastDailyAwardDate: Date? {
-        get {
-            UserDefaults.standard.value(forKey: LAST_DAILY_AWARD_KEY) as? Date
-        }
-        set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: LAST_DAILY_AWARD_KEY)
-            }
-        }
+    func setLastDailyAwardDate(date: Date) {
+        UserDefaults.standard.set(date, forKey: LAST_DAILY_AWARD_KEY)
+    }
+
+    func getLastDailyAwardDate() -> Date? {
+        UserDefaults.standard.value(forKey: LAST_DAILY_AWARD_KEY) as? Date
     }
 
     func createTransaction(value: Transaction) -> AnyPublisher<Bool, Never> {
