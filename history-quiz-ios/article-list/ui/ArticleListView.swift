@@ -8,14 +8,14 @@ import SwiftUI
 struct ArticleListView: View {
     private var selectors: [ArticleListPart]
     @State
-    private var selected: ArticleListPart = .Opened
+    private var selected: ArticleListPart = .opened
 
     @ObservedObject
     var viewModel: ArticleListViewModel
 
     init(viewModel: ArticleListViewModel) {
         self.viewModel = viewModel
-        self.selectors = [.Opened, .Finished, .New]
+        self.selectors = [.opened, .finished, .new]
     }
 
     var body: some View {
@@ -27,11 +27,11 @@ struct ArticleListView: View {
                 )
                 Group {
                     switch selected {
-                    case .Opened:
+                    case .opened:
                         LoadedArticles(items: nil)
-                    case .Finished:
+                    case .finished:
                         LoadedArticles(items: nil)
-                    case .New:
+                    case .new:
                         LoadedArticles(items: viewModel.newArticles?.getUiModels())
                     }
 

@@ -19,12 +19,12 @@ class MainViewModel: ObservableObject {
         self.repository = repository
         let lastDailyBalance = repository.lastDailyAwardDate
         if lastDailyBalance == nil {
-            let transaction = Transaction.create(.StartAward)
+            let transaction = Transaction.create(.startAward)
             updateDailyAward(transaction)
         } else {
             let diff = Calendar.current.dateComponents([.hour], from: lastDailyBalance!, to: Date())
             if let hours = diff.hour, hours > 24 {
-                let transaction = Transaction.create(.DailyAward)
+                let transaction = Transaction.create(.dailyAward)
                 updateDailyAward(transaction)
             }
         }
@@ -32,13 +32,13 @@ class MainViewModel: ObservableObject {
 
     private func updateDailyAward(_ transaction: Transaction) {
         switch transaction.type {
-        case .DailyAward:
+        case .dailyAward:
             awardInfo = AwardInfo(
                     title: "Daily reward".localized(),
                     description: "You receive your new daily reward! Congrats!".localized(),
                     confirmButton: String(format: "Get with param".localized(), String(transaction.type.amount))
             )
-        case .StartAward:
+        case .startAward:
             awardInfo = AwardInfo(
                     title: "Money".localized(),
                     description: "You can use money to spend and collect them!".localized(),

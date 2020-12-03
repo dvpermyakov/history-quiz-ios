@@ -6,19 +6,19 @@
 import SwiftUI
 
 enum ArticleListPart: Hashable {
-    case Opened
-    case Finished
-    case New
+    case opened
+    case finished
+    case new
 }
 
 extension ArticleListPart {
     var name: String {
         switch self {
-        case .Opened:
+        case .opened:
             return "Opened".localized()
-        case .Finished:
+        case .finished:
             return "Finished".localized()
-        case .New:
+        case .new:
             return "New".localized()
         }
     }

@@ -12,27 +12,24 @@ struct Transaction: Identifiable, Hashable {
     let type: TransactionType
 
     enum TransactionType: Int {
-        case DailyAward = 0
-        case ArticleRead = 1
-        case StartAward = 2
-        case ArticleOpened = 3
-        case Unknown = -1
+        case dailyAward = 0
+        case articleRead = 1
+        case startAward = 2
+        case articleOpened = 3
     }
 }
 
 extension Transaction {
     var typeTitle: String {
         switch self.type {
-        case .DailyAward:
+        case .dailyAward:
             return "Daily bonus".localized()
-        case .ArticleRead:
+        case .articleRead:
             return "Read article".localized()
-        case .StartAward:
+        case .startAward:
             return "Start bonus".localized()
-        case .ArticleOpened:
+        case .articleOpened:
             return "Article opened".localized()
-        case .Unknown:
-            return "Unknown".localized()
         }
     }
 
@@ -49,16 +46,14 @@ extension Transaction {
 extension Transaction.TransactionType {
     var amount: Int {
         switch self {
-        case .DailyAward:
+        case .dailyAward:
             return 30
-        case .ArticleRead:
+        case .articleRead:
             return 5
-        case .StartAward:
+        case .startAward:
             return 50
-        case .ArticleOpened:
+        case .articleOpened:
             return 5
-        default:
-            return 0
         }
     }
 }

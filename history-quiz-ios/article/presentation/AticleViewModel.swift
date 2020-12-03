@@ -68,7 +68,7 @@ class ArticleViewModel: ObservableObject {
     func onReadClick() {
         if (!self.haveRead) {
             self.haveRead = true
-            let transaction = Transaction.create(.ArticleRead)
+            let transaction = Transaction.create(.articleRead)
             balanceRepository.createTransaction(value: transaction)
                     .subscribe(on: DispatchQueue.global())
                     .receive(on: DispatchQueue.main)
@@ -159,7 +159,7 @@ class ArticleViewModel: ObservableObject {
                     print("openedArticle \(article) was created")
                 }
                 .store(in: &disposables)
-        let transaction = Transaction.create(.ArticleOpened)
+        let transaction = Transaction.create(.articleOpened)
         balanceRepository.createTransaction(value: transaction)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
