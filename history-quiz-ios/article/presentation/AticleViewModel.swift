@@ -42,10 +42,7 @@ class ArticleViewModel: ObservableObject {
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        return
-                    case .failure(let er):
+                    if case let .failure(er) = completion {
                         self.error = er.localizedDescription
                     }
                 }, receiveValue: { article in
