@@ -13,7 +13,7 @@ struct MainView: View {
 
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        tabs = [.Periods, .Balance, .Articles, .Rating]
+        tabs = [.periods, .balance, .articles, .rating]
     }
 
     var body: some View {
@@ -39,13 +39,13 @@ struct MainTabContentView: View {
     var body: some View {
         Group {
             switch tab {
-            case .Periods:
+            case .periods:
                 router.createPeriods()
-            case .Balance:
+            case .balance:
                 router.createBalance()
-            case .Articles:
+            case .articles:
                 router.createArticleList()
-            case .Rating:
+            case .rating:
                 router.createRating()
             }
         }
@@ -54,46 +54,46 @@ struct MainTabContentView: View {
 }
 
 enum MainTab {
-    case Periods
-    case Balance
-    case Articles
-    case Rating
+    case periods
+    case balance
+    case articles
+    case rating
 }
 
 extension MainTab: Identifiable {
     var id: String {
         switch self {
-        case .Periods:
+        case .periods:
             return "periods_id"
-        case .Balance:
+        case .balance:
             return "balance_id"
-        case .Articles:
+        case .articles:
             return "articles_id"
-        case .Rating:
+        case .rating:
             return "rating_id"
         }
     }
     var name: LocalizedStringKey {
         switch self {
-        case .Periods:
+        case .periods:
             return LocalizedStringKey("Periods")
-        case .Balance:
+        case .balance:
             return LocalizedStringKey("Balance")
-        case .Articles:
+        case .articles:
             return LocalizedStringKey("Articles")
-        case .Rating:
+        case .rating:
             return LocalizedStringKey("Rating")
         }
     }
     var image: String {
         switch self {
-        case .Periods:
+        case .periods:
             return "list.bullet"
-        case .Balance:
+        case .balance:
             return "banknote.fill"
-        case .Articles:
+        case .articles:
             return "doc.plaintext"
-        case .Rating:
+        case .rating:
             return "person.3.fill"
         }
     }
