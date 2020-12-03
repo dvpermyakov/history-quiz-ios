@@ -6,22 +6,22 @@
 import SwiftUI
 
 enum ArticlePart {
-    case Text
-    case Events
-    case Persons
-    case Test
+    case text
+    case events
+    case persons
+    case test
 }
 
 extension ArticlePart {
     var name: String {
         switch self {
-        case .Text:
+        case .text:
             return "Article".localized()
-        case .Events:
+        case .events:
             return "Events".localized()
-        case .Persons:
+        case .persons:
             return "Persons".localized()
-        case .Test:
+        case .test:
             return "Test".localized()
         }
     }

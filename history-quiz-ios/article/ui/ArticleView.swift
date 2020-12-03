@@ -59,14 +59,14 @@ struct LoadedArticleView: View {
             onReadClick: @escaping () -> Void,
             onLinkTap: @escaping (String, String) -> Void
     ) {
-        selectors = [.Text]
+        selectors = [.text]
         if (!article.persons.isEmpty) {
-            selectors.append(.Persons)
+            selectors.append(.persons)
         }
         if (!article.events.isEmpty) {
-            selectors.append(.Events)
+            selectors.append(.events)
         }
-        selectors.append(.Test)
+        selectors.append(.test)
         self.article = article
         self._openArticleClarification = openArticleClarification
         self.articleClarification = articleClarification
@@ -82,18 +82,18 @@ struct LoadedArticleView: View {
                 ArticleSelector(selectedIndex: $selectedIndex, selectors: selectors)
                 Group {
                     switch selectors[selectedIndex] {
-                    case .Text:
+                    case .text:
                         ParagraphsView(
                                 text: article.text,
                                 haveRead: haveRead,
                                 onReadClick: onReadClick,
                                 moveToTestInfo: {
-                                    if let testIndex = selectors.firstIndex(of: .Test) {
+                                    if let testIndex = selectors.firstIndex(of: .test) {
                                         self.selectedIndex = testIndex
                                     }
                                 },
                                 startTest: {
-                                    if let testIndex = selectors.firstIndex(of: .Test) {
+                                    if let testIndex = selectors.firstIndex(of: .test) {
                                         self.selectedIndex = testIndex
                                     }
                                     self.moveToTest = true
@@ -109,7 +109,7 @@ struct LoadedArticleView: View {
                                     }
                             )
                         }
-                    case .Events:
+                    case .events:
                         VStack(alignment: .leading) {
                             ForEach(article.events) { event in
                                 ArticleItemView(item: event.map())
@@ -117,7 +117,7 @@ struct LoadedArticleView: View {
                                         .padding(.top, 10)
                             }
                         }
-                    case .Persons:
+                    case .persons:
                         VStack(alignment: .leading) {
                             ForEach(article.persons) { person in
                                 ArticleItemView(item: person.map())
@@ -125,7 +125,7 @@ struct LoadedArticleView: View {
                                         .padding(.top, 10)
                             }
                         }
-                    case .Test:
+                    case .test:
                         ArticleTestView(
                                 test: article.test,
                                 testInfo: testInfo,
