@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E6CB064D938F864E654B33F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB5E38CDFA4E05D2FBB5F /* BalanceView.swift */; };
 		3E6CB06B8B9F1C14CB817AEB /* ArticleAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBCD232D3E08B35F6E2FA /* ArticleAvailable.swift */; };
+		3E6CB07ECC4F6B7498555BBF /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBE3C54DE3FF03B4D5B19 /* Router.swift */; };
 		3E6CB08FB13F5645AEBACF35 /* ArticleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB2DA76B67E0112CBA0B3 /* ArticleItemView.swift */; };
 		3E6CB0973898C9B465BC0781 /* UrlNotFoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB62261457DB15A26E872 /* UrlNotFoundError.swift */; };
 		3E6CB1160803F4C364B64408 /* PeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB94BC4263DEC5030319A /* PeriodsViewModel.swift */; };
@@ -35,7 +36,6 @@
 		3E6CB4BB25C444893D7F22A1 /* CommonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB91C46D08E700F0BD5BD /* CommonListView.swift */; };
 		3E6CB4BCAFD1EB3ABA2191C0 /* ArticleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBDC3E70852BA65EFA39E /* ArticleMapper.swift */; };
 		3E6CB4F015FDE89476987A8C /* NavigationSeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB891CD4767EFE23E8F0B /* NavigationSeeView.swift */; };
-		3E6CB54F4E4D6A9B18DEE0A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB795C5305634652E9F36 /* Router.swift */; };
 		3E6CB55F2187D36A850CE333 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CBDD0D24A333DF0C3EAB6 /* Game.swift */; };
 		3E6CB5965DC6380F8153853F /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB92AFF48927987EE23E4 /* UserDto.swift */; };
 		3E6CB5BD314F74161B815912 /* ArticleDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CB77E070513CDB9D8ECCC /* ArticleDto.swift */; };
@@ -175,7 +175,6 @@
 		3E6CB72897B9D4DD28837998 /* SimpleButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonModifier.swift; sourceTree = "<group>"; };
 		3E6CB76C6F01D5BA645E16FD /* ArticleRepositoryIml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleRepositoryIml.swift; sourceTree = "<group>"; };
 		3E6CB77E070513CDB9D8ECCC /* ArticleDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDto.swift; sourceTree = "<group>"; };
-		3E6CB795C5305634652E9F36 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3E6CB7AC51B2075B909B1086 /* ArticleDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDescription.swift; sourceTree = "<group>"; };
 		3E6CB7BAEA6870464E20C654 /* PersonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonMapper.swift; sourceTree = "<group>"; };
 		3E6CB7E151124650786191EE /* GameResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
@@ -214,6 +213,7 @@
 		3E6CBDB9374364DC0043C7B3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3E6CBDC3E70852BA65EFA39E /* ArticleMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleMapper.swift; sourceTree = "<group>"; };
 		3E6CBDD0D24A333DF0C3EAB6 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3E6CBE3C54DE3FF03B4D5B19 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3E6CBE6059FF8FA5D88E9F31 /* BalanceMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceMapper.swift; sourceTree = "<group>"; };
 		3E6CBE7D9A1FAF58FECE5643 /* AnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		3E6CBE9783555D54A3A15711 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
@@ -551,7 +551,6 @@
 			isa = PBXGroup;
 			children = (
 				3E6CB4AB66956CB8F95AF68D /* NetworkConfig.swift */,
-				3E6CB795C5305634652E9F36 /* Router.swift */,
 				3E6CBCD232D3E08B35F6E2FA /* ArticleAvailable.swift */,
 				3E6CB80815CBE7510A181C4F /* UIColor+hex.swift */,
 				3E6CBB72DA04E9DB65FDDD3F /* Image+croped.swift */,
@@ -617,6 +616,14 @@
 				3E6CB8850C224EDB3626245F /* AwardInfo.swift */,
 			);
 			path = domain;
+			sourceTree = "<group>";
+		};
+		3E6CBE8850D5F2AB18BFCDB9 /* common-navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CBE3C54DE3FF03B4D5B19 /* Router.swift */,
+			);
+			path = "common-navigation";
 			sourceTree = "<group>";
 		};
 		3E6CBEE0E34064160B5138DC /* presentation */ = {
@@ -728,6 +735,7 @@
 				3E6CBC04735D806A577E1C2D /* article-list */,
 				3E6CB025EEF845617ECD39BF /* profile */,
 				3E6CBB3BC5E91E0E2CF7F327 /* rating */,
+				3E6CBE8850D5F2AB18BFCDB9 /* common-navigation */,
 			);
 			path = "history-quiz-ios";
 			sourceTree = "<group>";
@@ -865,7 +873,6 @@
 				7AF43F7B252F7241006B94D6 /* SceneDelegate.swift in Sources */,
 				7A966C832548021C00EAD1A8 /* Balance.xcdatamodeld in Sources */,
 				3E6CBD0C1EFFE39B4FB63BDB /* NetworkConfig.swift in Sources */,
-				3E6CB54F4E4D6A9B18DEE0A6 /* Router.swift in Sources */,
 				3E6CB06B8B9F1C14CB817AEB /* ArticleAvailable.swift in Sources */,
 				3E6CBD68CF1757CD26ED6582 /* ArticleView.swift in Sources */,
 				3E6CBAF8D74FB2509B7A1DFC /* AticleViewModel.swift in Sources */,
@@ -954,6 +961,7 @@
 				3E6CB75CB9943AC2A85AE19A /* UserMapper.swift in Sources */,
 				3E6CBBBAE188ACC3BAC286A6 /* RatingViewModel.swift in Sources */,
 				3E6CBF5854DA8BD6ED2070B4 /* UserView.swift in Sources */,
+				3E6CB07ECC4F6B7498555BBF /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
