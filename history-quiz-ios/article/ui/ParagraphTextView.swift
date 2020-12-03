@@ -10,7 +10,7 @@ enum ParagraphText: Identifiable, Hashable {
         switch self {
         case .Text(value: let value):
             return value
-        case .Link(value: let value, articleId: _, articleCategory: _):
+        case .Link(value: let value, _, _):
             return value
         }
     }
@@ -46,9 +46,9 @@ struct ParagraphTextView: View {
         }.onTapGesture(perform: {
             if let firstLink = paragraphTexts.first(where: { text in
                 switch text {
-                case .Text(_):
+                case .Text:
                     return false
-                case .Link(_, _, _):
+                case .Link:
                     return true
                 }
             }) {
