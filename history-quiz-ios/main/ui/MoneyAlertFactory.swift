@@ -8,15 +8,14 @@ import SwiftUI
 class MoneyAlertFactory {
 
     static func createMoneyAlert(_ awardInfo: AwardInfo?) throws -> Alert {
-        if let awardInfo = awardInfo {
-            return Alert(
-                    title: Text(awardInfo.title),
-                    message: Text(awardInfo.description),
-                    dismissButton: Alert.Button.default(Text(awardInfo.confirmButton))
-            )
-        } else {
+        guard let awardInfo = awardInfo else {
             Swift.fatalError()
         }
+        return Alert(
+                title: Text(awardInfo.title),
+                message: Text(awardInfo.description),
+                dismissButton: Alert.Button.default(Text(awardInfo.confirmButton))
+        )
     }
 
 }
